@@ -5,6 +5,9 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <RouterLink to="/test">GO TO TEST</RouterLink>
+  <div class="z-30 absolute text-white w-full border-b border-white">
+    <RouterLink to="/test">GO TO TEST</RouterLink>
+    <RouterLink to="/">GO TO HOME</RouterLink>
+  </div>
   <RouterView />
 </template>

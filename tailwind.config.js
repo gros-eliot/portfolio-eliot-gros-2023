@@ -12,11 +12,15 @@ module.exports = {
         },
         "amber": {
           'portfolio':'#FCD34D',
+        },
+        "yellow": {
+          'portfolio':'#7DEF88',
         }
       },
 
       fontFamily: {
-        "inter":["Inter", "sans-serif"],
+        "unbounded":["Unbounded", "sans-serif"],
+        "rubik-mono-one":["Rubik Mono One", "sans-serif"],
       }
     },
   },
