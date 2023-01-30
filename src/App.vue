@@ -6,8 +6,8 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
   <div class="z-30 absolute text-white w-full border-b border-white">
-    <RouterLink to="/test">GO TO TEST</RouterLink>
-    <RouterLink to="/">GO TO HOME</RouterLink>
+    <RouterLink to="/home">GO TO HOME</RouterLink>
+    <RouterLink to="/">GO TO WELCOME</RouterLink>
   </div>
   <RouterView />
 </template>
