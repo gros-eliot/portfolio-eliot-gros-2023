@@ -20,7 +20,11 @@
         :position="{ x: 0, y: 0, z: 0 }"
         :cast-shadow="true"
         :receive-shadow="true"
-        @click="planet1Click(), planet1ClickSetup()"
+        @click="
+          planet1Click(),
+            planet1ClickSetup(),
+            (displaySpaceshipUi = !displaySpaceshipUi)
+        "
         @pointer-over="planet1Hover"
       >
         <BasicMaterial>
@@ -48,30 +52,40 @@
   </Renderer>
 
   <!-- HOVERS ELEMENTS -->
+  <!-- HOVERS ELEMENTS -->
+  <!-- HOVERS ELEMENTS -->
   <!--CE QU'AFFICHE LE HOVER sur la planète 1-->
   <div
-    class="bg-white text-red-500 p-10 absolute inset-0 w-fit h-fit"
-    id="acab"
+    class="bg-yellow-portfolio text-black z-0 p-10 absolute pointer-events-none inset-0 w-fit h-fit hidden md:block transition-opacity"
+    id="informationPlanet"
     :class="{
-      hidden: Planet1State === false,
-      block: Planet1State === true,
+      'opacity-0': Planet1State === false,
+      'opacity-100': Planet1State === true,
     }"
   >
     TEST
   </div>
 
   <!--UI spaceship interface-->
-  <div
-    class="h-screen w-full absolute bg-[linear-gradient(180deg,rgba(43,57,84,0)47.71%,rgba(43,57,84,0)62.81%,#2B3954_100%)] z-10 inset-0 pointer-events-none"
+  <!--UI spaceship interface-->
+  <!--UI spaceship interface-->
+  <section
+    class="h-screen w-full absolute bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)] z-10 inset-0 pointer-events-none"
+    :class="{
+      block: displaySpaceshipUi === false,
+      hidden: displaySpaceshipUi === true,
+    }"
   >
     <!--Top-->
     <div class="w-full top-0 flex justify-between absolute p-4 pt-10">
-      <TopLeft class="w-48 h-48" />
-      <p class="opacity-100 md:opacity-0 text-white w-72 text-[8px] font-thin">
+      <TopLeft class="w-24 h-24 md:w-48 md:h-48" />
+      <p
+        class="opacity-100 md:opacity-0 transition-opacity text-white w-72 text-[8px] font-thin"
+      >
         <strong>In case of you need help</strong>, please use the menu button in
         the top of your screen.
       </p>
-      <TopRight class="w-48 h-48" />
+      <TopRight class="w-24 h-24 md:w-48 md:h-48" />
     </div>
 
     <!--Middle-->
@@ -80,13 +94,36 @@
     </div>
 
     <!--BOTTOM-->
-    <div class="absolute bottom-0 text-white">
-      <!--Battery-->
-      <p class="text-white">{{ levelBattery }}</p>
+    <section class="absolute bottom-0 text-white flex flex-col w-full p-4">
+      <div class="flex justify-between items-end w-full p-4">
+        <!--Battery-->
+        <div
+          class="w-fit flex flex-col gap-1 text-white text-[12px] font-thin h-fit"
+        >
+          <p>Battery:&nbsp;<strong>on</strong></p>
+          <p>{{ levelBattery * 100 }}%</p>
+          <div
+            class="border-white border p-1 w-fit h-12 flex justify-end items-end"
+          >
+            <div class="bg-yellow-portfolio w-4" id="batteryIndicator"></div>
+          </div>
+        </div>
 
-      <!--Bottom right-->
-    </div>
-  </div>
+        <!--Bottom right-->
+        <div
+          class="w-fit flex items-end p-4 pl-8 pt-8 spaceship_ui_bottom_right h-fit md:opacity-100 opacity-0 transition-opacity"
+        >
+          <p class="text-white w-72 text-[8px] font-thin h-fit">
+            <strong>In case of you need help</strong>, please use the menu
+            button in the top of your screen.
+          </p>
+        </div>
+      </div>
+
+      <!--Bottom of bottom : measures-->
+      <BottomMeasure class="w-fit overflow-hidden h-1 md:h-2 lg:h-4 m-auto" />
+    </section>
+  </section>
 </template>
 
 <style scoped>
@@ -126,6 +163,7 @@ import {
 import TopLeft from "../components/spaceship-ui-components/TopLeft.vue";
 import TopRight from "../components/spaceship-ui-components/TopRight.vue";
 import Middle from "../components/spaceship-ui-components/Middle.vue";
+import BottomMeasure from "../components/spaceship-ui-components/BottomMeasure.vue";
 
 const rendererC = ref();
 const meshC = ref();
@@ -135,8 +173,11 @@ const meshD = ref();
 let levelBattery = ref(0);
 navigator.getBattery().then(function (battery) {
   levelBattery = battery.level;
-
   console.log("Battery level : " + levelBattery * 100 + " %");
+
+  let batteryIndicator = document.querySelector("#batteryIndicator");
+  batteryIndicator.style.height = "1%";
+  batteryIndicator.style.height = levelBattery * 100 + "%";
 });
 
 onMounted(() => {
@@ -174,9 +215,11 @@ function planet1ClickSetup(e) {
 export default {
   data() {
     return {
+      displaySpaceshipUi: false,
+      clickedCameraZ: 100,
+
       Planet1State: false,
       Planet1Clicked: false,
-      clickedCameraZ: 100,
     };
   },
   methods: {
@@ -193,15 +236,16 @@ export default {
       }
     },
   },
+  mounted: {},
 };
 
 // FONCTION POUR SUIVI DE LELEMENT "cursor" !
 document.addEventListener(
   "mousemove",
   function (ev) {
-    document.getElementById("acab").style.transform =
-      "translateY(" + ev.clientY + "px)";
-    document.getElementById("acab").style.transform +=
+    document.getElementById("informationPlanet").style.transform =
+      "translateY(" + (ev.clientY - 100) + "px)";
+    document.getElementById("informationPlanet").style.transform +=
       "translateX(" + (ev.clientX + 10) + "px)";
   },
   false

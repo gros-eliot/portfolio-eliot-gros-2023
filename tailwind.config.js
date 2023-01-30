@@ -14,7 +14,7 @@ module.exports = {
           'portfolio':'#FCD34D',
         },
         "yellow": {
-          'portfolio':'#7DEF88',
+          'portfolio':'#FCFF73',
         }
       },
 
