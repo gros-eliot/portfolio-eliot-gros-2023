@@ -20,8 +20,8 @@
         :position="{ x: 0, y: 0, z: 0 }"
         :cast-shadow="true"
         :receive-shadow="true"
-        :width-segments="32"
-        :height-segments="32"
+        :width-segments="64"
+        :height-segments="64"
         @click="
           planet1Click(),
             planet1ClickSetup(),
@@ -43,8 +43,8 @@
         :position="{ x: 100, y: 0, z: 0 }"
         :cast-shadow="true"
         :receive-shadow="true"
-        :width-segments="32"
-        :height-segments="32"
+        :width-segments="64"
+        :height-segments="64"
         @click="planet2Click(), planet2ClickSetup()"
         @pointer-over="planet2Hover"
       >
