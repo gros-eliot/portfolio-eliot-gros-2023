@@ -7,12 +7,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "gray": {
-          'portfolio':'#1F1F1F',
-        },
-        "amber": {
-          'portfolio':'#FCD34D',
-        },
         "yellow": {
           'portfolio':'#FCFF73',
         }

@@ -56,11 +56,11 @@
   <!-- HOVERS ELEMENTS -->
   <!--CE QU'AFFICHE LE HOVER sur la planète 1-->
   <div
-    class="bg-yellow-portfolio text-black z-0 p-10 absolute pointer-events-none inset-0 w-fit h-fit hidden md:block transition-opacity"
+    class="bg-yellow-portfolio text-black z-0 p-10 absolute pointer-events-none inset-0 w-fit h-fit transition_display"
     id="informationPlanet"
     :class="{
-      'opacity-0': Planet1State === false,
-      'opacity-100': Planet1State === true,
+      hidden: Planet1Hover === false,
+      'md:block': Planet1Hover === true,
     }"
   >
     TEST
@@ -142,6 +142,12 @@ canvas {
   border-color: #ffffff;
   border-radius: 60px 0px 0px 0px;
 }
+
+.transition_display {
+  transition-property: display;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 </style>
 
 <script setup>
@@ -165,12 +171,13 @@ import TopRight from "../components/spaceship-ui-components/TopRight.vue";
 import Middle from "../components/spaceship-ui-components/Middle.vue";
 import BottomMeasure from "../components/spaceship-ui-components/BottomMeasure.vue";
 
-const rendererC = ref();
-const meshC = ref();
-const meshD = ref();
+// constantes ref
+const rendererC = ref(); //renderer
+const meshC = ref(); //mesh planete 1
+const meshD = ref(); //mesh planete 2
+let levelBattery = ref(0); // batterie pour le niveau de la batterie
 
 // Niveau de la batterie
-let levelBattery = ref(0);
 navigator.getBattery().then(function (battery) {
   levelBattery = battery.level;
   console.log("Battery level : " + levelBattery * 100 + " %");
@@ -180,6 +187,7 @@ navigator.getBattery().then(function (battery) {
   batteryIndicator.style.height = levelBattery * 100 + "%";
 });
 
+// rotation des planètes constante
 onMounted(() => {
   const renderer = rendererC.value;
   const mesh1 = meshC.value.mesh;
@@ -190,9 +198,9 @@ onMounted(() => {
   });
 });
 
+// FONCTIONS POUR LE CLICK AGRANDISSANT LA PLANETE
 let planetClick = false;
 let clickedCameraZ = 100;
-// FONCTIONS POUR LE CLICK AGRANDISSANT LA PLANETE
 
 function planet1ClickSetup(e) {
   const mesh = meshC.value.mesh;
@@ -215,11 +223,10 @@ function planet1ClickSetup(e) {
 export default {
   data() {
     return {
-      displaySpaceshipUi: false,
-      clickedCameraZ: 100,
+      displaySpaceshipUi: false, // affichage ou non du spaceshipUI
 
-      Planet1State: false,
-      Planet1Clicked: false,
+      Planet1Hover: false, // var pr afficher details planète 1
+      Planet1Clicked: false, // var du click sur la planète 1
     };
   },
   methods: {
@@ -229,14 +236,13 @@ export default {
     },
     planet1Hover({ over }) {
       if (this.Planet1Clicked === false) {
-        this.Planet1State = over ? true : false;
+        this.Planet1Hover = over ? true : false;
       }
       if (this.Planet1Clicked === true) {
-        this.Planet1State = false;
+        this.Planet1Hover = false;
       }
     },
   },
-  mounted: {},
 };
 
 // FONCTION POUR SUIVI DE LELEMENT "cursor" !
