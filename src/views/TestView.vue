@@ -20,6 +20,8 @@
         :position="{ x: 0, y: 0, z: 0 }"
         :cast-shadow="true"
         :receive-shadow="true"
+        :width-segments="32"
+        :height-segments="32"
         @click="
           planet1Click(),
             planet1ClickSetup(),
@@ -41,6 +43,8 @@
         :position="{ x: 100, y: 0, z: 0 }"
         :cast-shadow="true"
         :receive-shadow="true"
+        :width-segments="32"
+        :height-segments="32"
         @click="planet2Click(), planet2ClickSetup()"
         @pointer-over="planet2Hover"
       >
@@ -49,6 +53,11 @@
         </BasicMaterial>
       </Sphere>
     </Scene>
+
+    <EffectComposer>
+      <RenderPass />
+      <UnrealBloomPass :strength="1" />
+    </EffectComposer>
   </Renderer>
 
   <!-- HOVERS ELEMENTS -->
@@ -163,6 +172,9 @@ import {
   Texture,
   propsValues,
   Plane,
+  UnrealBloomPass,
+  EffectComposer,
+  RenderPass,
 } from "troisjs";
 
 // imports éléments spaceshipUI
@@ -195,6 +207,8 @@ onMounted(() => {
   renderer.onBeforeRender(() => {
     mesh1.rotation.x += 0.001;
     mesh2.rotation.x += -0.001;
+    mesh1.widthSegments = 128;
+    mesh1.heightSegments = 128;
   });
 });
 

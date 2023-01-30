@@ -37,10 +37,6 @@ onMounted(() => {
 </script>
 
 <style>
-.displaytests {
-  display: ;
-}
-
 body {
   margin: 0;
 }
