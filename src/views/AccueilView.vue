@@ -7,8 +7,12 @@
     resize="window"
     class="h-screen inset-0 -z-10"
   >
-    <Camera :position="{ z: 80 }" />
+    <Camera :position="{ z: cameraFocusResponsive }" />
     <Scene>
+      <PointLight color="#4444ff" :position="{ x: 0, y: -100, z: -100 }" />
+      <PointLight color="#4444ff" :position="{ x: 0, y: 100, z: 50 }" />
+      <PointLight color="#4444ff" :position="{ y: 0, z: 4000 }" />
+
       <Box
         ref="meshC"
         :size="3"
@@ -18,16 +22,20 @@
         :cast-shadow="true"
         :receive-shadow="true"
       >
+        <LambertMaterial>
+          <Texture src="/textures/telio-arts-icon.jpg" />
+        </LambertMaterial>
+        <!--
         <BasicMaterial>
           <Texture src="/textures/telio-arts-icon.jpg" />
-        </BasicMaterial>
+        </BasicMaterial>-->
       </Box>
     </Scene>
 
     <!--Effet améliorant le rendu-->
     <EffectComposer>
       <RenderPass />
-      <UnrealBloomPass :strength="0.2" />
+      <UnrealBloomPass :strength="1" />
     </EffectComposer>
   </Renderer>
   <!--Fin rendu du cube-->
@@ -41,7 +49,7 @@
   <!-- ACCUEIL CONTENT-->
   <!-- ACCUEIL CONTENT-->
   <article
-    class="inset-0 w-full h-screen bg-transparent absolute text-white pointer-events-none z-10"
+    class="inset-0 w-full h-screen bg-transparent absolute text-white pointer-events-none z-10 flex flex-col justify-between"
   >
     <!--ACCUEIL HEADER-->
     <section
@@ -54,12 +62,17 @@
 
     <!-- ACCUEIL MIDDLE-->
     <section
-      class="flex justify-center items-center text-center flex-col gap-2"
+      class="flex justify-center items-center text-center flex-col gap-0 p-5"
     >
       <h1
         class="portfolio-h1 text-5xl md:text-7xl uppercase pointer-events-auto"
       >
-        Digital content &ThinSpace;creator
+        Digital content
+      </h1>
+      <h1
+        class="portfolio-h1 text-5xl md:text-7xl uppercase pointer-events-auto"
+      >
+        creator
       </h1>
       <h2
         class="portfolio-h3 normal-case text-yellow-portfolio tracking-tighter pointer-events-auto"
@@ -69,11 +82,19 @@
     </section>
 
     <!-- ACCUEIL FOOTER-->
-    <section>
-      <button class="portfolio-button-white pointer-events-auto">
-        Discover my universe
-      </button>
-      <button class="portfolio-button-black">Back</button>
+    <section class="flex flex-col justify-center items-center gap-14 p-4">
+      <div class="flex flex-row gap-5">
+        <RouterLink to="/home">
+          <button class="portfolio-button-white pointer-events-auto">
+            Discover my universe
+          </button>
+        </RouterLink>
+        <RouterLink to="/home">
+          <button class="portfolio-button-black pointer-events-auto">
+            Random
+          </button>
+        </RouterLink>
+      </div>
 
       <!--Mentions légales-->
       <div class="flex flex-row gap-1">
@@ -96,7 +117,16 @@ canvas {
   width: 100%;
 }
 </style>
-
+<script>
+// script pour rendre la distance caméra-cube responsive
+let cameraFocusResponsive = 0;
+if (window.screen.width <= 500) {
+  cameraFocusResponsive = 140;
+}
+if (window.screen.width > 500) {
+  cameraFocusResponsive = 80;
+}
+</script>
 <script setup>
 import { ref, onMounted } from "vue";
 import {
@@ -105,6 +135,7 @@ import {
   LambertMaterial,
   BasicMaterial,
   PointLight,
+  SpotLight,
   Renderer,
   Scene,
   Texture,
