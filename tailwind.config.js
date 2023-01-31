@@ -12,7 +12,7 @@ module.exports = {
           'portfolio':'#FCFF73',
         },
         "purple": {
-          'portfolio':'#544667',
+          'portfolio':'#4949ff',
         }
       },
 

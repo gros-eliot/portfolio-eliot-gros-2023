@@ -35,7 +35,7 @@
     <!--Effet améliorant le rendu-->
     <EffectComposer>
       <RenderPass />
-      <UnrealBloomPass :strength="1" />
+      <UnrealBloomPass :strength="1.2" />
     </EffectComposer>
   </Renderer>
   <!--Fin rendu du cube-->
@@ -77,7 +77,7 @@
       <h2
         class="portfolio-h3 normal-case text-yellow-portfolio tracking-tighter pointer-events-auto"
       >
-        Eliot Gros · French
+        Eliot Gros · French developer
       </h2>
     </section>
 
@@ -97,8 +97,8 @@
       </div>
 
       <!--Mentions légales-->
-      <div class="flex flex-row gap-1">
-        <p class="pointer-events-auto">© Eliot Gros 2023 |</p>
+      <div class="flex flex-row gap-1 text-zinc-600">
+        <p class="pointer-events-auto">© Eliot Gros, Franche-Comté, 2023 |</p>
         <RouterLink to="/" class="pointer-events-auto underline"
           >Legacy</RouterLink
         >
