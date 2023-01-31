@@ -66,11 +66,10 @@
   <!-- HOVERS ELEMENTS -->
   <!--CE QU'AFFICHE LE HOVER sur la planète 1-->
   <div
-    class="bg-yellow-portfolio text-black z-0 p-10 absolute select-none inset-0 w-fit h-fit transition_display"
+    class="bg-yellow-portfolio text-black hidden z-0 p-10 absolute select-none inset-0 w-fit h-fit transition_display"
     id="informationPlanet"
     :class="{
-      hidden: Planet1Hover === false,
-      'md:block': Planet1Hover === true,
+      'md:block': Planet1Hover === true && $route.name === 'home',
     }"
   >
     <p class="select-none">TEST</p>
@@ -234,6 +233,8 @@ function planet1ClickSetup(e) {
 </script>
 
 <script>
+import { RouterLink, RouterView } from "vue-router";
+
 // FONCTIONS POUR LE HOVER (click true: permet de retirer le hover quand planète cliquée)
 export default {
   name: "HomeView",
@@ -262,13 +263,17 @@ export default {
 };
 
 // FONCTION POUR SUIVI DE LELEMENT "cursor" !
+
 document.addEventListener(
   "mousemove",
   function (ev) {
-    document.getElementById("informationPlanet").style.transform =
-      "translateY(" + (ev.clientY - 100) + "px)";
-    document.getElementById("informationPlanet").style.transform +=
-      "translateX(" + (ev.clientX + 10) + "px)";
+    let informationPlanet = document.getElementById("informationPlanet");
+    if (informationPlanet != null) {
+      informationPlanet.style.transform =
+        "translateY(" + (ev.clientY - 100) + "px)";
+      informationPlanet.style.transform +=
+        "translateX(" + (ev.clientX + 10) + "px)";
+    }
   },
   false
 );

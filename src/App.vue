@@ -10,5 +10,5 @@ import { RouterLink, RouterView } from "vue-router";
     <RouterLink to="/home">GO TO HOME</RouterLink>
     <RouterLink to="/">GO TO WELCOME</RouterLink>
   </header>
-  <RouterView class="mt-10" />
+  <RouterView />
 </template>

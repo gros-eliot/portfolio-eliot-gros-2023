@@ -4,14 +4,50 @@
 
 @layer components {
     .portfolio-h1 {
-        @apply text-5xl md:text-[4rem] tracking-tighter font-rubik-mono-one;
+        @apply text-[2.25rem] md:text-[4rem] tracking-tighter font-rubik-mono-one;
     }
 
     .portfolio-h2 {
-        @apply text-3xl md:text-4xl font-unbounded;
+        @apply text-3xl md:text-4xl font-unbounded font-bold;
+    }
+    .portfolio-h3 {
+        @apply text-2xl font-unbounded font-medium;
     }
 
-    .portfolio-text {
-        @apply text-base lg:text-lg;
+    .portfolio-p {
+        @apply text-base md:text-lg font-light;
     }
+
+    .portfolio-button-white {
+
+    /* agencement du texte*/
+     @apply w-fit h-fit flex flex-row items-center justify-center px-5 py-3 gap-2 uppercase font-unbounded font-bold text-lg md:text-xl tracking-tighter;
+    
+    /* style du bouton */
+    color: #160B16;
+    background: #FFFFFF;
+    border: 5px solid #160B16;
+    box-shadow: 5px 5px 0px #FCFF73;
+    border-radius: 10px;
+    }
+    .portfolio-button-white:hover {
+        color: #FCFF73;
+        background: #6B699A;
+        transition:  0.4s ease-in-out;
+    }
+
+    .portfolio-button-black {
+    
+    /* agencement du texte */
+    @apply w-fit h-fit flex flex-row items-center justify-center px-5 py-3 gap-2 uppercase font-unbounded font-bold text-lg md:text-xl tracking-tighter;
+
+    /* style du bouton */
+    color: #FCFF73;
+    background: #160B16;
+    border: 5px solid #FCFF73;
+    box-shadow: 5px 5px 0px #FCFF73;
+    border-radius: 10px;
+    }
+
+     
 }
