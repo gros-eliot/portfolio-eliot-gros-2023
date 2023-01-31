@@ -14,7 +14,7 @@
         @apply text-2xl font-unbounded font-medium;
     }
 
-    .portfolio-p {
+    .portfolio-text {
         @apply text-base md:text-lg font-light;
     }
 
@@ -32,8 +32,9 @@
     }
     .portfolio-button-white:hover {
         color: #FCFF73;
-        background: #6B699A;
-        transition:  0.4s ease-in-out;
+        background: #544667;
+        transition:  0.2s ease-out;
+
     }
 
     .portfolio-button-black {

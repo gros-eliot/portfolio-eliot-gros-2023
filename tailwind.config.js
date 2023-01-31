@@ -10,6 +10,9 @@ module.exports = {
         "black": "#160B16",
         "yellow": {
           'portfolio':'#FCFF73',
+        },
+        "purple": {
+          'portfolio':'#544667',
         }
       },
 
