@@ -57,7 +57,7 @@
     <!--Effet améliorant le rendu-->
     <EffectComposer>
       <RenderPass />
-      <UnrealBloomPass :strength="1.5" />
+      <UnrealBloomPass :strength="1" />
     </EffectComposer>
   </Renderer>
 
