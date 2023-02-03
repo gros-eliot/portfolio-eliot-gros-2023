@@ -31,7 +31,7 @@
     <!--CATEGORIES-->
     <!--CATEGORIES-->
     <label class="portfolio-h2 text-purple-portfolio">Catégories du work</label>
-    <div
+    <section
       class="w-10/12 grid grid-cols-3 gap-2"
       v-for="categorie in listeCategories"
       :key="categorie.id"
@@ -53,7 +53,15 @@
           />
         </div>
         <div class="p-3 flex flex-col gap-1">
-          <h3 class="portfolio-h3">{{ categorie.name }}</h3>
+          <label class="portfolio-h3" for="categoryName">
+            <input
+              type="checkbox"
+              id="categoryName"
+              name="categoryName"
+              :value="categorie"
+            />
+            {{ categorie.name }}
+          </label>
           <div class="grid grid-cols-2">
             <p class="text-xs">{{ categorie.alternativeName }}</p>
             <p class="text-xs">{{ categorie.volume }}</p>
@@ -71,7 +79,7 @@
         <input type="checkbox" v-model="work.categories" class="w-5 h-5" />
         <label class="text-xl">{{ categorie.name }}</label>
       </div>-->
-    </div>
+    </section>
 
     <!--OUTILS-->
     <!--OUTILS-->
