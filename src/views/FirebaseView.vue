@@ -13,7 +13,7 @@
       <div id="create_outil">
         <CreateCategorieComponent />
       </div>
-      <div id="create_projet">
+      <div id="create_work">
         <CreateCategorieComponent />
       </div>
     </section>
@@ -22,7 +22,7 @@
     >
       <a href="#create_categorie">Créer catégorie</a>
       <a href="#create_outil">Créer outil</a>
-      <a href="#create_projet">Créer projet</a>
+      <a href="#create_work">Créer un work</a>
     </section>
   </article>
 </template>

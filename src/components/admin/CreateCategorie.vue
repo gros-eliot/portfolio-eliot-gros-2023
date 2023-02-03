@@ -2,56 +2,153 @@
   <!--CATEGORIE || CATEGORIE || CATEGORIE-->
   <!-- haut du template-->
   <div class="p-3">
-    <h1>Créer une <span class="text-purple-portfolio">catégorie</span></h1>
+    <h1 class="portfolio-h1">
+      Créer une <span class="text-purple-portfolio">catégorie</span>
+    </h1>
   </div>
   <!--fin hero template-->
-  <!--Div contenant le formulaire + le bouton de validation-->
-  <div class="flex flex-col px-5 py-10 text-black">
-    <!--Div contenant le formulaire-->
-    <form
-      class="flex flex-col gap-2"
-      enctype="multipart/form-data"
-      @submit.prevent="createCategorie"
+  <!--Div contenant le formulaire-->
+  <form
+    class="flex flex-col gap-2 p-2 mb-20"
+    enctype="multipart/form-data"
+    @submit.prevent="createCategorie"
+  >
+    <input
+      type="text"
+      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+      v-model="categorie.name"
+      placeholder="Nom catégorie"
+      required
+    />
+    <input
+      type="number"
+      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+      v-model="categorie.works"
+      placeholder="Nombre de travaux dans la catégorie"
+      required
+    />
+
+    <!--DETAILS (PLANETE)-->
+    <section
+      class="p-4 bg-purple-portfolio rounded-lg flex flex-col gap-2 text-black"
     >
+      <h3 class="portfolio-h3 text-white">Détails de la catégorie</h3>
       <input
         type="text"
-        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
-        v-model="catName"
-        placeholder="Nom catégorie"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Alternative name"
+        v-model="categorie.alternativeName"
         required
       />
       <input
         type="text"
-        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
-        v-model="catCountOfWorks"
-        placeholder="Nombre de travaux dans la catégorie"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Inclination"
+        v-model="categorie.inclination"
         required
       />
+      <input
+        type="text"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Radius"
+        v-model="categorie.radius"
+        required
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Surface area"
+        v-model="categorie.surfaceArea"
+        required
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Volume"
+        v-model="categorie.volume"
+        required
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Mass"
+        v-model="categorie.mass"
+        required
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Temperature"
+        v-model="categorie.temperature"
+        required
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Surface pressure"
+        v-model="categorie.surfacePressure"
+        required
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl p-2 rounded-lg"
+        placeholder="Apparent magnitude"
+        v-model="categorie.apparentMagnitude"
+        required
+      />
+    </section>
 
-      <div class="flex flex-col">
-        <span class="font-medium">Photo</span>
-        <input
-          type="file"
-          class="jazznpop-input flex flex-wrap"
-          ref="file"
-          id="file"
-          @change="previewImage"
-        />
-      </div>
-      <div>
-        <span class="font-medium">Aperçu de la photo choisie</span>
+    <hr class="border border-purple-portfolio my-10" />
+    <!--Ajout de photos-->
+    <article class="grid grid-cols-2 justify-items-start">
+      <!--Photo1-->
+      <section>
+        <div class="flex flex-col">
+          <span class="font-medium text-purple-portfolio"
+            >Photo de la catégorie</span
+          >
+          <input
+            type="file"
+            class="flex flex-wrap"
+            ref="file"
+            id="file"
+            @change="previewImage"
+          />
+        </div>
+        <div>
+          <span class="italic">Aperçu de la photo choisie</span>
+          <img
+            class="w-40 bg-center object-cover md:w-48 lg:w-52"
+            :src="imageData"
+          />
+        </div>
+      </section>
+      <!--Photo2-->
+      <section>
+        <div class="flex flex-col">
+          <span class="font-medium text-purple-portfolio"
+            >Photo de la catégorie n°2</span
+          >
+          <input
+            type="file"
+            class="flex flex-wrap"
+            ref="file2"
+            id="file2"
+            @change="previewImage2"
+          />
+        </div>
+        <div>
+          <span class="italic">Aperçu de la photo choisie</span>
+          <img
+            class="w-40 bg-center object-cover md:w-48 lg:w-52"
+            :src="imageData2"
+          />
+        </div>
+      </section>
+    </article>
 
-        <img
-          class="w-40 bg-center object-cover md:w-48 lg:w-52"
-          :src="imageData"
-        />
-      </div>
-
-      <button class="portfolio-button-white" type="submit" title="Création">
-        Créer
-      </button>
-    </form>
-  </div>
+    <button class="portfolio-button-white" type="submit">Créer</button>
+  </form>
 </template>
 
 <script>
@@ -83,43 +180,34 @@ export default {
   data() {
     return {
       imageData: null, // Image prévisualisée
+      imageData2: null,
 
-      nom: "", // Pour la création d'un nouvelle quête (nom de la quête)
-      cat: "", // Pour la création d'un nouvelle quête (cat de la catégorie de la quête)
-      difficulty: "", // DIFFICULTE DE LA QUÊTE
-      desc: "", // Pour la description de la quête
-      date: "", // date de la quête
+      categorie: {
+        name: "", // NOM CATEGORIE
+        works: "", // NOMBRE PROJETS DANS CATEGORIE
+        imageone: "", // IMAGE 1
+        imagetwo: null, // IMAGE 2
 
-      listeQueteSynchro: [], // Liste des quêtes synchronisée - collection quêtes de Firebase
-      listeCategorie: [], // Liste des CATEGORIES DE QUÊTES synchronisée - collection cat de Firebase
-      listeDifficulte: [], // Liste des DIFFICULTES synchronisée - collection cat de Firebase
-
-      //
-      //
-      //
-      user: {
-        // User connecté
-        email: null,
-        password: null,
+        // DETAILS PLANETE
+        alternativeName: "",
+        inclination: "",
+        radius: "",
+        surfaceArea: "",
+        volume: "",
+        mass: "",
+        temperature: "",
+        surfacePressure: "",
+        apparentMagnitude: "",
       },
-      userInfo: null, // Informations complémentaires user connecté (sorte de listeCatégorie, listePays)
-      name: "", // Titre de l'application ou nom du user
-      avatar: null, // Avatar / image du user connecté
-      isAdmin: false, // Si l'utilisateur est ou non administrateur
     };
   },
-  mounted() {
-    // Montage de la vue
-    this.getQueteSynchro();
-    this.getCategorie();
-    this.getDifficulte();
-  },
+
   methods: {
     previewImage: function (event) {
-      // Mise à jour de la photo de l'artiste
+      // Mise à jour de la photo
       this.file = this.$refs.file.files[0];
-      // Récupérer le nom du fichier pour la photo de l'artiste
-      this.artiste.photo = this.file.name;
+      // Récupérer le nom du fichier pour la photo
+      this.categorie.imageone = this.file.name;
       // Reference to the DOM input element
       // Reference du fichier à prévisualiser
       var input = event.target;
@@ -131,64 +219,58 @@ export default {
         // fonction callback appellée lors que le fichier a été chargé
         reader.onload = (e) => {
           // Read image as base64 and set to imageData
-          // lecture du fichier pour mettre à jour
-          // la prévisualisation
+          // lecture du fichier pour mettre à jour la prévisualisation
           this.imageData = e.target.result;
         };
         // Demarrage du reader pour la transformer en data URL (format base 64)
         reader.readAsDataURL(input.files[0]);
       }
     },
-
-    async getQueteSynchro() {
-      const firestore = getFirestore();
-      const dbQuete = collection(firestore, "categories");
-      const query = await onSnapshot(dbQuete, (snapshot) => {
-        this.listeQueteSynchro = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-      });
+    previewImage2: function (event) {
+      // Mise à jour de la photo
+      this.file2 = this.$refs.file2.files[0];
+      // Récupérer le nom du fichier pour la photo
+      this.categorie.imagetwo = this.file2.name;
+      // Reference to the DOM input element
+      // Reference du fichier à prévisualiser
+      var input = event.target;
+      // On s'assure que l'on a au moins un fichier à lire
+      if (input.files && input.files[0]) {
+        // Creation d'un filereader
+        // Pour lire l'image et la convertir en base 64
+        var reader = new FileReader();
+        // fonction callback appellée lors que le fichier a été chargé
+        reader.onload = (e) => {
+          // Read image as base64 and set to imageData
+          // lecture du fichier pour mettre à jour la prévisualisation
+          this.imageData2 = e.target.result;
+        };
+        // Demarrage du reader pour la transformer en data URL (format base 64)
+        reader.readAsDataURL(input.files[0]);
+      }
     },
 
-    async getCategorie() {
-      const firestore = getFirestore();
-      const dbCat = collection(firestore, "outils");
-      const query = await onSnapshot(dbCat, (snapshot) => {
-        this.listeCategorie = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-      });
-    },
-
-    async getDifficulte() {
-      const firestore = getFirestore();
-      const dbDiff = collection(firestore, "projets");
-      const query = await onSnapshot(dbDiff, (snapshot) => {
-        this.listeDifficulte = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-      });
-    },
-
-    async createArtiste() {
+    async createCategorie() {
       // Obtenir storage Firebase
       const storage = getStorage();
       // Référence de l'image à uploader
-      const refStorage = ref(storage, "artiste/" + this.artiste.photo);
+      const refStorage = ref(storage, "categories/" + this.categorie.imageone);
+      const refStorage2 = ref(storage, "categories/" + this.categorie.imagetwo);
       // Upload de l'image sur le Cloud Storage
       await uploadString(refStorage, this.imageData, "data_url").then(
         (snapshot) => {
           console.log("Uploaded a base64 string");
+          const photo2Ref = uploadString(
+            refStorage2,
+            this.imageData2,
+            "data_url"
+          );
           // Création de l'artiste sur le Firestore
           const db = getFirestore();
-          const docRef = addDoc(collection(db, "artiste"), this.artiste);
+          const docRef = addDoc(collection(db, "categories"), this.categorie);
         }
       );
-      // redirection sur la liste des  artistes
-      this.$router.push("/artistes");
+      console.log("Catégorie créée : " + this.categorie);
     },
   },
 };
