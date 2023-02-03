@@ -56,7 +56,9 @@
       class="flex flex-col gap-2 justify-center items-center md:flex-row md:justify-between w-full top-0 p-4 px-1 md:px-6 font-light uppercase"
     >
       <RouterLink to="/" class="pointer-events-auto">Cursus</RouterLink>
-      <RouterLink to="/home" class="pointer-events-auto">Projects</RouterLink>
+      <RouterLink to="/home" class="pointer-events-auto font-bold"
+        >Works</RouterLink
+      >
       <RouterLink to="/" class="pointer-events-auto">About</RouterLink>
     </section>
 

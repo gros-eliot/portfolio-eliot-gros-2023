@@ -9,8 +9,7 @@ import mitt from 'mitt';
 
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,12 +22,10 @@ const firebaseConfig = {
   storageBucket: "portfolio-eliot-gros-2023.appspot.com",
   messagingSenderId: "539587464707",
   appId: "1:539587464707:web:c33f11575bd00838ec8836",
-  measurementId: "G-SN2YZ4ZWK3"
 };
 
 // Initialize Firebase
 const appFirebase = initializeApp(firebaseConfig);
-const analytics = getAnalytics(appFirebase);
 
 
 
