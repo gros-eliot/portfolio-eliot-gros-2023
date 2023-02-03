@@ -1,76 +1,138 @@
 <template>
-  <!--CATEGORIE || CATEGORIE || CATEGORIE-->
+  <!--WORK || WORK || WORK-->
   <!-- haut du template-->
   <div class="p-3">
-    <h1>Créer une <span class="text-purple-portfolio">catégorie</span></h1>
+    <h1 class="portfolio-h1">
+      Ajouter un <span class="text-purple-portfolio">work</span>
+    </h1>
   </div>
   <!--fin hero template-->
-  <!--Div contenant le formulaire + le bouton de validation-->
-  <div class="flex flex-col px-5 py-10 text-black">
-    <!--Div contenant le formulaire-->
-    <form
-      class="flex flex-col gap-2"
-      enctype="multipart/form-data"
-      @submit.prevent="createCategorie"
+
+  <form
+    class="flex flex-col gap-2 p-4 mb-20"
+    enctype="multipart/form-data"
+    @submit.prevent="createWork"
+  >
+    <input
+      type="text"
+      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+      v-model="work.id"
+      placeholder="Créer un id pour le work"
+      required
+    />
+    <input
+      type="text"
+      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+      v-model="work.name"
+      placeholder="Nom du work"
+      required
+    />
+    <!--CATEGORIES-->
+    <!--CATEGORIES-->
+    <!--CATEGORIES-->
+    <label class="portfolio-h2 text-purple-portfolio">Catégories du work</label>
+    <div
+      class="w-10/12 grid grid-cols-3 gap-2"
+      v-for="categorie in listeCategories"
+      :key="categorie.id"
     >
+      <!--Affichage de la catégorie-->
+      <section
+        class="flex flex-col gap-0 border-purple-portfolio border rounded-xl"
+      >
+        <div class="w-full grid grid-cols-2">
+          <img
+            :src="categorie.imageone"
+            :alt="categorie.name + ', first image of this category'"
+            class="rounded-tl-xl"
+          />
+          <img
+            :src="categorie.imagetwo"
+            :alt="categorie.name + ', second image of this category'"
+            class="rounded-tr-xl"
+          />
+        </div>
+        <div class="p-3 flex flex-col gap-1">
+          <h3 class="portfolio-h3">{{ categorie.name }}</h3>
+          <div class="grid grid-cols-2">
+            <p class="text-xs">{{ categorie.alternativeName }}</p>
+            <p class="text-xs">{{ categorie.volume }}</p>
+            <p class="text-xs">{{ categorie.temperature }}</p>
+            <p class="text-xs">{{ categorie.surfacePressure }}</p>
+            <p class="text-xs">{{ categorie.surfaceArea }}</p>
+            <p class="text-xs">{{ categorie.radius }}</p>
+            <p class="text-xs">{{ categorie.mass }}</p>
+            <p class="text-xs">{{ categorie.inclination }}</p>
+            <p class="text-xs">{{ categorie.apparentMagnitude }}</p>
+          </div>
+        </div>
+      </section>
+      <!--<div class="flex flex-row gap-1 items-center">
+        <input type="checkbox" v-model="work.categories" class="w-5 h-5" />
+        <label class="text-xl">{{ categorie.name }}</label>
+      </div>-->
+    </div>
+
+    <!--OUTILS-->
+    <!--OUTILS-->
+    <!--OUTILS-->
+    <label class="portfolio-h2 text-purple-portfolio"
+      >Outils utilisés pour le work</label
+    >
+    <div
+      class="flex flex-col gap-1 justify-start w-full"
+      v-for="outil in listeOutils"
+      :key="outil.id"
+    >
+      <div class="flex flex-row gap-1 items-center">
+        <input type="checkbox" v-model="work.outils" class="w-5 h-5" />
+        <label class="text-xl">{{ outil.name }}</label>
+      </div>
+    </div>
+
+    <!--DESCRIPTION-->
+    <label class="portfolio-h2 text-purple-portfolio">Descriptions</label>
+    <textarea
+      v-model="work.firstdescription"
+      cols="30"
+      rows="10"
+      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+      required
+    ></textarea>
+    <textarea
+      v-model="work.seconddescription"
+      cols="30"
+      rows="10"
+      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+      required
+    ></textarea>
+    <textarea
+      v-model="work.thirddescription"
+      cols="30"
+      rows="10"
+      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+      required
+    ></textarea>
+    <!--Photo-->
+    <div class="flex flex-col">
+      <span class="portfolio-h2 text-purple-portfolio">Photo du work</span>
       <input
-        type="text"
-        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
-        v-model="catName"
-        placeholder="Nom catégorie"
+        type="file"
+        class="flex flex-wrap"
+        ref="file"
+        id="file"
+        @change="previewImage"
         required
       />
-      <input
-        type="text"
-        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
-        v-model="catCountOfWorks"
-        placeholder="Nombre de travaux dans la catégorie"
-        required
-      />
+    </div>
+    <div>
+      <span class="italic">Aperçu de la photo choisie</span>
 
-      <div class="flex flex-col">
-        <span class="font-medium">Photo de la catégorie </span>
-        <input
-          type="file"
-          class="jazznpop-input flex flex-wrap"
-          ref="file"
-          id="file"
-          @change="previewImage"
-        />
-      </div>
-      <div>
-        <span class="italic">Aperçu de la photo choisie</span>
+      <img class="w-fit object-center object-cover" :src="imageData" />
+    </div>
 
-        <img
-          class="w-40 bg-center object-cover md:w-48 lg:w-52"
-          :src="imageData"
-        />
-      </div>
-
-      <div class="flex flex-col mt-10">
-        <span class="font-medium">Photo de la catégorie n°2</span>
-        <input
-          type="file"
-          class="jazznpop-input flex flex-wrap"
-          ref="file"
-          id="file"
-          @change="previewImage"
-        />
-      </div>
-      <div>
-        <span class="italic">Aperçu de la photo choisie</span>
-
-        <img
-          class="w-40 bg-center object-cover md:w-48 lg:w-52"
-          :src="imageData"
-        />
-      </div>
-
-      <button class="portfolio-button-white" type="submit" title="Création">
-        Créer
-      </button>
-    </form>
-  </div>
+    <button class="portfolio-button-white" type="submit">Créer</button>
+  </form>
 </template>
 
 <script>
@@ -98,49 +160,38 @@ import {
 import { emitter } from "@/main.js";
 
 export default {
-  name: "QuestCreateView",
+  name: "CreateWorkComponent",
   data() {
     return {
       imageData: null, // Image prévisualisée
 
-      categorie: {
-        nom: "", // Pour la création d'un nouvelle quête (nom de la quête)
-        cat: "", // Pour la création d'un nouvelle quête (cat de la catégorie de la quête)
-        difficulty: "", // DIFFICULTE DE LA QUÊTE
-        desc: "", // Pour la description de la quête
-        date: "", // date de la quête
+      work: {
+        name: "", // NOM WORK
+        categories: [], // CATEGORIES WORK
+        outils: [], // OUTILS WORK
+        photo: "", // IMAGE WORK
+
+        // descriptions du work
+        firstdescription: "",
+        seconddescription: "",
+        thirddescription: "",
       },
 
-      listeQueteSynchro: [], // Liste des quêtes synchronisée - collection quêtes de Firebase
-      listeCategorie: [], // Liste des CATEGORIES DE QUÊTES synchronisée - collection cat de Firebase
-      listeDifficulte: [], // Liste des DIFFICULTES synchronisée - collection cat de Firebase
-
-      //
-      //
-      //
-      user: {
-        // User connecté
-        email: null,
-        password: null,
-      },
-      userInfo: null, // Informations complémentaires user connecté (sorte de listeCatégorie, listePays)
-      name: "", // Titre de l'application ou nom du user
-      avatar: null, // Avatar / image du user connecté
-      isAdmin: false, // Si l'utilisateur est ou non administrateur
+      listeCategories: [], // Liste des quêtes synchronisée - collection quêtes de Firebase
+      listeOutils: [], // Liste des CATEGORIES DE QUÊTES synchronisée - collection cat de Firebase
     };
   },
   mounted() {
     // Montage de la vue
-    this.getQueteSynchro();
-    this.getCategorie();
-    this.getDifficulte();
+    this.getCategories();
+    this.getOutils();
   },
   methods: {
     previewImage: function (event) {
       // Mise à jour de la photo de l'artiste
       this.file = this.$refs.file.files[0];
       // Récupérer le nom du fichier pour la photo de l'artiste
-      this.artiste.photo = this.file.name;
+      this.work.photo = this.file.name;
       // Reference to the DOM input element
       // Reference du fichier à prévisualiser
       var input = event.target;
@@ -161,55 +212,76 @@ export default {
       }
     },
 
-    async getQueteSynchro() {
+    async getCategories() {
+      // Obtenir Firestore
       const firestore = getFirestore();
-      const dbQuete = collection(firestore, "categories");
-      const query = await onSnapshot(dbQuete, (snapshot) => {
-        this.listeQueteSynchro = snapshot.docs.map((doc) => ({
+      // Base de données (collection)  document catégorie
+      const dbCategories = collection(firestore, "categories");
+      // Liste des concerts triés sur leur date
+      const q = query(dbCategories, orderBy("name", "asc"));
+      await onSnapshot(q, (snapshot) => {
+        this.listeCategories = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
+        // Récupération des images de chaque catégorie
+        // parcours de la liste
+        this.listeCategories.forEach(function (categorie) {
+          // Obtenir le Cloud Storage
+          const storage = getStorage();
+          // Récupération de l'image par son nom de fichier
+          const spaceRef = ref(storage, "categories/" + categorie.imageone);
+          const spaceRef2 = ref(storage, "categories/" + categorie.imagetwo);
+          // Récupération de l'url complète de l'image
+          getDownloadURL(spaceRef)
+            .then((url) => {
+              // On remplace le nom du fichier
+              // Par l'url complète de la photo
+              categorie.imageone = url;
+            })
+            .catch((error) => {
+              console.log("erreur downloadUrl", error);
+            });
+
+          getDownloadURL(spaceRef2)
+            .then((url) => {
+              // On remplace le nom du fichier
+              // Par l'url complète de la photo
+              categorie.imagetwo = url;
+            })
+            .catch((error) => {
+              console.log("erreur downloadUrl", error);
+            });
+        });
       });
     },
 
-    async getCategorie() {
+    async getOutils() {
       const firestore = getFirestore();
-      const dbCat = collection(firestore, "outils");
-      const query = await onSnapshot(dbCat, (snapshot) => {
-        this.listeCategorie = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-      });
-    },
-
-    async getDifficulte() {
-      const firestore = getFirestore();
-      const dbDiff = collection(firestore, "projets");
+      const dbDiff = collection(firestore, "outils");
       const query = await onSnapshot(dbDiff, (snapshot) => {
-        this.listeDifficulte = snapshot.docs.map((doc) => ({
+        this.listeOutils = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
       });
     },
 
-    async createArtiste() {
+    async createWork() {
       // Obtenir storage Firebase
       const storage = getStorage();
       // Référence de l'image à uploader
-      const refStorage = ref(storage, "artiste/" + this.artiste.photo);
+      const refStorage = ref(storage, "works/" + this.work.photo);
       // Upload de l'image sur le Cloud Storage
       await uploadString(refStorage, this.imageData, "data_url").then(
         (snapshot) => {
           console.log("Uploaded a base64 string");
           // Création de l'artiste sur le Firestore
           const db = getFirestore();
-          const docRef = addDoc(collection(db, "artiste"), this.artiste);
+          const docRef = addDoc(collection(db, "works"), this.work);
         }
       );
-      // redirection sur la liste des  artistes
-      this.$router.push("/artistes");
+      console.log("Work crée : " + this.work);
     },
   },
 };

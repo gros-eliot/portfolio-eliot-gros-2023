@@ -9,7 +9,7 @@
   <!--fin hero template-->
   <!--Div contenant le formulaire-->
   <form
-    class="flex flex-col gap-2 p-2 mb-20"
+    class="flex flex-col gap-2 p-4 mb-20"
     enctype="multipart/form-data"
     @submit.prevent="createCategorie"
   >
@@ -30,7 +30,7 @@
 
     <!--DETAILS (PLANETE)-->
     <section
-      class="p-4 bg-purple-portfolio rounded-lg flex flex-col gap-2 text-black"
+      class="p-4 bg-purple-portfolio rounded-lg flex flex-col gap-2 text-black w-10/12"
     >
       <h3 class="portfolio-h3 text-white">Détails de la catégorie</h3>
       <input
@@ -98,7 +98,7 @@
       />
     </section>
 
-    <hr class="border border-purple-portfolio my-10" />
+    <hr class="border border-purple-portfolio my-10 w-10/12" />
     <!--Ajout de photos-->
     <article class="grid grid-cols-2 justify-items-start">
       <!--Photo1-->
@@ -113,12 +113,13 @@
             ref="file"
             id="file"
             @change="previewImage"
+            required
           />
         </div>
         <div>
           <span class="italic">Aperçu de la photo choisie</span>
           <img
-            class="w-40 bg-center object-cover md:w-48 lg:w-52"
+            class="w-40 object-center object-cover md:w-48 lg:w-52"
             :src="imageData"
           />
         </div>
@@ -135,12 +136,13 @@
             ref="file2"
             id="file2"
             @change="previewImage2"
+            required
           />
         </div>
         <div>
           <span class="italic">Aperçu de la photo choisie</span>
           <img
-            class="w-40 bg-center object-cover md:w-48 lg:w-52"
+            class="w-40 object-center object-cover md:w-48 lg:w-52"
             :src="imageData2"
           />
         </div>
@@ -176,7 +178,7 @@ import {
 import { emitter } from "@/main.js";
 
 export default {
-  name: "QuestCreateView",
+  name: "CreateCategorieComponent",
   data() {
     return {
       imageData: null, // Image prévisualisée

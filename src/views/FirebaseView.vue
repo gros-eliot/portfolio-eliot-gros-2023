@@ -7,15 +7,17 @@
         </RouterLink>
       </div>
 
-      <div id="create_categorie">
-        <CreateCategorieComponent />
-      </div>
-      <div id="create_outil">
-        <CreateToolsComponent />
-      </div>
-      <div id="create_work">
-        <CreateCategorieComponent />
-      </div>
+      <section class="flex flex-col gap-96">
+        <div id="create_categorie">
+          <CreateCategorieComponent />
+        </div>
+        <div id="create_outil">
+          <CreateToolsComponent />
+        </div>
+        <div id="create_work">
+          <CreateWorkComponent />
+        </div>
+      </section>
     </section>
     <section
       class="bg-zinc-500 text-white fixed right-0 w-1/6 h-screen flex p-2 flex-col gap-20 items-center justify-center text-center"
@@ -30,4 +32,5 @@
 <script setup>
 import CreateCategorieComponent from "@/components/admin/CreateCategorie.vue";
 import CreateToolsComponent from "../components/admin/CreateTools.vue";
+import CreateWorkComponent from "../components/admin/CreateWork.vue";
 </script>

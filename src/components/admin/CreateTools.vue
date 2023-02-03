@@ -9,7 +9,7 @@
   <!--fin hero template-->
   <!--Div contenant le formulaire-->
   <form
-    class="flex flex-col gap-2 p-2 mb-20"
+    class="flex flex-col gap-2 p-4 mb-20"
     enctype="multipart/form-data"
     @submit.prevent="createOutil"
   >
@@ -32,12 +32,13 @@
           ref="file"
           id="file"
           @change="previewImage"
+          required
         />
       </div>
       <div>
         <span class="italic">Aperçu de l'icon</span>
         <img
-          class="w-40 bg-center object-cover md:w-48 lg:w-52"
+          class="w-40 object-center object-cover md:w-48 lg:w-52"
           :src="imageData"
         />
       </div>
@@ -72,7 +73,7 @@ import {
 import { emitter } from "@/main.js";
 
 export default {
-  name: "QuestCreateView",
+  name: "CreateToolsComponent",
   data() {
     return {
       imageData: null, // Image prévisualisée
