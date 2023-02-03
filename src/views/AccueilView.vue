@@ -53,7 +53,7 @@
   >
     <!--ACCUEIL HEADER-->
     <section
-      class="flex flex-col gap-2 justify-center items-center md:flex-row md:justify-between w-full top-0 p-4 px-6 font-light uppercase"
+      class="flex flex-col gap-2 justify-center items-center md:flex-row md:justify-between w-full top-0 p-4 px-1 md:px-6 font-light uppercase"
     >
       <RouterLink to="/" class="pointer-events-auto">Cursus</RouterLink>
       <RouterLink to="/home" class="pointer-events-auto">Projects</RouterLink>
@@ -62,7 +62,7 @@
 
     <!-- ACCUEIL MIDDLE-->
     <section
-      class="flex justify-center items-center text-center flex-col gap-0 p-5"
+      class="flex justify-center items-center text-center flex-col gap-0 px-1 py-5 md:p-5"
     >
       <h1
         class="portfolio-h1 text-5xl md:text-7xl uppercase pointer-events-auto"
@@ -83,7 +83,7 @@
 
     <!-- ACCUEIL FOOTER-->
     <section class="flex flex-col justify-center items-center gap-14 p-4">
-      <div class="flex flex-row gap-5">
+      <div class="flex flex-col md:flex-row items-center gap-5">
         <RouterLink to="/home">
           <button class="portfolio-button-white pointer-events-auto">
             Discover my universe
@@ -97,7 +97,7 @@
       </div>
 
       <!--Mentions légales-->
-      <div class="flex flex-row gap-1 text-zinc-600">
+      <div class="flex flex-col md:flex-row gap-1 text-zinc-600">
         <p class="pointer-events-auto">© Eliot Gros, Franche-Comté, 2023 |</p>
         <RouterLink to="/" class="pointer-events-auto underline"
           >Legacy</RouterLink

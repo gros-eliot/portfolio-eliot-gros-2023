@@ -21,7 +21,7 @@
     .portfolio-button-white {
 
     /* agencement du texte*/
-     @apply w-fit h-fit flex flex-row items-center justify-center px-5 py-3 gap-2 uppercase font-unbounded font-bold text-lg md:text-xl tracking-tighter;
+     @apply w-fit h-fit flex flex-row items-center justify-center px-5 py-3 gap-2 uppercase font-unbounded font-bold text-base md:text-xl tracking-tighter select-none;
     
     /* style du bouton */
     color: #160B16;
@@ -40,7 +40,7 @@
     .portfolio-button-black {
     
     /* agencement du texte */
-    @apply w-fit h-fit flex flex-row items-center justify-center px-5 py-3 gap-2 uppercase font-unbounded font-bold text-lg md:text-xl tracking-tighter;
+    @apply w-fit h-fit flex flex-row items-center justify-center px-5 py-3 gap-2 uppercase font-unbounded font-bold text-base md:text-xl tracking-tighter select-none;
 
     /* style du bouton */
     color: #FCFF73;
@@ -48,6 +48,14 @@
     border: 5px solid #FCFF73;
     box-shadow: 5px 5px 0px #FCFF73;
     border-radius: 10px;
+    }
+
+    .portfolio-button-black:hover {
+        color: black;
+        background: #4949ff;
+        border: 5px solid black;
+        transition:  0.2s ease-out;
+
     }
 
      
