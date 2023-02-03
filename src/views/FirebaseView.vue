@@ -11,7 +11,7 @@
         <CreateCategorieComponent />
       </div>
       <div id="create_outil">
-        <CreateCategorieComponent />
+        <CreateToolsComponent />
       </div>
       <div id="create_work">
         <CreateCategorieComponent />
@@ -29,4 +29,5 @@
 
 <script setup>
 import CreateCategorieComponent from "@/components/admin/CreateCategorie.vue";
+import CreateToolsComponent from "../components/admin/CreateTools.vue";
 </script>
