@@ -7,13 +7,13 @@ import TestFirebaseView from '../views/TestFirebaseView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [ 
-    { path: '/', name: 'welcome', component: AccueilView },
-    { path: '/home', name: 'home', component: HomeView },
+    { path: '/', name: 'AccueilView', component: AccueilView },
+    { path: '/home', name: 'HomeView', component: HomeView },
 
 
     
-    { path: '/admin', name: 'admin', component: FirebaseView },
-    { path: '/admintest/:id', name: 'admintest', component: TestFirebaseView },
+    { path: '/admin', name: 'FirebaseView', component: FirebaseView },
+    { path: '/admintest/:id', name: 'TestFirebaseView', component: TestFirebaseView },
 
     
   ]
