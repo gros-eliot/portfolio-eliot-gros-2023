@@ -329,8 +329,8 @@ export default {
         thirddescription: "",
       },
 
-      listeCategories: [], // Liste des quêtes synchronisée - collection quêtes de Firebase
-      listeOutils: [], // Liste des CATEGORIES DE QUÊTES synchronisée - collection cat de Firebase
+      listeCategories: [], // Liste des catégories synchronisée - collection categories de Firebase
+      listeOutils: [], // Liste des outils synchronisée - collection outils de Firebase
     };
   },
   mounted() {
@@ -340,9 +340,9 @@ export default {
   },
   methods: {
     previewImage: function (event) {
-      // Mise à jour de la photo de l'artiste
+      // Mise à jour de la photo du projet
       this.file = this.$refs.file.files[0];
-      // Récupérer le nom du fichier pour la photo de l'artiste
+      // Récupérer le nom du fichier pour la photo du projet
       this.work.photo = this.file.name;
       // Reference to the DOM input element
       // Reference du fichier à prévisualiser
@@ -369,7 +369,7 @@ export default {
       const firestore = getFirestore();
       // Base de données (collection)  document catégorie
       const dbCategories = collection(firestore, "categories");
-      // Liste des concerts triés sur leur date
+      // Liste des catégories triés sur leur date
       const q = query(dbCategories, orderBy("name", "asc"));
       await onSnapshot(q, (snapshot) => {
         this.listeCategories = snapshot.docs.map((doc) => ({
@@ -411,16 +411,16 @@ export default {
     async getOutils() {
       // Obtenir Firestore
       const firestore = getFirestore();
-      // Base de données (collection)  document catégorie
+      // Base de données (collection)  document outil
       const dbOutils = collection(firestore, "outils");
-      // Liste des concerts triés sur leur date
+      // Liste des outils triés sur leur date
       const q = query(dbOutils, orderBy("name", "asc"));
       await onSnapshot(q, (snapshot) => {
         this.listeOutils = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        // Récupération des images de chaque catégorie
+        // Récupération des images de chaque outil
         // parcours de la liste
         this.listeOutils.forEach(function (outil) {
           // Obtenir le Cloud Storage
@@ -450,7 +450,7 @@ export default {
       await uploadString(refStorage, this.imageData, "data_url").then(
         (snapshot) => {
           console.log("Uploaded a base64 string");
-          // Création de l'artiste sur le Firestore
+          // Création du work sur le Firestore
           const db = getFirestore();
           const docRef = addDoc(collection(db, "works"), this.work);
         }

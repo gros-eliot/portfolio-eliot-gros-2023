@@ -267,7 +267,7 @@ export default {
             this.imageData2,
             "data_url"
           );
-          // Création de l'artiste sur le Firestore
+          // Création de la catégorie sur le Firestore
           const db = getFirestore();
           const docRef = addDoc(collection(db, "categories"), this.categorie);
         }

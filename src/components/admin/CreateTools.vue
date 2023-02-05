@@ -119,7 +119,7 @@ export default {
       await uploadString(refStorage, this.imageData, "data_url").then(
         (snapshot) => {
           console.log("Uploaded a base64 string");
-          // Création de l'artiste sur le Firestore
+          // Création de l'outil sur le Firestore
           const db = getFirestore();
           const docRef = addDoc(collection(db, "outils"), this.outil);
         }
