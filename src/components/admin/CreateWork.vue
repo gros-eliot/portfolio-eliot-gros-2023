@@ -31,6 +31,51 @@
     <!--CATEGORIES-->
     <!--CATEGORIES-->
     <label class="portfolio-h2 text-purple-portfolio">Catégories du work</label>
+    <div class="flex flex-col gap-1">
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.categories[0].name"
+        placeholder="Recopier le nom d'une catégorie"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.categories[1].name"
+        placeholder="Recopier le nom d'une catégorie"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.categories[2].name"
+        placeholder="Recopier le nom d'une catégorie"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.categories[3].name"
+        placeholder="Recopier le nom d'une catégorie"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.categories[4].name"
+        placeholder="Recopier le nom d'une catégorie"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.categories[5].name"
+        placeholder="Recopier le nom d'une catégorie"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.categories[6].name"
+        placeholder="Recopier le nom d'une catégorie"
+      />
+    </div>
+
     <section class="w-10/12 grid grid-cols-3 gap-2">
       <!--Affichage de la catégorie-->
       <section
@@ -52,7 +97,10 @@
         </div>
         <div class="p-3 flex flex-col gap-1">
           <label class="portfolio-h3" for="categoryName">
-            {{ categorie.name }}
+            <RouterLink
+              :to="{ name: 'TestFirebaseView', params: { id: categorie.id } }"
+              >{{ categorie.name }}</RouterLink
+            >
           </label>
           <div class="grid grid-cols-2">
             <p class="text-xs">{{ categorie.alternativeName }}</p>
@@ -77,23 +125,66 @@
     <!--OUTILS-->
     <!--OUTILS-->
     <label class="portfolio-h2 text-purple-portfolio">Outils du work</label>
-
+    <div class="flex flex-col gap-1">
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.outils[0].name"
+        placeholder="Recopier le nom d'un outil"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.outils[1].name"
+        placeholder="Recopier le nom d'un outil"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.outils[2].name"
+        placeholder="Recopier le nom d'un outil"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.outils[3].name"
+        placeholder="Recopier le nom d'un outil"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.outils[4].name"
+        placeholder="Recopier le nom d'un outil"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.outils[5].name"
+        placeholder="Recopier le nom d'un outil"
+      />
+      <input
+        type="text"
+        class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+        v-model="work.outils[6].name"
+        placeholder="Recopier le nom d'un outil"
+      />
+    </div>
     <!--EXEMPLES D'OUTILS-->
     <section class="w-10/12 grid grid-cols-3 gap-2">
       <!--Affichage de l'outil-->
       <section
-        class="flex flex-row items-center justify-center gap-0 border-gray-700 bg-gray-500 text-gray-300 border rounded-xl"
+        class="flex flex-row items-center justify-center gap-0 border-gray-700 bg-gray-500 text-gray-300 border rounded-xl w-fit"
         v-for="outil in listeOutils"
         :key="outil.id"
       >
         <img
           :src="outil.image"
           :alt="outil.image + ', first image of this category'"
-          class="rounded-xl w-20 h-20 p-4 object-cover object-center"
+          class="rounded-xl w-10 h-10 p-1 object-cover object-center"
         />
 
         <div class="p-3 flex flex-col gap-1">
-          <label class="portfolio-h3" for="categoryName">
+          <label class="portfolio-text" for="categoryName">
             {{ outil.name }}
           </label>
         </div>
@@ -177,8 +268,62 @@ export default {
 
       work: {
         name: "", // NOM WORK
-        categories: [], // CATEGORIES WORK
-        outils: [], // OUTILS WORK
+        categories: [
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+        ], // CATEGORIES WORK
+
+        outils: [
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+          {
+            name: "",
+          },
+        ], // OUTILS WORK
         photo: "", // IMAGE WORK
 
         // descriptions du work
@@ -187,8 +332,8 @@ export default {
         thirddescription: "",
       },
 
-      listeCategories: [], // Liste des quêtes synchronisée - collection quêtes de Firebase
-      listeOutils: [], // Liste des CATEGORIES DE QUÊTES synchronisée - collection cat de Firebase
+      listeCategories: [], // Liste des catégories synchronisée - collection categories de Firebase
+      listeOutils: [], // Liste des outils synchronisée - collection outils de Firebase
     };
   },
   mounted() {
@@ -198,9 +343,9 @@ export default {
   },
   methods: {
     previewImage: function (event) {
-      // Mise à jour de la photo de l'artiste
+      // Mise à jour de la photo du projet
       this.file = this.$refs.file.files[0];
-      // Récupérer le nom du fichier pour la photo de l'artiste
+      // Récupérer le nom du fichier pour la photo du projet
       this.work.photo = this.file.name;
       // Reference to the DOM input element
       // Reference du fichier à prévisualiser
@@ -227,7 +372,7 @@ export default {
       const firestore = getFirestore();
       // Base de données (collection)  document catégorie
       const dbCategories = collection(firestore, "categories");
-      // Liste des concerts triés sur leur date
+      // Liste des catégories triés sur leur date
       const q = query(dbCategories, orderBy("name", "asc"));
       await onSnapshot(q, (snapshot) => {
         this.listeCategories = snapshot.docs.map((doc) => ({
@@ -269,16 +414,16 @@ export default {
     async getOutils() {
       // Obtenir Firestore
       const firestore = getFirestore();
-      // Base de données (collection)  document catégorie
+      // Base de données (collection)  document outil
       const dbOutils = collection(firestore, "outils");
-      // Liste des concerts triés sur leur date
+      // Liste des outils triés sur leur date
       const q = query(dbOutils, orderBy("name", "asc"));
       await onSnapshot(q, (snapshot) => {
         this.listeOutils = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        // Récupération des images de chaque catégorie
+        // Récupération des images de chaque outil
         // parcours de la liste
         this.listeOutils.forEach(function (outil) {
           // Obtenir le Cloud Storage
@@ -308,19 +453,9 @@ export default {
       await uploadString(refStorage, this.imageData, "data_url").then(
         (snapshot) => {
           console.log("Uploaded a base64 string");
-          // Création de l'artiste sur le Firestore
+          // Création du work sur le Firestore
           const db = getFirestore();
-          const docRef = addDoc(
-            collection(db, "works"),
-            this.work,
-            {
-              categorieName: this.categorie.name,
-            },
-            {
-              outilName: this.outil.name,
-              outilImage: this.outil.image,
-            }
-          );
+          const docRef = addDoc(collection(db, "works"), this.work);
         }
       );
       console.log("Work crée : " + this.work);
