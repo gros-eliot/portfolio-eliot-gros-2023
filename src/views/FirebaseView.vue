@@ -10,6 +10,9 @@
       <div id="create_work">
         <CreateWorkComponent />
       </div>
+      <div id="create_work2">
+        <CreateWorkComponent2 />
+      </div>
     </section>
     <section
       class="bg-zinc-500 text-white fixed right-0 w-1/6 h-screen flex p-2 flex-col gap-20 items-center justify-center text-center"
@@ -25,6 +28,7 @@
       <a href="#create_categorie">Créer catégorie</a>
       <a href="#create_outil">Créer outil</a>
       <a href="#create_work">Créer un work</a>
+      <a href="#create_work2">Créer un work (test)</a>
     </section>
   </article>
 </template>
@@ -33,4 +37,5 @@
 import CreateCategorieComponent from "@/components/admin/CreateCategorie.vue";
 import CreateToolsComponent from "../components/admin/CreateTools.vue";
 import CreateWorkComponent from "../components/admin/CreateWork.vue";
+import CreateWorkComponent2 from "../components/admin/CreateWorkTest2.vue";
 </script>
