@@ -123,7 +123,9 @@
           class="w-fit flex flex-col gap-1 text-white text-[12px] font-thin h-fit"
         >
           <p>Battery:&nbsp;<strong>on</strong></p>
-          <p v-if="levelBattery != null">{{ levelBattery * 100 }}%</p>
+          <div id="containerBattery">
+            <!--Le % de batterie de l'appareil s'affichera grâce à la fonction JS-->
+          </div>
           <div
             class="border-white border p-1 w-fit h-12 flex justify-end items-end"
           >
@@ -210,9 +212,11 @@ navigator.getBattery().then(function (battery) {
   let batteryIndicator = document.querySelector("#batteryIndicator");
   batteryIndicator.style.height = "1%";
   batteryIndicator.style.height = levelBattery * 100 + "%";
+
+  // AJOUT du % de la batterie dans le template
   document
-    .getElementById("container")
-    .insertAdjacentHTML("beforeend", '<div id="idChild"> content html </div>');
+    .getElementById("containerBattery")
+    .insertAdjacentHTML("beforeend", "<p>" + levelBattery * 100 + "% </p>");
 });
 
 // rotation des planètes constante
