@@ -51,9 +51,9 @@
         :receive-shadow="true"
         :width-segments="64"
         :height-segments="64"
-        @click="planet2Click(), planet2ClickSetup()"
-        @pointer-over="planet2Hover"
       >
+        <!--  @click="planet2Click(), planet2ClickSetup()"
+        @pointer-over="planet2Hover"-->
         <BasicMaterial>
           <Texture src="/textures/2k_neptune.jpg" />
         </BasicMaterial>
@@ -82,7 +82,7 @@
     class="bg-yellow-portfolio text-black hidden z-0 p-10 absolute select-none inset-0 w-fit h-fit transition_display"
     id="informationPlanet"
     :class="{
-      'md:block': Planet1Hover === true && $route.name === 'home',
+      'md:block': PlanetOneHover === true && $route.name === 'HomeView',
     }"
   >
     <p class="select-none">TEST</p>
@@ -123,7 +123,7 @@
           class="w-fit flex flex-col gap-1 text-white text-[12px] font-thin h-fit"
         >
           <p>Battery:&nbsp;<strong>on</strong></p>
-          <p>{{ levelBattery * 100 }}%</p>
+          <p v-if="levelBattery != null">{{ levelBattery * 100 }}%</p>
           <div
             class="border-white border p-1 w-fit h-12 flex justify-end items-end"
           >
@@ -200,8 +200,8 @@ import BottomMeasure from "../components/spaceship-ui-components/BottomMeasure.v
 const rendererC = ref(); //renderer
 const meshC = ref(); //mesh planete 1
 const meshD = ref(); //mesh planete 2
-let levelBattery = ref(0); // batterie pour le niveau de la batterie
 
+let levelBattery = ref(0);
 // Niveau de la batterie
 navigator.getBattery().then(function (battery) {
   levelBattery = battery.level;
@@ -210,6 +210,9 @@ navigator.getBattery().then(function (battery) {
   let batteryIndicator = document.querySelector("#batteryIndicator");
   batteryIndicator.style.height = "1%";
   batteryIndicator.style.height = levelBattery * 100 + "%";
+  document
+    .getElementById("container")
+    .insertAdjacentHTML("beforeend", '<div id="idChild"> content html </div>');
 });
 
 // rotation des planètes constante
@@ -255,21 +258,22 @@ export default {
     return {
       displaySpaceshipUi: false, // affichage ou non du spaceshipUI
 
-      Planet1Hover: false, // var pr afficher details planète 1
-      Planet1Clicked: false, // var du click sur la planète 1
+      PlanetOneHover: false, // var pr afficher details planète 1
+      PlanetOneClicked: false, // var du click sur la planète 1
     };
   },
   methods: {
     planet1Click(e) {
-      this.Planet1Clicked = !this.Planet1Clicked;
-      console.log("résultat du click : " + this.Planet1Clicked);
+      this.PlanetOneClicked = !this.PlanetOneClicked;
+      console.log("résultat du click : " + this.PlanetOneClicked);
     },
     planet1Hover({ over }) {
-      if (this.Planet1Clicked === false) {
-        this.Planet1Hover = over ? true : false;
+      if (this.PlanetOneClicked === false) {
+        this.PlanetOneHover = over ? true : false;
+        console.log("résultat du hover : " + this.PlanetOneHover);
       }
-      if (this.Planet1Clicked === true) {
-        this.Planet1Hover = false;
+      if (this.PlanetOneClicked === true) {
+        this.PlanetOneHover = false;
       }
     },
   },

@@ -19,16 +19,13 @@
       >
         <p>{{ work.name }}</p>
         <img :src="work.photo" />
-        <p>{{ work.firstdescription }}</p>
-        <p>{{ work.seconddescription }}</p>
-        <p>{{ work.thirddescription }}</p>
-        <p>{{ work.categories[0].name }}</p>
-        <p>{{ work.categories[1].name }}</p>
-        <p>{{ work.categories[2].name }}</p>
-        <p>{{ work.categories[3].name }}</p>
-        <p>{{ work.categories[4].name }}</p>
-        <p>{{ work.categories[5].name }}</p>
-        <p>{{ work.categories[6].name }}</p>
+        <p v-for="categoryTool in work.outils" :key="categoryTool.id">
+          {{ categoryTool.name }}
+        </p>
+        <p v-for="categoryWork in work.categories" :key="categoryWork.id">
+          {{ categoryWork.name }}
+        </p>
+        <hr class="my-5" />
       </div>
     </section>
   </article>
