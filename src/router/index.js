@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AccueilView from '../views/AccueilView.vue'
 import HomeView from '../views/HomeView.vue'
+
+import ConnexionView from '../views/ConnexionView.vue'
 import FirebaseView from '../views/FirebaseView.vue'
 import TestFirebaseView from '../views/TestFirebaseView.vue'
 
@@ -12,6 +14,7 @@ const router = createRouter({
 
 
     
+    { path: '/connexion', name: 'ConnexionView', component: ConnexionView },
     { path: '/admin', name: 'FirebaseView', component: FirebaseView },
     { path: '/admintest/:id', name: 'TestFirebaseView', component: TestFirebaseView },
 

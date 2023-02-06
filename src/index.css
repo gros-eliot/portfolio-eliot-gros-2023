@@ -18,6 +18,20 @@
         @apply text-base md:text-lg font-light;
     }
 
+    .portfolio-input {
+
+    /* agencement du texte*/
+     @apply w-full h-fit flex flex-row items-center justify-center px-5 py-3 font-unbounded tracking-tighter;
+    
+    /* style du bouton */
+    color: #160B16;
+    background: #FFFFFF;
+    border: 5px solid #160B16;
+    box-shadow: 5px 5px 0px #FCFF73;
+    border-radius: 10px;
+    }
+  
+    
     .portfolio-button-white {
 
     /* agencement du texte*/
@@ -49,7 +63,6 @@
     box-shadow: 5px 5px 0px #FCFF73;
     border-radius: 10px;
     }
-
     .portfolio-button-black:hover {
         color: black;
         background: #4949ff;
