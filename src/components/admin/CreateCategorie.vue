@@ -9,7 +9,7 @@
   <!--fin hero template-->
   <!--Div contenant le formulaire-->
   <form
-    class="flex flex-col gap-2 p-4 mb-20"
+    class="flex flex-col gap-2 p-4"
     enctype="multipart/form-data"
     @submit.prevent="createCategorie"
   >
@@ -27,6 +27,14 @@
       placeholder="Nombre de travaux dans la catégorie"
       required
     />
+    <textarea
+      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
+      v-model="categorie.description"
+      placeholder="Description de la catégorie"
+      cols="30"
+      rows="3"
+      required
+    ></textarea>
 
     <!--DETAILS (PLANETE)-->
     <section
@@ -151,6 +159,8 @@
 
     <button class="portfolio-button-white" type="submit">Créer</button>
   </form>
+  <!--message de validation-->
+  <p class="text-zinc-400 mb-20 p-4"><strong>Statement</strong> : {{ msg }}</p>
 </template>
 
 <script>
@@ -181,12 +191,15 @@ export default {
   name: "CreateCategorieComponent",
   data() {
     return {
+      msg: "", // message validation
+
       imageData: null, // Image prévisualisée
       imageData2: null,
 
       categorie: {
         name: "", // NOM CATEGORIE
         works: "", // NOMBRE PROJETS DANS CATEGORIE
+        description: "", // DESCRIPTION CATEGORIE
         imageone: "", // IMAGE 1
         imagetwo: null, // IMAGE 2
 
@@ -272,6 +285,7 @@ export default {
           const docRef = addDoc(collection(db, "categories"), this.categorie);
         }
       );
+      this.msg = "Catégorie créée avec succès : " + this.categorie.name;
       console.log("Catégorie créée : " + this.categorie);
     },
   },

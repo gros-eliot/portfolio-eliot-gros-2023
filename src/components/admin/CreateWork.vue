@@ -9,7 +9,7 @@
   <!--fin hero template-->
 
   <form
-    class="flex flex-col gap-2 p-4 mb-20"
+    class="flex flex-col gap-2 p-4"
     enctype="multipart/form-data"
     @submit.prevent="createWork"
   >
@@ -83,18 +83,6 @@
         v-for="categorie in listeCategories"
         :key="categorie.id"
       >
-        <div class="w-full grid grid-cols-2">
-          <img
-            :src="categorie.imageone"
-            :alt="categorie.name + ', first image of this category'"
-            class="rounded-tl-xl"
-          />
-          <img
-            :src="categorie.imagetwo"
-            :alt="categorie.name + ', second image of this category'"
-            class="rounded-tr-xl"
-          />
-        </div>
         <div class="p-3 flex flex-col gap-1">
           <label class="portfolio-h3" for="categoryName">
             <RouterLink
@@ -177,12 +165,6 @@
         v-for="outil in listeOutils"
         :key="outil.id"
       >
-        <img
-          :src="outil.image"
-          :alt="outil.image + ', first image of this category'"
-          class="rounded-xl w-10 h-10 p-1 object-cover object-center"
-        />
-
         <div class="p-3 flex flex-col gap-1">
           <label class="portfolio-text" for="categoryName">
             {{ outil.name }}
@@ -234,6 +216,8 @@
 
     <button class="portfolio-button-white" type="submit">Créer</button>
   </form>
+  <!--message de validation-->
+  <p class="text-zinc-400 mb-20 p-4"><strong>Statement</strong> : {{ msg }}</p>
 </template>
 
 <script>
@@ -264,6 +248,8 @@ export default {
   name: "CreateWorkComponent",
   data() {
     return {
+      msg: "", // message validation
+
       imageData: null, // Image prévisualisée
 
       work: {
@@ -458,7 +444,8 @@ export default {
           const docRef = addDoc(collection(db, "works"), this.work);
         }
       );
-      console.log("Work crée : " + this.work);
+      this.msg = "Work créé avec succès : " + this.work.name;
+      console.log("Work créé : " + this.work);
     },
   },
 };

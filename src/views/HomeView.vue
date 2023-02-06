@@ -127,9 +127,12 @@
             <!--Le % de batterie de l'appareil s'affichera grâce à la fonction JS-->
           </div>
           <div
-            class="border-white border p-1 w-fit h-12 flex justify-end items-end"
+            class="border-white border rounded-md p-1 w-fit h-12 flex justify-end items-end"
           >
-            <div class="bg-yellow-portfolio w-4" id="batteryIndicator"></div>
+            <div
+              class="bg-yellow-portfolio w-4 rounded-sm"
+              id="batteryIndicator"
+            ></div>
           </div>
         </div>
 

@@ -9,7 +9,7 @@
   <!--fin hero template-->
   <!--Div contenant le formulaire-->
   <form
-    class="flex flex-col gap-2 p-4 mb-20"
+    class="flex flex-col gap-2 p-4"
     enctype="multipart/form-data"
     @submit.prevent="createOutil"
   >
@@ -46,6 +46,8 @@
 
     <button class="portfolio-button-white" type="submit">Créer</button>
   </form>
+  <!--message de validation-->
+  <p class="text-zinc-400 mb-20 p-4"><strong>Statement</strong> : {{ msg }}</p>
 </template>
 
 <script>
@@ -76,6 +78,8 @@ export default {
   name: "CreateToolsComponent",
   data() {
     return {
+      msg: "", // message validation
+
       imageData: null, // Image prévisualisée
 
       outil: {
@@ -124,7 +128,9 @@ export default {
           const docRef = addDoc(collection(db, "outils"), this.outil);
         }
       );
-      console.log("Outil créée : " + this.outil);
+      this.msg = "Outil créé avec succès : " + this.outil.name;
+
+      console.log("Outil créé : " + this.outil);
     },
   },
 };
