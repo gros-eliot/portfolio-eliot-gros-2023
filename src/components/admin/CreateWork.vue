@@ -165,6 +165,7 @@
         v-for="outil in listeOutils"
         :key="outil.id"
       >
+        <img :src="outil.image" alt="" />
         <div class="p-3 flex flex-col gap-1">
           <label class="portfolio-text" for="categoryName">
             {{ outil.name }}

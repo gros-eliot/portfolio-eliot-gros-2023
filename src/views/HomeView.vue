@@ -74,6 +74,11 @@
   <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
   <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
 
+  <!--ONCLICK COMPOSANT-->
+  <!--ONCLICK COMPOSANT-->
+  <!--ONCLICK COMPOSANT-->
+  <PlanetOnClick />
+
   <!-- HOVERS ELEMENTS -->
   <!-- HOVERS ELEMENTS -->
   <!-- HOVERS ELEMENTS -->
@@ -257,15 +262,15 @@ function planet1ClickSetup(e) {
 
 <script>
 import { RouterLink, RouterView } from "vue-router";
+import PlanetOnClick from "../components/home-planets/planetOnClick.vue";
 
 // FONCTIONS POUR LE HOVER (click true: permet de retirer le hover quand planète cliquée)
 export default {
   name: "HomeView",
   data() {
     return {
-      displaySpaceshipUi: false, // affichage ou non du spaceshipUI
-
-      PlanetOneHover: false, // var pr afficher details planète 1
+      displaySpaceshipUi: false,
+      PlanetOneHover: false,
       PlanetOneClicked: false, // var du click sur la planète 1
     };
   },
@@ -284,6 +289,7 @@ export default {
       }
     },
   },
+  components: { PlanetOnClick },
 };
 
 // FONCTION POUR SUIVI DE LELEMENT "cursor" !
