@@ -2,10 +2,6 @@
   <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
   <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
   <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
-  <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
-  <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
-  <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
-
   <Renderer
     ref="rendererC"
     antialias
@@ -13,9 +9,20 @@
     resize="window"
     class="h-screen"
   >
-    <Camera :position="{ z: clickedCameraZ }" />
+    <Camera :position="{ z: 100 }" />
     <Scene>
-      <PointLight :position="{ y: 50, z: 50 }" />
+      <PointLight :position="{ y: 50 }" :intensity="0.5" />
+
+      <!--Test modele-->
+      <!--
+      <GltfModel
+        src="/models/air_force_v2-gltb.glb"
+        @load="onReady"
+        @progress="onProgress"
+        @error="onError"
+        :position="{ x: -200, y: 0, z: 0 }"
+        :scale="{ x: 30, y: 30, z: 30 }"
+      />-->
 
       <!--PLANETE 1-->
       <Sphere
@@ -28,11 +35,7 @@
         :receive-shadow="true"
         :width-segments="64"
         :height-segments="64"
-        @click="
-          planet1Click(),
-            planet1ClickSetup(),
-            (displaySpaceshipUi = !displaySpaceshipUi)
-        "
+        @click="planetOnClickVisible = !planetOnClickVisible"
         @pointer-over="planet1Hover"
       >
         <BasicMaterial>
@@ -66,10 +69,6 @@
       <UnrealBloomPass :strength="1" />
     </EffectComposer>
   </Renderer>
-
-  <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
-  <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
-  <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
   <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
   <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
   <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
@@ -77,7 +76,30 @@
   <!--ONCLICK COMPOSANT-->
   <!--ONCLICK COMPOSANT-->
   <!--ONCLICK COMPOSANT-->
-  <PlanetOnClick />
+
+  <!--Planete volunteering-->
+
+  <PlanetOnClick
+    :categoryId="'HrSPZKspOCzjj0jfTJEA'"
+    :texturePlanet="'/textures/2k_venus_atmosphere.jpg'"
+    :thisPlanetOnClickVisible="planetOnClickVisible"
+  />
+
+  <!--IMPORTANT :
+
+  <PlanetOnClick :categoryId="selectedCategoryId" v-if="planetOnClickVisible === true" />
+  <planet1 @click="selectedCategoryId = '...'  // planetOnClickVisible = true" />
+  <planet2 @click="selectedCategoryId = '...2' // planetOnClickVisible = true" />
+  export default
+  data return selectedCategoryId = planet1Id (par défaut) 
+  planetOnClickVisible = false (par défaut)
+  
+  FIN de IMPORTANT.
+  -->
+
+  <!--FIN ONCLICK COMPOSANT-->
+  <!--FIN ONCLICK COMPOSANT-->
+  <!--FIN ONCLICK COMPOSANT-->
 
   <!-- HOVERS ELEMENTS -->
   <!-- HOVERS ELEMENTS -->
@@ -92,16 +114,15 @@
   >
     <p class="select-none">TEST</p>
   </div>
+  <!--FIN HOVERS ELEMENTS -->
+  <!--FIN HOVERS ELEMENTS -->
+  <!--FIN HOVERS ELEMENTS -->
 
   <!--UI spaceship interface-->
   <!--UI spaceship interface-->
   <!--UI spaceship interface-->
   <section
     class="h-screen w-full absolute select-none bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)] z-10 inset-0 pointer-events-none"
-    :class="{
-      block: displaySpaceshipUi === false,
-      hidden: displaySpaceshipUi === true,
-    }"
   >
     <!--Top-->
     <div class="w-full top-0 flex justify-between absolute p-4 pt-10">
@@ -194,6 +215,7 @@ import {
   Scene,
   Texture,
   propsValues,
+  GltfModel,
   Plane,
   UnrealBloomPass,
   EffectComposer,
@@ -205,6 +227,9 @@ import TopLeft from "../components/spaceship-ui-components/TopLeft.vue";
 import TopRight from "../components/spaceship-ui-components/TopRight.vue";
 import Middle from "../components/spaceship-ui-components/Middle.vue";
 import BottomMeasure from "../components/spaceship-ui-components/BottomMeasure.vue";
+
+// imports Planet on click
+import PlanetOnClick from "../components/home-planets/planetOnClick.vue";
 
 // constantes ref
 const rendererC = ref(); //renderer
@@ -235,61 +260,29 @@ onMounted(() => {
   renderer.onBeforeRender(() => {
     mesh1.rotation.x += 0.001;
     mesh2.rotation.x += -0.001;
-    mesh1.widthSegments = 128;
-    mesh1.heightSegments = 128;
   });
 });
-
-// FONCTIONS POUR LE CLICK AGRANDISSANT LA PLANETE
-let planetClick = false;
-let clickedCameraZ = 100;
-
-function planet1ClickSetup(e) {
-  const mesh = meshC.value.mesh;
-  planetClick = !planetClick;
-  clickedCameraZ = clickedCameraZ * 5;
-  if (planetClick === true) {
-    mesh.scale.x = 30;
-    mesh.scale.y = 30;
-    mesh.scale.z = 30;
-  } else {
-    mesh.scale.x = 10;
-    mesh.scale.y = 10;
-    mesh.scale.z = 10;
-  }
-}
 </script>
 
 <script>
 import { RouterLink, RouterView } from "vue-router";
-import PlanetOnClick from "../components/home-planets/planetOnClick.vue";
 
 // FONCTIONS POUR LE HOVER (click true: permet de retirer le hover quand planète cliquée)
 export default {
   name: "HomeView",
   data() {
     return {
-      displaySpaceshipUi: false,
       PlanetOneHover: false,
-      PlanetOneClicked: false, // var du click sur la planète 1
+
+      planetOnClickVisible: false, // var du click sur la planète (pour afficher les détails : le composant planetOnClick)
     };
   },
   methods: {
-    planet1Click(e) {
-      this.PlanetOneClicked = !this.PlanetOneClicked;
-      console.log("résultat du click : " + this.PlanetOneClicked);
-    },
     planet1Hover({ over }) {
-      if (this.PlanetOneClicked === false) {
-        this.PlanetOneHover = over ? true : false;
-        console.log("résultat du hover : " + this.PlanetOneHover);
-      }
-      if (this.PlanetOneClicked === true) {
-        this.PlanetOneHover = false;
-      }
+      this.PlanetOneHover = over ? true : false;
+      console.log("résultat du hover : " + this.PlanetOneHover);
     },
   },
-  components: { PlanetOnClick },
 };
 
 // FONCTION POUR SUIVI DE LELEMENT "cursor" !

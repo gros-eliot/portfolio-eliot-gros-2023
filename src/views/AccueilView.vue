@@ -6,6 +6,7 @@
     :orbit-ctrl="{ enableDamping: true, enableZoom: false, enablePan: false }"
     resize="window"
     class="h-screen inset-0 -z-10"
+    :alpha="true"
   >
     <Camera :position="{ z: cameraFocusResponsive }" />
     <Scene>
@@ -43,6 +44,10 @@
   <!--Bg black-->
   <div
     class="inset-0 w-full h-screen bg-black opacity-[0.65] absolute pointer-events-none z-0"
+  ></div>
+  <!--Bg space-->
+  <div
+    class="inset-0 w-full h-screen bg-[url(/textures/space.jpg)] absolute pointer-events-none -z-50"
   ></div>
 
   <!-- ACCUEIL CONTENT-->

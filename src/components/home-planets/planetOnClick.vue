@@ -1,48 +1,142 @@
 <template>
-  <!--WORK || WORK || WORK-->
-  <!-- haut du template-->
-  <div class="p-3">
-    <h1 class="portfolio-h1">
-      Ajouter un <span class="text-purple-portfolio">work</span>
-    </h1>
-  </div>
-  <!--fin hero template-->
-
-  <section class="w-10/12 grid grid-cols-3 gap-2">
-    <!--Affichage de la catégorie-->
-    <section
-      class="flex flex-col gap-0 border-gray-700 bg-gray-500 text-gray-300 border rounded-xl"
-      v-for="categorie in listeCategories"
-      :key="categorie.id"
+  <article v-for="categorie in listeCategories" :key="categorie.id">
+    <article
+      v-if="categoryId === categorie.id && thisPlanetOnClickVisible === true"
+      class="transition-all"
     >
-      <div class="p-3 flex flex-col gap-1">
-        <label class="portfolio-h3" for="categoryName">
+      <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
+      <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
+      <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
+
+      <Renderer
+        antialias
+        :orbit-ctrl="{
+          enableDamping: true,
+          enableZoom: false,
+          enablePan: false,
+        }"
+        resize="window"
+        class="absolute inset-0 z-30"
+      >
+        <Camera :position="{ z: cameraFocusResponsive }" />
+        <Scene>
+          <!--PLANETE AFFICHEE-->
+          <Sphere
+            :size="1"
+            :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
+            :scale="{ x: 20, y: 20, z: 20 }"
+            :position="{ x: 0, y: -25, z: 0 }"
+            :cast-shadow="true"
+            :receive-shadow="true"
+            :width-segments="128"
+            :height-segments="128"
+            @pointer-over="planet1Hover"
+          >
+            <BasicMaterial>
+              <Texture :src="texturePlanet" />
+            </BasicMaterial>
+          </Sphere>
+        </Scene>
+
+        <!--Effet améliorant le rendu-->
+        <EffectComposer>
+          <RenderPass />
+          <UnrealBloomPass :strength="1" />
+        </EffectComposer>
+      </Renderer>
+
+      <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
+      <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
+      <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
+
+      <!--Elements de la catégorie-->
+      <article
+        class="z-40 p-4 md:p-8 text-white flex flex-col justify-between items-center absolute inset-0 w-full h-screen pointer-events-none select-text bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)]"
+      >
+        <!--Nom catégorie-->
+        <h2 class="portfolio-h1 text-yellow-portfolio text-center">
+          {{ categorie.name }}
+        </h2>
+        <!--Section pour la grid DETAILS/IMAGES (version ordinateur uniquement)-->
+        <section class="grid grid-cols-2">
+          <!--Details catégorie-->
+          <div>
+            <p class="font-bold text-yellow-portfolio">
+              Elements in : {{ categorie.works }}
+            </p>
+            <div class="grid grid-cols-2">
+              <p class="text-xs">{{ categorie.description }}</p>
+              <p class="text-xs font-bold">{{ categorie.alternativeName }}</p>
+              <p class="text-xs">{{ categorie.volume }}</p>
+              <p class="text-xs">{{ categorie.temperature }}</p>
+              <p class="text-xs">{{ categorie.surfacePressure }}</p>
+              <p class="text-xs">{{ categorie.surfaceArea }}</p>
+              <p class="text-xs">{{ categorie.radius }}</p>
+              <p class="text-xs">{{ categorie.mass }}</p>
+              <p class="text-xs">{{ categorie.inclination }}</p>
+              <p class="text-xs">{{ categorie.apparentMagnitude }}</p>
+            </div>
+          </div>
+
+          <!--Images catégorie-->
+          <div>
+            <img :src="categorie.imageone" class="w-10" alt="" />
+            <!--class="w-40 md:w-52 lg:w-60 xl:w-80"-->
+
+            <img
+              :src="categorie.imagetwo"
+              alt=""
+              class="w-10"
+              v-if="
+                categorie.name === 'University projects' ||
+                categorie.name === 'Personal projects' ||
+                categorie.name === 'Websites' ||
+                categorie.name === 'Digital art' ||
+                categorie.name === 'Branding and marketing'
+              "
+            />
+            <!--class="w-40 md:w-52 lg:w-60 xl:w-80"-->
+          </div>
+        </section>
+        <div
+          class="flex flex-col md:flex-row gap-5 justify-center items-center"
+        >
           <RouterLink
             :to="{ name: 'TestFirebaseView', params: { id: categorie.id } }"
-            >{{ categorie.name }}</RouterLink
+            class="w-fit h-fit pointer-events-auto"
           >
-        </label>
-        <div class="grid grid-cols-2">
-          <p class="text-xs">{{ categorie.alternativeName }}</p>
-          <p class="text-xs">{{ categorie.volume }}</p>
-          <p class="text-xs">{{ categorie.temperature }}</p>
-          <p class="text-xs">{{ categorie.surfacePressure }}</p>
-          <p class="text-xs">{{ categorie.surfaceArea }}</p>
-          <p class="text-xs">{{ categorie.radius }}</p>
-          <p class="text-xs">{{ categorie.mass }}</p>
-          <p class="text-xs">{{ categorie.inclination }}</p>
-          <p class="text-xs">{{ categorie.apparentMagnitude }}</p>
-        </div>
-      </div>
-    </section>
-    <!--<div class="flex flex-row gap-1 items-center">
-        <input type="checkbox" v-model="work.categories" class="w-5 h-5" />
-        <label class="text-xl">{{ categorie.name }}</label>
-      </div>-->
-  </section>
+            <button class="portfolio-button-white w-fit">Land on</button>
+          </RouterLink>
 
-  <!--message de validation-->
+          <button
+            class="portfolio-button-black w-fit pointer-events-auto"
+            @click="thisPlanetOnClickVisible = false"
+          >
+            Back
+          </button>
+        </div>
+      </article>
+    </article>
+  </article>
 </template>
+
+<script setup>
+import {
+  Sphere,
+  Camera,
+  LambertMaterial,
+  BasicMaterial,
+  PointLight,
+  Renderer,
+  Scene,
+  Texture,
+  propsValues,
+  Plane,
+  UnrealBloomPass,
+  EffectComposer,
+  RenderPass,
+} from "troisjs";
+</script>
 
 <script>
 // Bibliothèque Firestore : import des fonctions
@@ -69,11 +163,25 @@ import {
 import { emitter } from "@/main.js";
 
 export default {
-  name: "CreateWorkComponent",
+  name: "planetOnClick",
   data() {
     return {
       listeCategories: [], // Liste des catégories synchronisée - collection categories de Firebase
     };
+  },
+  props: {
+    categoryId: {
+      type: String,
+      required: true,
+    },
+    texturePlanet: {
+      type: String,
+      required: true,
+    },
+    thisPlanetOnClickVisible: {
+      type: Boolean,
+      default: true,
+    },
   },
   mounted() {
     // Montage de la vue
@@ -125,4 +233,13 @@ export default {
     },
   },
 };
+
+// script pour rendre la distance caméra-cube responsive
+let cameraFocusResponsive = 0;
+if (window.screen.width <= 500) {
+  cameraFocusResponsive = 20;
+}
+if (window.screen.width > 500) {
+  cameraFocusResponsive = 40;
+}
 </script>
