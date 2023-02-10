@@ -1,5 +1,5 @@
 <template>
-  <article @eventname="updateparent">
+  <article>
     <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
     <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
     <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
@@ -78,6 +78,7 @@
       :categoryId="'HrSPZKspOCzjj0jfTJEA'"
       :texturePlanet="'/textures/2k_venus_atmosphere.jpg'"
       v-if="planetOnClickVisible === true"
+      @eventname="updateparent"
     />
     <div
       class="w-full h-fit flex justify-center items-center absolute bottom-0 p-8 z-50"
@@ -282,8 +283,9 @@ export default {
       console.log("résultat du hover : " + this.PlanetOneHover);
     },
 
-    updateparent(pOnClickVis) {
-      this.planetOnClickVisible = pOnClickVis;
+    updateparent(value) {
+      this.planetOnClickVisible = value;
+      this.PlanetOneHover = value;
     },
   },
 };

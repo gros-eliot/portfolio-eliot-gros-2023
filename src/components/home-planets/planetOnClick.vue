@@ -112,7 +112,7 @@
 
           <button
             class="portfolio-button-black w-fit pointer-events-auto"
-            @click="clickedButtonBack()"
+            v-on:click="clickedButtonBack"
           >
             Back
           </button>
@@ -171,7 +171,6 @@ export default {
       listeCategories: [], // Liste des catégories synchronisée - collection categories de Firebase
       sphereYRotation: 0,
       sphereZRotation: 0,
-      pOnClickVis: false,
     };
   },
   props: {
@@ -195,9 +194,11 @@ export default {
       }
     }
   },
+  emits: ["eventname"],
   methods: {
     clickedButtonBack() {
-      this.$emit("eventname", this.pOnClickVis);
+      console.log("clicked ");
+      this.$emit("eventname", false);
     },
 
     async getCategories() {
