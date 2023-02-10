@@ -35,7 +35,7 @@
           :receive-shadow="true"
           :width-segments="64"
           :height-segments="64"
-          @click="planetOnClickVisible = !planetOnClickVisible"
+          @click="planetOnClickVisible = true"
           @pointer-over="planet1Hover"
         >
           <BasicMaterial>
@@ -64,7 +64,7 @@
       <!--Effet améliorant le rendu-->
       <EffectComposer>
         <RenderPass />
-        <UnrealBloomPass :strength="1" />
+        <UnrealBloomPass :strength="1" :radius="0.5" :threshold="0" />
       </EffectComposer>
     </Renderer>
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
@@ -72,9 +72,6 @@
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
 
     <!--ONCLICK COMPOSANT-->
-    <!--ONCLICK COMPOSANT-->
-    <!--ONCLICK COMPOSANT-->
-
     <PlanetOnClick
       :categoryId="'HrSPZKspOCzjj0jfTJEA'"
       :texturePlanet="'/textures/2k_venus_atmosphere.jpg'"
@@ -92,12 +89,11 @@
     
     FIN de IMPORTANT.
     -->
-    <!--FIN ONCLICK COMPOSANT-->
-    <!--FIN ONCLICK COMPOSANT-->
+
     <!--FIN ONCLICK COMPOSANT-->
 
-    <!-- HOVERS ELEMENTS -->
-    <!-- HOVERS ELEMENTS -->
+    <!---->
+
     <!-- HOVERS ELEMENTS -->
     <!--CE QU'AFFICHE LE HOVER sur la planète 1-->
     <div
@@ -111,8 +107,9 @@
       <p class="select-none">TEST</p>
     </div>
     <!--FIN HOVERS ELEMENTS -->
-    <!--FIN HOVERS ELEMENTS -->
-    <!--FIN HOVERS ELEMENTS -->
+
+    <!---->
+
     <!--UI spaceship interface-->
     <!--UI spaceship interface-->
     <!--UI spaceship interface-->

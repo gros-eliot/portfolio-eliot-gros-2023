@@ -47,9 +47,11 @@
     .portfolio-button-white:hover {
         color: #FCFF73;
         background: #4949ff;
+        box-shadow: 0px 0px 0px #FCFF73;
         transition:  0.2s ease-out;
-
     }
+
+   
 
     .portfolio-button-black {
     
@@ -67,6 +69,7 @@
         color: black;
         background: #4949ff;
         border: 5px solid black;
+        box-shadow: 0px 0px 0px #FCFF73;
         transition:  0.2s ease-out;
 
     }
