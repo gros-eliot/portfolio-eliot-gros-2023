@@ -126,13 +126,44 @@
           </div>
           <!--Images catégorie-->
           <div class="flex flex-col justify-between h-full">
-            <img
-              :src="categorie.imageone"
-              class="w-8/12 rounded-lg pointer-events-auto"
-              :alt="categorie.name + ' first example image'"
-            />
-            <!--class="w-40 md:w-52 lg:w-60 xl:w-80"-->
+            <div class="imageContainer pointer-events-auto">
+              <img
+                :src="categorie.imageone"
+                class="foregroundImg w-60"
+                :alt="categorie.name + ' first example image'"
+              />
+              <img
+                :src="categorie.imageone"
+                class="backgroundImg w-60"
+                :alt="categorie.name + ' first example image'"
+              />
+            </div>
 
+            <!--w-8/12 rounded-lg pointer-events-auto-->
+
+            <div
+              class="imageContainer pointer-events-auto"
+              v-if="
+                categorie.name === 'University projects' ||
+                categorie.name === 'Personal projects' ||
+                categorie.name === 'Websites' ||
+                categorie.name === 'Digital art' ||
+                categorie.name === 'Branding and marketing'
+              "
+            >
+              <img
+                :src="categorie.imagetwo"
+                class="foregroundImg w-60"
+                :alt="categorie.name + ' first example image'"
+              />
+              <img
+                :src="categorie.imagetwo"
+                class="backgroundImg w-60"
+                :alt="categorie.name + ' second example image'"
+              />
+            </div>
+
+            <!--
             <img
               :src="categorie.imagetwo"
               :alt="categorie.name + ' second example image'"
@@ -144,7 +175,8 @@
                 categorie.name === 'Digital art' ||
                 categorie.name === 'Branding and marketing'
               "
-            />
+            />-->
+
             <!--class="w-40 md:w-52 lg:w-60 xl:w-80"-->
           </div>
         </section>
@@ -355,5 +387,25 @@ if (window.screen.width > 760) {
 <style scoped>
 img {
   filter: url(#svgSharpen);
+}
+
+.imageContainer {
+  position: relative;
+  width: max-content;
+}
+
+.foregroundImg {
+  position: relative;
+  z-index: 2;
+  border-radius: 10px;
+}
+.backgroundImg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: scale(0.9);
+  z-index: 1;
+  filter: blur(25px);
+  border-radius: 10px;
 }
 </style>
