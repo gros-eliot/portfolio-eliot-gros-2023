@@ -52,49 +52,85 @@
         <!---->
         <!---->
 
-        <!--Nom catégorie-->
-        <div class="flex flex-col justify-center gap-1">
-          <h2
-            class="portfolio-h1 text-yellow-portfolio text-center drop-shadow-xl"
+        <!--Nom catégorie + description-->
+        <section class="flex justify-center items-center w-full">
+          <div
+            class="flex flex-col justify-center gap-1 text-center w-full p-0 py-2 md:w-10/12 md:p-2"
           >
-            {{ categorie.name }}
-          </h2>
-          <p class="text-center">{{ categorie.description }}</p>
-        </div>
+            <h2
+              class="portfolio-h1 leading-[2rem] md:leading-[3.25rem] text-yellow-portfolio"
+            >
+              {{ categorie.name }}
+            </h2>
+            <p class="">
+              {{ categorie.description }}
+            </p>
+          </div>
+        </section>
 
         <!--Section pour la grid DETAILS/IMAGES (version ordinateur uniquement)-->
         <section
-          class="grid grid-cols-4 w-full justify-items-center items-start"
+          class="hidden lg:grid grid-cols-4 w-full justify-items-center items-start"
         >
           <!--Details catégorie-->
-          <div>
-            <p class="font-bold text-yellow-portfolio">
-              Elements in : {{ categorie.works }}
-            </p>
-            <div class="grid grid-cols-2">
-              <p class="font-bold">{{ categorie.alternativeName }}</p>
-              <p class="">{{ categorie.volume }}</p>
-              <p class="">{{ categorie.temperature }}</p>
-              <p class="">{{ categorie.surfacePressure }}</p>
-              <p class="">{{ categorie.surfaceArea }}</p>
-              <p class="">{{ categorie.radius }}</p>
-              <p class="">{{ categorie.mass }}</p>
-              <p class="">{{ categorie.inclination }}</p>
-              <p class="">{{ categorie.apparentMagnitude }}</p>
+          <div class="flex flex-col gap-5">
+            <!--partie principale-->
+            <div class="flex flex-col gap-1">
+              <p class="font-bold text-yellow-portfolio text-xl">
+                Works in : {{ categorie.works }}
+              </p>
+              <p class="font-bold text-white">
+                Alternative name : {{ categorie.alternativeName }}
+              </p>
+            </div>
+
+            <!--partie secondaire-->
+            <div class="flex flex-col gap-10 font-thin text-sm">
+              <div class="flex flex-col gap-0">
+                <p>Radius : {{ categorie.radius }}</p>
+                <p>Inclination : {{ categorie.inclination }}</p>
+              </div>
+
+              <div class="flex flex-col gap-0">
+                <p>Volume : {{ categorie.volume }}</p>
+                <p>Mass : {{ categorie.mass }}</p>
+                <p>Surface area : {{ categorie.surfaceArea }}</p>
+              </div>
+
+              <div class="flex flex-col gap-0">
+                <p>Surface pressure :{{ categorie.surfacePressure }}</p>
+                <p>Temperature :{{ categorie.temperature }}</p>
+                <p>Apparent magnitude : {{ categorie.apparentMagnitude }}</p>
+              </div>
             </div>
           </div>
 
-          <div></div>
-          <div></div>
-          <!--Images catégorie-->
           <div>
-            <img :src="categorie.imageone" class="w-10/12" alt="" />
+            <AnnotationPlanetText class="w-6/12 h-fit" />
+          </div>
+
+          <div class="flex flex-col justify-between items-end h-full">
+            <AnnotationPlanetImgOne class="w-6/12 h-fit" />
+            <AnnotationPlanetImgTwo
+              class="w-6/12 h-fit"
+              v-if="
+                categorie.name === 'University projects' ||
+                categorie.name === 'Personal projects' ||
+                categorie.name === 'Websites' ||
+                categorie.name === 'Digital art' ||
+                categorie.name === 'Branding and marketing'
+              "
+            />
+          </div>
+          <!--Images catégorie-->
+          <div class="flex flex-col justify-between h-full">
+            <img :src="categorie.imageone" class="w-8/12" alt="" />
             <!--class="w-40 md:w-52 lg:w-60 xl:w-80"-->
 
             <img
               :src="categorie.imagetwo"
               alt=""
-              class="w-10/12"
+              class="w-8/12"
               v-if="
                 categorie.name === 'University projects' ||
                 categorie.name === 'Personal projects' ||
@@ -170,6 +206,11 @@ import {
 
 import { emitter } from "@/main.js";
 
+//import élément annotation planetes
+import AnnotationPlanetText from "./AnnotationPlanetText.vue";
+import AnnotationPlanetImgOne from "./AnnotationPlanetImgOne.vue";
+import AnnotationPlanetImgTwo from "./AnnotationPlanetImgTwo.vue";
+
 export default {
   name: "planetOnClick",
   data() {
@@ -196,7 +237,6 @@ export default {
     clickedButtonBack() {
       this.$emit("backEvent", false);
     },
-
     async getCategories() {
       // Obtenir Firestore
       const firestore = getFirestore();
@@ -227,7 +267,6 @@ export default {
             .catch((error) => {
               console.log("erreur downloadUrl", error);
             });
-
           getDownloadURL(spaceRef2)
             .then((url) => {
               // On remplace le nom du fichier
@@ -241,14 +280,19 @@ export default {
       });
     },
   },
+  components: {
+    AnnotationPlanetText,
+    AnnotationPlanetImgOne,
+    AnnotationPlanetImgTwo,
+  },
 };
 
 // script pour rendre la distance caméra-cube responsive
 let cameraFocusResponsive = 0;
-if (window.screen.width <= 500) {
+if (window.screen.width <= 760) {
   cameraFocusResponsive = 140;
 }
-if (window.screen.width > 500) {
-  cameraFocusResponsive = 80;
+if (window.screen.width > 760) {
+  cameraFocusResponsive = 100;
 }
 </script>
