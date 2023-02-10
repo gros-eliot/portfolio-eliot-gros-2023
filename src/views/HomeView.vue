@@ -15,15 +15,37 @@
       <Scene>
         <PointLight :position="{ y: 50 }" :intensity="0.5" />
         <!--Test modele-->
-        <!--
+
+        <!--MODELE MMI + LUMIERE MMI-->
+        <Group>
+          <GltfModel
+            ref="meshMMI"
+            src="/models/ordinateur-projet-s3.glb"
+            @load="onReady"
+            @progress="onProgress"
+            @error="onError"
+            :position="{ x: -50, y: 20, z: -50 }"
+            :scale="{ x: 10, y: 10, z: 10 }"
+            :rotation="{ x: -Math.PI / 4, y: 0, z: -Math.PI / 16 }"
+            :cast-shadow="true"
+            :receive-shadow="true"
+          />
+        </Group>
+
+        <!--MODELE NIKE + LUMIERE NIKE-->
+        <PointLight :position="{ y: 500, x: -100 }" :intensity="0.1" />
         <GltfModel
-          src="/models/air_force_v2-gltb.glb"
+          ref="meshNike"
+          src="/models/air_force_v2-glb.glb"
           @load="onReady"
           @progress="onProgress"
           @error="onError"
-          :position="{ x: -200, y: 0, z: 0 }"
-          :scale="{ x: 30, y: 30, z: 30 }"
-        />-->
+          :position="{ x: -100, y: 0, z: 0 }"
+          :scale="{ x: 5, y: 5, z: 5 }"
+          :rotation="{ y: -Math.PI / 4, z: Math.PI / 8 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+        />
         <!--PLANETE 1-->
         <Sphere
           ref="meshC"
@@ -64,7 +86,7 @@
       <!--Effet améliorant le rendu-->
       <EffectComposer>
         <RenderPass />
-        <UnrealBloomPass :strength="1" :radius="0.5" :threshold="0" />
+        <UnrealBloomPass :strength="0.7" :radius="0.5" :threshold="0" />
       </EffectComposer>
     </Renderer>
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
@@ -73,7 +95,7 @@
 
     <!--ONCLICK COMPOSANT-->
     <PlanetOnClick
-      :categoryId="'HrSPZKspOCzjj0jfTJEA'"
+      :categoryId="'GLZu0Wq0LKuvLe1tkOgy'"
       :texturePlanet="'/textures/2k_venus_atmosphere.jpg'"
       v-if="planetOnClickVisible === true"
       @backEvent="updateparent"
@@ -224,6 +246,19 @@ import PlanetOnClick from "../components/home-planets/planetOnClick.vue";
 const rendererC = ref(); //renderer
 const meshC = ref(); //mesh planete 1
 const meshD = ref(); //mesh planete 2
+const meshNike = ref(); // mesh nike
+
+// rotation des planètes constante
+onMounted(() => {
+  const renderer = rendererC.value;
+  const mesh1 = meshC.value.mesh;
+  const mesh2 = meshD.value.mesh;
+  const mesh3 = meshNike.value.mesh;
+  renderer.onBeforeRender(() => {
+    mesh1.rotation.x += 0.001;
+    mesh2.rotation.x += -0.001;
+  });
+});
 
 let levelBattery = ref(0); // Niveau de la batterie
 // Niveau de la batterie
@@ -239,17 +274,6 @@ navigator.getBattery().then(function (battery) {
   document
     .getElementById("containerBattery")
     .insertAdjacentHTML("beforeend", "<p>" + levelBattery * 100 + "% </p>");
-});
-
-// rotation des planètes constante
-onMounted(() => {
-  const renderer = rendererC.value;
-  const mesh1 = meshC.value.mesh;
-  const mesh2 = meshD.value.mesh;
-  renderer.onBeforeRender(() => {
-    mesh1.rotation.x += 0.001;
-    mesh2.rotation.x += -0.001;
-  });
 });
 </script>
 

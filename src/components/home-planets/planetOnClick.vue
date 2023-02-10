@@ -60,7 +60,7 @@
             class="flex flex-col justify-center gap-1 text-center w-full p-0 py-2 md:w-10/12 md:p-2"
           >
             <h2
-              class="portfolio-h1 leading-[2rem] md:leading-[3.25rem] text-yellow-portfolio"
+              class="tracking-tighter font-rubik-mono-one text-[2.25rem] lg:text-[4rem] leading-[2rem] md:leading-[3.25rem] text-yellow-portfolio"
             >
               {{ categorie.name }}
             </h2>
