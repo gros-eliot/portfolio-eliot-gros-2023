@@ -1,9 +1,6 @@
 <template>
   <article v-for="categorie in listeCategories" :key="categorie.id">
-    <article
-      v-if="categoryId === categorie.id && thisPlanetOnClickVisible === true"
-      class="transition-all"
-    >
+    <article v-if="categoryId === categorie.id" class="transition-all">
       <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
       <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
       <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
@@ -16,16 +13,16 @@
           enablePan: false,
         }"
         resize="window"
-        class="absolute inset-0 z-30"
+        class="absolute inset-0 max-w-full max-h-screen z-30"
       >
         <Camera :position="{ z: cameraFocusResponsive }" />
         <Scene>
           <!--PLANETE AFFICHEE-->
           <Sphere
             :size="1"
-            :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
+            :rotation="{ y: sphereYRotation, z: sphereZRotation }"
             :scale="{ x: 20, y: 20, z: 20 }"
-            :position="{ x: 0, y: -25, z: 0 }"
+            :position="{ x: 0, y: 0, z: 0 }"
             :cast-shadow="true"
             :receive-shadow="true"
             :width-segments="128"
@@ -41,7 +38,7 @@
         <!--Effet améliorant le rendu-->
         <EffectComposer>
           <RenderPass />
-          <UnrealBloomPass :strength="1" />
+          <UnrealBloomPass :strength="0.3" />
         </EffectComposer>
       </Renderer>
 
@@ -51,8 +48,13 @@
 
       <!--Elements de la catégorie-->
       <article
-        class="z-40 p-4 md:p-8 text-white flex flex-col justify-between items-center absolute inset-0 w-full h-screen pointer-events-none select-text bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)]"
+        class="z-40 p-4 md:p-8 text-white absolute inset-0 w-full h-screen pointer-events-none select-text bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)]"
       >
+        <!--bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)]-->
+        <!-- flex flex-col justify-between -->
+        <!---->
+        <!---->
+
         <!--Nom catégorie-->
         <h2 class="portfolio-h1 text-yellow-portfolio text-center">
           {{ categorie.name }}
@@ -110,7 +112,7 @@
 
           <button
             class="portfolio-button-black w-fit pointer-events-auto"
-            @click="thisPlanetOnClickVisible = false"
+            @click="clickedButtonBack()"
           >
             Back
           </button>
@@ -167,6 +169,9 @@ export default {
   data() {
     return {
       listeCategories: [], // Liste des catégories synchronisée - collection categories de Firebase
+      sphereYRotation: 0,
+      sphereZRotation: 0,
+      pOnClickVis: false,
     };
   },
   props: {
@@ -178,16 +183,23 @@ export default {
       type: String,
       required: true,
     },
-    thisPlanetOnClickVisible: {
-      type: Boolean,
-      default: true,
-    },
   },
   mounted() {
     // Montage de la vue
     this.getCategories();
+
+    for (let yi = 1; yi > 0 && yi <= 360; yi++) {
+      this.sphereYRotation += 0.01;
+      if ((this.sphereYRotation = 360)) {
+        this.sphereYRotation = 0;
+      }
+    }
   },
   methods: {
+    clickedButtonBack() {
+      this.$emit("eventname", this.pOnClickVis);
+    },
+
     async getCategories() {
       // Obtenir Firestore
       const firestore = getFirestore();
@@ -237,9 +249,9 @@ export default {
 // script pour rendre la distance caméra-cube responsive
 let cameraFocusResponsive = 0;
 if (window.screen.width <= 500) {
-  cameraFocusResponsive = 20;
+  cameraFocusResponsive = 140;
 }
 if (window.screen.width > 500) {
-  cameraFocusResponsive = 40;
+  cameraFocusResponsive = 80;
 }
 </script>
