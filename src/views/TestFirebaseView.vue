@@ -1,34 +1,35 @@
 <template>
-  <h1 class="portfolio-h1">
-    {{ categorie.name }}
-  </h1>
-
-  <hr class="my-2" />
-  <article>
-    <section v-for="work in listeWorks" :key="work.name">
-      <div
-        v-if="
-          (work.categories[0].name === categorie.name) |
-            (work.categories[1].name === categorie.name) |
-            (work.categories[2].name === categorie.name) |
-            (work.categories[3].name === categorie.name) |
-            (work.categories[4].name === categorie.name) |
-            (work.categories[5].name === categorie.name) |
-            (work.categories[6].name === categorie.name)
-        "
-      >
-        <p>{{ work.name }}</p>
-        <img :src="work.photo" />
-        <p v-for="categoryTool in work.outils" :key="categoryTool.id">
-          {{ categoryTool.name }}
-        </p>
-        <p v-for="categoryWork in work.categories" :key="categoryWork.id">
-          {{ categoryWork.name }}
-        </p>
-        <hr class="my-5" />
-      </div>
-    </section>
-  </article>
+  <div class="bg-white">
+    <h1 class="portfolio-h1">
+      {{ categorie.name }}
+    </h1>
+    <hr class="my-2" />
+    <article>
+      <section v-for="work in listeWorks" :key="work.name">
+        <div
+          v-if="
+            (work.categories[0].name === categorie.name) |
+              (work.categories[1].name === categorie.name) |
+              (work.categories[2].name === categorie.name) |
+              (work.categories[3].name === categorie.name) |
+              (work.categories[4].name === categorie.name) |
+              (work.categories[5].name === categorie.name) |
+              (work.categories[6].name === categorie.name)
+          "
+        >
+          <p>{{ work.name }}</p>
+          <img :src="work.photo" />
+          <p v-for="categoryTool in work.outils" :key="categoryTool.id">
+            {{ categoryTool.name }}
+          </p>
+          <p v-for="categoryWork in work.categories" :key="categoryWork.id">
+            {{ categoryWork.name }}
+          </p>
+          <hr class="my-5" />
+        </div>
+      </section>
+    </article>
+  </div>
 </template>
 
 <script>

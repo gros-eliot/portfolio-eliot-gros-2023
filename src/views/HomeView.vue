@@ -70,27 +70,18 @@
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
+
     <!--ONCLICK COMPOSANT-->
     <!--ONCLICK COMPOSANT-->
     <!--ONCLICK COMPOSANT-->
-    <!--Planete volunteering-->
+
     <PlanetOnClick
       :categoryId="'HrSPZKspOCzjj0jfTJEA'"
       :texturePlanet="'/textures/2k_venus_atmosphere.jpg'"
       v-if="planetOnClickVisible === true"
-      @eventname="updateparent"
+      @backEvent="updateparent"
     />
-    <div
-      class="w-full h-fit flex justify-center items-center absolute bottom-0 p-8 z-50"
-    >
-      <button
-        @click="(planetOnClickVisible = false), (PlanetOneHover = false)"
-        v-if="planetOnClickVisible === true"
-        class="portfolio-button-black w-fit text-sm"
-      >
-        Back
-      </button>
-    </div>
+
     <!--IMPORTANT :
     <PlanetOnClick :categoryId="selectedCategoryId" v-if="planetOnClickVisible === true" />
     <planet1 @click="selectedCategoryId = '...'  // planetOnClickVisible = true" />
@@ -104,6 +95,7 @@
     <!--FIN ONCLICK COMPOSANT-->
     <!--FIN ONCLICK COMPOSANT-->
     <!--FIN ONCLICK COMPOSANT-->
+
     <!-- HOVERS ELEMENTS -->
     <!-- HOVERS ELEMENTS -->
     <!-- HOVERS ELEMENTS -->

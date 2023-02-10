@@ -1,6 +1,6 @@
 <template>
   <article v-for="categorie in listeCategories" :key="categorie.id">
-    <article v-if="categoryId === categorie.id" class="transition-all">
+    <article v-if="categoryId === categorie.id">
       <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
       <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
       <!--DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || DEBUT RENDU 3D || -->
@@ -20,14 +20,12 @@
           <!--PLANETE AFFICHEE-->
           <Sphere
             :size="1"
-            :rotation="{ y: sphereYRotation, z: sphereZRotation }"
             :scale="{ x: 20, y: 20, z: 20 }"
             :position="{ x: 0, y: 0, z: 0 }"
             :cast-shadow="true"
             :receive-shadow="true"
             :width-segments="128"
             :height-segments="128"
-            @pointer-over="planet1Hover"
           >
             <BasicMaterial>
               <Texture :src="texturePlanet" />
@@ -48,47 +46,55 @@
 
       <!--Elements de la catégorie-->
       <article
-        class="z-40 p-4 md:p-8 text-white absolute inset-0 w-full h-screen pointer-events-none select-text bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)]"
+        class="flex flex-col justify-between z-40 p-4 md:p-8 text-white absolute inset-0 w-full h-full pointer-events-none select-text bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)]"
       >
-        <!--bg-[linear-gradient(180deg,rgba(0,0,0,0)60.71%,rgba(0,0,0,0)62.81%,rgba(33,37,54,60)100%)]-->
         <!-- flex flex-col justify-between -->
         <!---->
         <!---->
 
         <!--Nom catégorie-->
-        <h2 class="portfolio-h1 text-yellow-portfolio text-center">
-          {{ categorie.name }}
-        </h2>
+        <div class="flex flex-col justify-center gap-1">
+          <h2
+            class="portfolio-h1 text-yellow-portfolio text-center drop-shadow-xl"
+          >
+            {{ categorie.name }}
+          </h2>
+          <p class="text-center">{{ categorie.description }}</p>
+        </div>
+
         <!--Section pour la grid DETAILS/IMAGES (version ordinateur uniquement)-->
-        <section class="grid grid-cols-2">
+        <section
+          class="grid grid-cols-4 w-full justify-items-center items-start"
+        >
           <!--Details catégorie-->
           <div>
             <p class="font-bold text-yellow-portfolio">
               Elements in : {{ categorie.works }}
             </p>
             <div class="grid grid-cols-2">
-              <p class="text-xs">{{ categorie.description }}</p>
-              <p class="text-xs font-bold">{{ categorie.alternativeName }}</p>
-              <p class="text-xs">{{ categorie.volume }}</p>
-              <p class="text-xs">{{ categorie.temperature }}</p>
-              <p class="text-xs">{{ categorie.surfacePressure }}</p>
-              <p class="text-xs">{{ categorie.surfaceArea }}</p>
-              <p class="text-xs">{{ categorie.radius }}</p>
-              <p class="text-xs">{{ categorie.mass }}</p>
-              <p class="text-xs">{{ categorie.inclination }}</p>
-              <p class="text-xs">{{ categorie.apparentMagnitude }}</p>
+              <p class="font-bold">{{ categorie.alternativeName }}</p>
+              <p class="">{{ categorie.volume }}</p>
+              <p class="">{{ categorie.temperature }}</p>
+              <p class="">{{ categorie.surfacePressure }}</p>
+              <p class="">{{ categorie.surfaceArea }}</p>
+              <p class="">{{ categorie.radius }}</p>
+              <p class="">{{ categorie.mass }}</p>
+              <p class="">{{ categorie.inclination }}</p>
+              <p class="">{{ categorie.apparentMagnitude }}</p>
             </div>
           </div>
 
+          <div></div>
+          <div></div>
           <!--Images catégorie-->
           <div>
-            <img :src="categorie.imageone" class="w-10" alt="" />
+            <img :src="categorie.imageone" class="w-10/12" alt="" />
             <!--class="w-40 md:w-52 lg:w-60 xl:w-80"-->
 
             <img
               :src="categorie.imagetwo"
               alt=""
-              class="w-10"
+              class="w-10/12"
               v-if="
                 categorie.name === 'University projects' ||
                 categorie.name === 'Personal projects' ||
@@ -169,8 +175,6 @@ export default {
   data() {
     return {
       listeCategories: [], // Liste des catégories synchronisée - collection categories de Firebase
-      sphereYRotation: 0,
-      sphereZRotation: 0,
     };
   },
   props: {
@@ -186,19 +190,11 @@ export default {
   mounted() {
     // Montage de la vue
     this.getCategories();
-
-    for (let yi = 1; yi > 0 && yi <= 360; yi++) {
-      this.sphereYRotation += 0.01;
-      if ((this.sphereYRotation = 360)) {
-        this.sphereYRotation = 0;
-      }
-    }
   },
-  emits: ["eventname"],
+  emits: ["backEvent"],
   methods: {
     clickedButtonBack() {
-      console.log("clicked ");
-      this.$emit("eventname", false);
+      this.$emit("backEvent", false);
     },
 
     async getCategories() {

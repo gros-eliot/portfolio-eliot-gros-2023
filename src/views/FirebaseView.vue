@@ -1,5 +1,5 @@
 <template>
-  <article class="grid grid-cols-[80%,20%]">
+  <article class="grid grid-cols-[80%,20%] bg-white">
     <section class="flex flex-col gap-96">
       <div id="create_categorie">
         <CreateCategorieComponent />
@@ -7,7 +7,7 @@
       <div id="create_outil">
         <CreateToolsComponent />
       </div>
-    
+
       <div id="create_work">
         <CreateWorkComponent />
       </div>
