@@ -27,7 +27,7 @@
         <!--PLANETE 1 : personnal projects-->
         <Sphere
           ref="meshA"
-          :scale="{ x: 5, y: 5, z: 5 }"
+          :scale="{ x: 6, y: 6, z: 6 }"
           :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
           :position="{ x: 10, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -44,7 +44,7 @@
         <!--PLANETE 2 : university projects-->
         <Sphere
           ref="meshB"
-          :scale="{ x: 5, y: 5, z: 5 }"
+          :scale="{ x: 6, y: 6, z: 6 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
           :position="{ x: -10, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -62,8 +62,8 @@
         <!--TORUS KNOT : branding-->
         <TorusKnot
           ref="meshC"
-          :scale="{ x: 3, y: 3, z: 3 }"
-          :position="{ x: -400, y: 0, z: 0 }"
+          :scale="{ x: 0.08, y: 0.08, z: 0.08 }"
+          :position="{ x: 10.5, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :radius="6.5"
@@ -81,9 +81,9 @@
         <!--SPHERE Websites-->
         <Sphere
           ref="meshD"
-          :scale="{ x: 25, y: 25, z: 25 }"
+          :scale="{ x: 1.4, y: 1.4, z: 1.4 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :position="{ x: 200, y: 0, z: 0 }"
+          :position="{ x: 10.5, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -97,16 +97,15 @@
         <!--Traditionnal art-->
         <NoisyImage
           ref="meshE"
-          src="/textures/2k_neptune.jpg"
-          :width="
-            noisyImageWidth // responsive width
-          "
+          src="/textures/portfolio-art-traditionnel.jpg"
+          :width="4"
           :time-coef="0.001"
-          :noise-coef="1"
-          :z-coef="3"
+          :noise-coef="0.3"
+          :z-coef="1"
           :disp-coef="1"
-          :rotation="{ x: -Math.PI / 6 }"
-          :position="{ x: 300, y: 0, z: 0 }"
+          :rotation="{ y: Math.PI / 2 }"
+          :position="{ x: 10.5, y: 0, z: 0 }"
+          @pointer-over="planet1Hover"
         />
 
         <!--Torus: digital art-->
@@ -130,9 +129,9 @@
         <!--Octahedron: video games-->
         <Octahedron
           ref="meshG"
-          :scale="{ x: 2.5, y: 2.5, z: 2.5 }"
-          :rotation="{ x: 0, y: 0, z: 0 }"
-          :position="{ x: -300, y: 0, z: 0 }"
+          :scale="{ x: 0.1, y: 0.1, z: 0.1 }"
+          :rotation="{ x: 0, y: Math.PI / 2, z: 0 }"
+          :position="{ x: -10.5, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :radius="10"
@@ -146,9 +145,9 @@
         <!--SPHERE Volunteering-->
         <Sphere
           ref="meshH"
-          :scale="{ x: 15, y: 15, z: 15 }"
+          :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :position="{ x: 400, y: 0, z: 0 }"
+          :position="{ x: -10.5, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -221,6 +220,78 @@
           :cast-shadow="true"
           :receive-shadow="true"
           :inner-radius="10.3"
+          :outer-radius="10.5"
+          :theta-segments="50"
+          :phi-segments="8"
+          :theta-start="0"
+          :theta-length="6.283185307179586"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_mercury.jpg" />
+          </BasicMaterial>
+        </Ring>
+        <!--Anneaux de la scène : C-->
+        <Ring
+          ref="meshRingC"
+          :scale="{ x: 32, y: 32, z: 32 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :inner-radius="10.35"
+          :outer-radius="10.5"
+          :theta-segments="50"
+          :phi-segments="8"
+          :theta-start="0"
+          :theta-length="6.283185307179586"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_mercury.jpg" />
+          </BasicMaterial>
+        </Ring>
+        <Ring
+          :scale="{ x: 32, y: 32, z: 32 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :inner-radius="10.35"
+          :outer-radius="10.5"
+          :theta-segments="50"
+          :phi-segments="8"
+          :theta-start="0"
+          :theta-length="6.283185307179586"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_mercury.jpg" />
+          </BasicMaterial>
+        </Ring>
+        <!--Anneaux de la scène : D-->
+        <Ring
+          ref="meshRingD"
+          :scale="{ x: 42, y: 42, z: 42 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :inner-radius="10.4"
+          :outer-radius="10.5"
+          :theta-segments="50"
+          :phi-segments="8"
+          :theta-start="0"
+          :theta-length="6.283185307179586"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_mercury.jpg" />
+          </BasicMaterial>
+        </Ring>
+        <Ring
+          :scale="{ x: 42, y: 42, z: 42 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :inner-radius="10.4"
           :outer-radius="10.5"
           :theta-segments="50"
           :phi-segments="8"
@@ -417,6 +488,8 @@ const meshH = ref(); //mesh planete 8 | volunteering
 
 const meshRingA = ref();
 const meshRingB = ref();
+const meshRingC = ref();
+const meshRingD = ref();
 
 // rotation des planètes constante
 onMounted(() => {
@@ -431,6 +504,8 @@ onMounted(() => {
   const mesh8 = meshH.value.mesh;
   const meshRing1 = meshRingA.value.mesh;
   const meshRing2 = meshRingB.value.mesh;
+  const meshRing3 = meshRingC.value.mesh;
+  const meshRing4 = meshRingD.value.mesh;
 
   meshRing1.add(mesh1);
   meshRing1.add(mesh2);
@@ -438,32 +513,39 @@ onMounted(() => {
   meshRing2.add(mesh4);
   meshRing2.add(mesh6);
 
+  meshRing3.add(mesh5);
+  meshRing3.add(mesh7);
+
+  meshRing4.add(mesh3);
+  meshRing4.add(mesh8);
+
   renderer.onBeforeRender(() => {
     //1 : perso project(sphere)
     mesh1.rotation.x += 0.003;
     //2 : univ project(sphere)
     mesh2.rotation.x += -0.001;
     //3 : branding(torus knot)
-    mesh3.rotation.y += 0.002;
     mesh3.rotation.x += 0.002;
+    mesh3.rotation.y += 0.002;
     //4 : websites
     mesh4.rotation.x += 0.001;
     //5 : trad art
-    mesh5.rotation.x += 0.001;
-    mesh5.rotation.y += 0.002;
+    mesh5.rotation.z += 0.001;
     //6 : digital art
     mesh6.rotation.z += 0.002;
 
     //7 : video games
+    mesh7.rotation.x += 0.009;
     mesh7.rotation.y += 0.009;
+    mesh7.rotation.z += 0.009;
     //8 : volunteering
     mesh8.rotation.x += 0.001;
 
     // GROUP RINGS
     meshRing1.rotation.z += 0.0005;
     meshRing2.rotation.z += -0.001;
-    //meshRing3.rotation.z += -0.0015;
-    //meshRing4.rotation.z += -0.002;
+    meshRing3.rotation.z += 0.0013;
+    meshRing4.rotation.z += -0.0018;
   });
 });
 
@@ -522,14 +604,16 @@ document.addEventListener(
 );
 
 // noisyImage responsive width function
+/* 
 let noisyImageWidth = 0;
 if (window.screen.width <= 500) {
-  noisyImageWidth = window.screen.width / 4;
+  noisyImageWidth = window.screen.width / 400;
 }
 if (window.screen.width > 500) {
-  noisyImageWidth = window.screen.width / 8;
+  noisyImageWidth = window.screen.width / 800;
 }
 if (window.screen.width > 1000) {
-  noisyImageWidth = window.screen.width / 12;
+  noisyImageWidth = window.screen.width / 500;
 }
+*/
 </script>
