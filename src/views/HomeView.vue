@@ -99,7 +99,7 @@
           ref="meshE"
           src="/textures/2k_neptune.jpg"
           :width="
-            90 //faire une valeur responsive!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            noisyImageWidth // responsive width
           "
           :time-coef="0.001"
           :noise-coef="1"
@@ -112,9 +112,9 @@
         <!--Torus: digital art-->
         <Torus
           ref="meshF"
-          :scale="{ x: 2, y: 2, z: 2 }"
-          :rotation="{ x: 0, y: 0, z: 0 }"
-          :position="{ x: -200, y: 0, z: 0 }"
+          :scale="{ x: 0.1, y: 0.1, z: 0.1 }"
+          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
+          :position="{ x: -10.5, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :radius="8"
@@ -159,7 +159,7 @@
           </BasicMaterial>
         </Sphere>
 
-        <!--Anneaux de la scène-->
+        <!--Anneaux de la scène : A-->
         <Ring
           ref="meshRingA"
           :scale="{ x: 8, y: 8, z: 8 }"
@@ -178,7 +178,6 @@
             <Texture src="/textures/2k_mercury.jpg" />
           </BasicMaterial>
         </Ring>
-        <!--Anneaux de la scène-->
         <Ring
           :scale="{ x: 8, y: 8, z: 8 }"
           :position="{ x: 0, y: 0, z: 0 }"
@@ -186,6 +185,42 @@
           :cast-shadow="true"
           :receive-shadow="true"
           :inner-radius="10"
+          :outer-radius="10.5"
+          :theta-segments="50"
+          :phi-segments="8"
+          :theta-start="0"
+          :theta-length="6.283185307179586"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_mercury.jpg" />
+          </BasicMaterial>
+        </Ring>
+        <!--Anneaux de la scène : B-->
+        <Ring
+          ref="meshRingB"
+          :scale="{ x: 20, y: 20, z: 20 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :inner-radius="10.3"
+          :outer-radius="10.5"
+          :theta-segments="50"
+          :phi-segments="8"
+          :theta-start="0"
+          :theta-length="6.283185307179586"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_mercury.jpg" />
+          </BasicMaterial>
+        </Ring>
+        <Ring
+          :scale="{ x: 20, y: 20, z: 20 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :inner-radius="10.3"
           :outer-radius="10.5"
           :theta-segments="50"
           :phi-segments="8"
@@ -381,6 +416,7 @@ const meshG = ref(); //mesh planete 7 | video games
 const meshH = ref(); //mesh planete 8 | volunteering
 
 const meshRingA = ref();
+const meshRingB = ref();
 
 // rotation des planètes constante
 onMounted(() => {
@@ -394,9 +430,13 @@ onMounted(() => {
   const mesh7 = meshG.value.mesh;
   const mesh8 = meshH.value.mesh;
   const meshRing1 = meshRingA.value.mesh;
+  const meshRing2 = meshRingB.value.mesh;
 
   meshRing1.add(mesh1);
   meshRing1.add(mesh2);
+
+  meshRing2.add(mesh4);
+  meshRing2.add(mesh6);
 
   renderer.onBeforeRender(() => {
     //1 : perso project(sphere)
@@ -412,18 +452,18 @@ onMounted(() => {
     mesh5.rotation.x += 0.001;
     mesh5.rotation.y += 0.002;
     //6 : digital art
-    mesh6.rotation.y += 0.003;
-    mesh6.rotation.x += 0.003;
-    mesh6.rotation.z += 0.003;
+    mesh6.rotation.z += 0.002;
+
     //7 : video games
     mesh7.rotation.y += 0.009;
     //8 : volunteering
     mesh8.rotation.x += 0.001;
 
-    meshRing1.rotation.z += 0.002;
-
-    // GROUPS
-    //group 1 : Perso projects/univ projects
+    // GROUP RINGS
+    meshRing1.rotation.z += 0.0005;
+    meshRing2.rotation.z += -0.001;
+    //meshRing3.rotation.z += -0.0015;
+    //meshRing4.rotation.z += -0.002;
   });
 });
 
@@ -480,4 +520,16 @@ document.addEventListener(
   },
   false
 );
+
+// noisyImage responsive width function
+let noisyImageWidth = 0;
+if (window.screen.width <= 500) {
+  noisyImageWidth = window.screen.width / 4;
+}
+if (window.screen.width > 500) {
+  noisyImageWidth = window.screen.width / 8;
+}
+if (window.screen.width > 1000) {
+  noisyImageWidth = window.screen.width / 12;
+}
 </script>

@@ -124,6 +124,7 @@ canvas {
   width: 100%;
 }
 </style>
+
 <script>
 // script pour rendre la distance caméra-cube responsive
 let cameraFocusResponsive = 0;
@@ -134,6 +135,7 @@ if (window.screen.width > 500) {
   cameraFocusResponsive = 80;
 }
 </script>
+
 <script setup>
 import { ref, onMounted } from "vue";
 import {
