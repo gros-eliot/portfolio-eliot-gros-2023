@@ -8,49 +8,56 @@
       antialias
       :orbit-ctrl="{ enableDamping: true }"
       resize="window"
-      class="h-screen"
-      v-if="planetOnClickVisible === false"
+      class="w-full h-screen"
+      :class="{
+        hidden: planetOnClickVisible === true,
+        'opacity-0': planetOnClickVisible === true,
+        absolute: planetOnClickVisible === true,
+        'inset-0': planetOnClickVisible === true,
+        'w-0': planetOnClickVisible === true,
+        'h-0': planetOnClickVisible === true,
+      }"
     >
+      <!--      v-if="planetOnClickVisible === false"
+-->
       <Camera :position="{ z: 500 }" :look-at="{ x: -40, y: -50, z: 0 }" />
       <Scene>
         <PointLight :position="{ y: 50 }" :intensity="0.5" />
 
         <!--PLANETE 1 : personnal projects-->
-        <Group ref="meshGroupA">
-          <Sphere
-            ref="meshA"
-            :scale="{ x: 50, y: 50, z: 50 }"
-            :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
-            :position="{ x: -75, y: 0, z: 0 }"
-            :cast-shadow="true"
-            :receive-shadow="true"
-            :width-segments="64"
-            :height-segments="64"
-            @click="planetOnClickVisible = true"
-            @pointer-over="planet1Hover"
-          >
-            <BasicMaterial>
-              <Texture src="/textures/2k_neptune.jpg" />
-            </BasicMaterial>
-          </Sphere>
-          <!--PLANETE 2 : university projects-->
-          <Sphere
-            ref="meshB"
-            :scale="{ x: 50, y: 50, z: 50 }"
-            :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-            :position="{ x: 75, y: 0, z: 0 }"
-            :cast-shadow="true"
-            :receive-shadow="true"
-            :width-segments="64"
-            :height-segments="64"
-          >
-            <!--  @click="planet2Click(), planet2ClickSetup()"
+        <Sphere
+          ref="meshA"
+          :scale="{ x: 5, y: 5, z: 5 }"
+          :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
+          :position="{ x: 10, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :width-segments="64"
+          :height-segments="64"
+          @click="planetOnClickVisible = true"
+          @pointer-over="planet1Hover"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_neptune.jpg" />
+          </BasicMaterial>
+        </Sphere>
+        <!--PLANETE 2 : university projects-->
+        <Sphere
+          ref="meshB"
+          :scale="{ x: 5, y: 5, z: 5 }"
+          :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
+          :position="{ x: -10, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :width-segments="64"
+          :height-segments="64"
+        >
+          <!--  @click="planet2Click(), planet2ClickSetup()"
             @pointer-over="planet2Hover"-->
-            <BasicMaterial>
-              <Texture src="/textures/2k_neptune.jpg" />
-            </BasicMaterial>
-          </Sphere>
-        </Group>
+          <BasicMaterial>
+            <Texture src="/textures/2k_neptune.jpg" />
+          </BasicMaterial>
+        </Sphere>
 
         <!--TORUS KNOT : branding-->
         <TorusKnot
@@ -173,7 +180,6 @@
         </Ring>
         <!--Anneaux de la scène-->
         <Ring
-          ref="meshRingA"
           :scale="{ x: 8, y: 8, z: 8 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
@@ -352,6 +358,8 @@ import {
 
 import NoisyImage from "troisjs/src/components/noisy/NoisyImage.js"; // traditionnal art
 
+import * as THREE from "three";
+
 // imports éléments spaceshipUI
 import TopLeft from "../components/spaceship-ui-components/TopLeft.vue";
 import TopRight from "../components/spaceship-ui-components/TopRight.vue";
@@ -372,7 +380,7 @@ const meshF = ref(); //mesh planete 6 | dig art
 const meshG = ref(); //mesh planete 7 | video games
 const meshH = ref(); //mesh planete 8 | volunteering
 
-const meshGroupA = ref();
+const meshRingA = ref();
 
 // rotation des planètes constante
 onMounted(() => {
@@ -385,11 +393,14 @@ onMounted(() => {
   const mesh6 = meshF.value.mesh;
   const mesh7 = meshG.value.mesh;
   const mesh8 = meshH.value.mesh;
-  const meshGroup1 = meshGroupA.value.mesh;
+  const meshRing1 = meshRingA.value.mesh;
+
+  meshRing1.add(mesh1);
+  meshRing1.add(mesh2);
 
   renderer.onBeforeRender(() => {
     //1 : perso project(sphere)
-    mesh1.rotation.x += 0.001;
+    mesh1.rotation.x += 0.003;
     //2 : univ project(sphere)
     mesh2.rotation.x += -0.001;
     //3 : branding(torus knot)
@@ -408,6 +419,8 @@ onMounted(() => {
     mesh7.rotation.y += 0.009;
     //8 : volunteering
     mesh8.rotation.x += 0.001;
+
+    meshRing1.rotation.z += 0.002;
 
     // GROUPS
     //group 1 : Perso projects/univ projects
