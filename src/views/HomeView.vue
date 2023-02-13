@@ -11,82 +11,190 @@
       class="h-screen"
       v-if="planetOnClickVisible === false"
     >
-      <Camera :position="{ z: 100 }" />
+      <Camera :position="{ z: 500 }" :look-at="{ x: -40, y: -50, z: 0 }" />
       <Scene>
         <PointLight :position="{ y: 50 }" :intensity="0.5" />
-        <!--Test modele-->
 
-        <!--MODELE MMI + LUMIERE MMI-->
-        <Group>
-          <GltfModel
-            ref="meshMMI"
-            src="/models/ordinateur-projet-s3.glb"
-            @load="onReady"
-            @progress="onProgress"
-            @error="onError"
-            :position="{ x: -50, y: 20, z: -50 }"
-            :scale="{ x: 10, y: 10, z: 10 }"
-            :rotation="{ x: -Math.PI / 4, y: 0, z: -Math.PI / 16 }"
+        <!--PLANETE 1 : personnal projects-->
+        <Group ref="meshGroupA">
+          <Sphere
+            ref="meshA"
+            :scale="{ x: 50, y: 50, z: 50 }"
+            :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
+            :position="{ x: -75, y: 0, z: 0 }"
             :cast-shadow="true"
             :receive-shadow="true"
-          />
+            :width-segments="64"
+            :height-segments="64"
+            @click="planetOnClickVisible = true"
+            @pointer-over="planet1Hover"
+          >
+            <BasicMaterial>
+              <Texture src="/textures/2k_neptune.jpg" />
+            </BasicMaterial>
+          </Sphere>
+          <!--PLANETE 2 : university projects-->
+          <Sphere
+            ref="meshB"
+            :scale="{ x: 50, y: 50, z: 50 }"
+            :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
+            :position="{ x: 75, y: 0, z: 0 }"
+            :cast-shadow="true"
+            :receive-shadow="true"
+            :width-segments="64"
+            :height-segments="64"
+          >
+            <!--  @click="planet2Click(), planet2ClickSetup()"
+            @pointer-over="planet2Hover"-->
+            <BasicMaterial>
+              <Texture src="/textures/2k_neptune.jpg" />
+            </BasicMaterial>
+          </Sphere>
         </Group>
 
-        <!--MODELE NIKE + LUMIERE NIKE-->
-        <PointLight :position="{ y: 500, x: -100 }" :intensity="0.1" />
-        <GltfModel
-          ref="meshNike"
-          src="/models/air_force_v2-glb.glb"
-          @load="onReady"
-          @progress="onProgress"
-          @error="onError"
-          :position="{ x: -100, y: 0, z: 0 }"
-          :scale="{ x: 5, y: 5, z: 5 }"
-          :rotation="{ y: -Math.PI / 4, z: Math.PI / 8 }"
-          :cast-shadow="true"
-          :receive-shadow="true"
-        />
-        <!--PLANETE 1-->
-        <Sphere
+        <!--TORUS KNOT : branding-->
+        <TorusKnot
           ref="meshC"
-          :size="1"
-          :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
-          :scale="{ x: 10, y: 10, z: 10 }"
-          :position="{ x: 0, y: 0, z: 0 }"
+          :scale="{ x: 3, y: 3, z: 3 }"
+          :position="{ x: -400, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :width-segments="64"
-          :height-segments="64"
-          @click="planetOnClickVisible = true"
-          @pointer-over="planet1Hover"
+          :radius="6.5"
+          :tube="1"
+          :tubular-segments="48"
+          :radial-segments="4"
+          :p="16"
+          :q="9"
         >
           <BasicMaterial>
-            <Texture src="/textures/2k_mars.jpg" />
+            <Texture src="/textures/2k_neptune.jpg" />
           </BasicMaterial>
-        </Sphere>
-        <!--PLANETE 2-->
+        </TorusKnot>
+
+        <!--SPHERE Websites-->
         <Sphere
           ref="meshD"
-          :size="2"
+          :scale="{ x: 25, y: 25, z: 25 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :scale="{ x: 12, y: 12, z: 12 }"
-          :position="{ x: 100, y: 0, z: 0 }"
+          :position="{ x: 200, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
           :height-segments="64"
         >
-          <!--  @click="planet2Click(), planet2ClickSetup()"
-          @pointer-over="planet2Hover"-->
           <BasicMaterial>
             <Texture src="/textures/2k_neptune.jpg" />
           </BasicMaterial>
         </Sphere>
+
+        <!--Traditionnal art-->
+        <NoisyImage
+          ref="meshE"
+          src="/textures/2k_neptune.jpg"
+          :width="
+            90 //faire une valeur responsive!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          "
+          :time-coef="0.001"
+          :noise-coef="1"
+          :z-coef="3"
+          :disp-coef="1"
+          :rotation="{ x: -Math.PI / 6 }"
+          :position="{ x: 300, y: 0, z: 0 }"
+        />
+
+        <!--Torus: digital art-->
+        <Torus
+          ref="meshF"
+          :scale="{ x: 2, y: 2, z: 2 }"
+          :rotation="{ x: 0, y: 0, z: 0 }"
+          :position="{ x: -200, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :radius="8"
+          :tube="5"
+          :radial-segments="20"
+          :tubular-segments="124"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_neptune.jpg" />
+          </BasicMaterial>
+        </Torus>
+
+        <!--Octahedron: video games-->
+        <Octahedron
+          ref="meshG"
+          :scale="{ x: 2.5, y: 2.5, z: 2.5 }"
+          :rotation="{ x: 0, y: 0, z: 0 }"
+          :position="{ x: -300, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :radius="10"
+          :detail="0"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_neptune.jpg" />
+          </BasicMaterial>
+        </Octahedron>
+
+        <!--SPHERE Volunteering-->
+        <Sphere
+          ref="meshH"
+          :scale="{ x: 15, y: 15, z: 15 }"
+          :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
+          :position="{ x: 400, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :width-segments="64"
+          :height-segments="64"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_neptune.jpg" />
+          </BasicMaterial>
+        </Sphere>
+
+        <!--Anneaux de la scène-->
+        <Ring
+          ref="meshRingA"
+          :scale="{ x: 8, y: 8, z: 8 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :inner-radius="10"
+          :outer-radius="10.5"
+          :theta-segments="50"
+          :phi-segments="8"
+          :theta-start="0"
+          :theta-length="6.283185307179586"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_mercury.jpg" />
+          </BasicMaterial>
+        </Ring>
+        <!--Anneaux de la scène-->
+        <Ring
+          ref="meshRingA"
+          :scale="{ x: 8, y: 8, z: 8 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :inner-radius="10"
+          :outer-radius="10.5"
+          :theta-segments="50"
+          :phi-segments="8"
+          :theta-start="0"
+          :theta-length="6.283185307179586"
+        >
+          <BasicMaterial>
+            <Texture src="/textures/2k_mercury.jpg" />
+          </BasicMaterial>
+        </Ring>
       </Scene>
       <!--Effet améliorant le rendu-->
       <EffectComposer>
         <RenderPass />
-        <UnrealBloomPass :strength="0.7" :radius="0.5" :threshold="0" />
+        <UnrealBloomPass :strength="0.4" :radius="0.5" :threshold="0" />
       </EffectComposer>
     </Renderer>
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
@@ -100,7 +208,6 @@
       v-if="planetOnClickVisible === true"
       @backEvent="updateparent"
     />
-
     <!--IMPORTANT :
     <PlanetOnClick :categoryId="selectedCategoryId" v-if="planetOnClickVisible === true" />
     <planet1 @click="selectedCategoryId = '...'  // planetOnClickVisible = true" />
@@ -111,10 +218,7 @@
     
     FIN de IMPORTANT.
     -->
-
     <!--FIN ONCLICK COMPOSANT-->
-
-    <!---->
 
     <!-- HOVERS ELEMENTS -->
     <!--CE QU'AFFICHE LE HOVER sur la planète 1-->
@@ -129,8 +233,6 @@
       <p class="select-none">TEST</p>
     </div>
     <!--FIN HOVERS ELEMENTS -->
-
-    <!---->
 
     <!--UI spaceship interface-->
     <!--UI spaceship interface-->
@@ -217,21 +319,38 @@ canvas {
 <script setup>
 import { ref, onMounted } from "vue";
 import {
-  Sphere,
   Camera,
-  LambertMaterial,
-  BasicMaterial,
   PointLight,
   Renderer,
   Scene,
-  Texture,
   propsValues,
-  GltfModel,
-  Plane,
+
+  //materials
+  Texture,
+  LambertMaterial,
+  BasicMaterial,
+
+  //effects
+  RenderPass,
   UnrealBloomPass,
   EffectComposer,
-  RenderPass,
+  ZoomBlurPass,
+
+  //models
+  GltfModel,
+
+  // geometries (traditional art in bottom)
+  Plane,
+  Sphere, // Personal project & websites
+  TorusKnot, // branding
+  Dodecahedron, // University projects
+  Torus, // digital creations
+  Octahedron, // video games
+  Ring,
+  Group,
 } from "troisjs";
+
+import NoisyImage from "troisjs/src/components/noisy/NoisyImage.js"; // traditionnal art
 
 // imports éléments spaceshipUI
 import TopLeft from "../components/spaceship-ui-components/TopLeft.vue";
@@ -244,19 +363,54 @@ import PlanetOnClick from "../components/home-planets/planetOnClick.vue";
 
 // constantes ref
 const rendererC = ref(); //renderer
-const meshC = ref(); //mesh planete 1
-const meshD = ref(); //mesh planete 2
-const meshNike = ref(); // mesh nike
+const meshA = ref(); //mesh planete 1 | perso project(sphere)
+const meshB = ref(); //mesh planete 2 | univ project(sphere)
+const meshC = ref(); //mesh planete 3 | branding(torus knot)
+const meshD = ref(); //mesh planete 4 | websites
+const meshE = ref(); //mesh planete 5 | trad art
+const meshF = ref(); //mesh planete 6 | dig art
+const meshG = ref(); //mesh planete 7 | video games
+const meshH = ref(); //mesh planete 8 | volunteering
+
+const meshGroupA = ref();
 
 // rotation des planètes constante
 onMounted(() => {
   const renderer = rendererC.value;
-  const mesh1 = meshC.value.mesh;
-  const mesh2 = meshD.value.mesh;
-  const mesh3 = meshNike.value.mesh;
+  const mesh1 = meshA.value.mesh;
+  const mesh2 = meshB.value.mesh;
+  const mesh3 = meshC.value.mesh;
+  const mesh4 = meshD.value.mesh;
+  const mesh5 = meshE.value.mesh;
+  const mesh6 = meshF.value.mesh;
+  const mesh7 = meshG.value.mesh;
+  const mesh8 = meshH.value.mesh;
+  const meshGroup1 = meshGroupA.value.mesh;
+
   renderer.onBeforeRender(() => {
+    //1 : perso project(sphere)
     mesh1.rotation.x += 0.001;
+    //2 : univ project(sphere)
     mesh2.rotation.x += -0.001;
+    //3 : branding(torus knot)
+    mesh3.rotation.y += 0.002;
+    mesh3.rotation.x += 0.002;
+    //4 : websites
+    mesh4.rotation.x += 0.001;
+    //5 : trad art
+    mesh5.rotation.x += 0.001;
+    mesh5.rotation.y += 0.002;
+    //6 : digital art
+    mesh6.rotation.y += 0.003;
+    mesh6.rotation.x += 0.003;
+    mesh6.rotation.z += 0.003;
+    //7 : video games
+    mesh7.rotation.y += 0.009;
+    //8 : volunteering
+    mesh8.rotation.x += 0.001;
+
+    // GROUPS
+    //group 1 : Perso projects/univ projects
   });
 });
 
@@ -267,7 +421,6 @@ navigator.getBattery().then(function (battery) {
   console.log("Battery level : " + levelBattery * 100 + " %");
 
   let batteryIndicator = document.querySelector("#batteryIndicator");
-  batteryIndicator.style.height = "1%";
   batteryIndicator.style.height = levelBattery * 100 + "%";
 
   // AJOUT du % de la batterie dans le template
@@ -278,15 +431,12 @@ navigator.getBattery().then(function (battery) {
 </script>
 
 <script>
-import { RouterLink, RouterView } from "vue-router";
-
 // FONCTIONS POUR LE HOVER (click true: permet de retirer le hover quand planète cliquée)
 export default {
   name: "HomeView",
   data() {
     return {
       PlanetOneHover: false,
-
       planetOnClickVisible: false, // var du click sur la planète (pour afficher les détails : le composant planetOnClick)
     };
   },
@@ -295,7 +445,6 @@ export default {
       this.PlanetOneHover = over ? true : false;
       console.log("résultat du hover : " + this.PlanetOneHover);
     },
-
     updateparent(value) {
       this.planetOnClickVisible = value;
       this.PlanetOneHover = value;

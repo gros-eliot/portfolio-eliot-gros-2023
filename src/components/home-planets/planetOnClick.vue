@@ -19,7 +19,7 @@
         <Scene>
           <!--PLANETE AFFICHEE-->
           <Sphere
-            :size="1"
+            ref="planet"
             :scale="{ x: 20, y: 20, z: 20 }"
             :position="{ x: 0, y: 0, z: 0 }"
             :cast-shadow="true"
