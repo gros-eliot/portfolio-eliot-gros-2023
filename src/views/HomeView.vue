@@ -34,7 +34,10 @@
           :receive-shadow="true"
           :width-segments="64"
           :height-segments="64"
-          @click="planetOnClickVisible = true"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'ajsuoXsZCWfZZL8Zes6f')
+          "
           @pointer-over="planet1Hover"
         >
           <BasicMaterial>
@@ -51,6 +54,10 @@
           :receive-shadow="true"
           :width-segments="64"
           :height-segments="64"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'HrSPZKspOCzjj0jfTJEA')
+          "
         >
           <!--  @click="planet2Click(), planet2ClickSetup()"
             @pointer-over="planet2Hover"-->
@@ -72,6 +79,10 @@
           :radial-segments="4"
           :p="16"
           :q="9"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'fGEqHjoGMMfGm4PRL8Mz')
+          "
         >
           <BasicMaterial>
             <Texture src="/textures/2k_neptune.jpg" />
@@ -88,6 +99,10 @@
           :receive-shadow="true"
           :width-segments="64"
           :height-segments="64"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'nCRg6TZehbe0fLYdnyZx')
+          "
         >
           <BasicMaterial>
             <Texture src="/textures/2k_neptune.jpg" />
@@ -105,6 +120,10 @@
           :disp-coef="1"
           :rotation="{ y: Math.PI / 2 }"
           :position="{ x: 10.5, y: 0, z: 0 }"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'kqCqnAKVhlM5yJ3ADu3R')
+          "
           @pointer-over="planet1Hover"
         />
 
@@ -120,6 +139,10 @@
           :tube="5"
           :radial-segments="20"
           :tubular-segments="124"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'QXUlvvDRMOPiQu0GGUgY')
+          "
         >
           <BasicMaterial>
             <Texture src="/textures/2k_neptune.jpg" />
@@ -136,6 +159,10 @@
           :receive-shadow="true"
           :radius="10"
           :detail="0"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'GohIP8SxIwdg69w0NfWk')
+          "
         >
           <BasicMaterial>
             <Texture src="/textures/2k_neptune.jpg" />
@@ -152,6 +179,10 @@
           :receive-shadow="true"
           :width-segments="64"
           :height-segments="64"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'GLZu0Wq0LKuvLe1tkOgy')
+          "
         >
           <BasicMaterial>
             <Texture src="/textures/2k_neptune.jpg" />
@@ -166,16 +197,14 @@
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10"
+          :inner-radius="10.3"
           :outer-radius="10.5"
-          :theta-segments="50"
+          :theta-segments="128"
           :phi-segments="8"
           :theta-start="0"
           :theta-length="6.283185307179586"
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_mercury.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
         </Ring>
         <Ring
           :scale="{ x: 8, y: 8, z: 8 }"
@@ -183,16 +212,14 @@
           :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10"
+          :inner-radius="10.3"
           :outer-radius="10.5"
-          :theta-segments="50"
+          :theta-segments="128"
           :phi-segments="8"
           :theta-start="0"
           :theta-length="6.283185307179586"
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_mercury.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
         </Ring>
         <!--Anneaux de la scène : B-->
         <Ring
@@ -202,16 +229,14 @@
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.3"
+          :inner-radius="10.4"
           :outer-radius="10.5"
-          :theta-segments="50"
+          :theta-segments="128"
           :phi-segments="8"
           :theta-start="0"
           :theta-length="6.283185307179586"
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_mercury.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
         </Ring>
         <Ring
           :scale="{ x: 20, y: 20, z: 20 }"
@@ -219,16 +244,14 @@
           :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.3"
+          :inner-radius="10.4"
           :outer-radius="10.5"
-          :theta-segments="50"
+          :theta-segments="128"
           :phi-segments="8"
           :theta-start="0"
           :theta-length="6.283185307179586"
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_mercury.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
         </Ring>
         <!--Anneaux de la scène : C-->
         <Ring
@@ -238,16 +261,14 @@
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.35"
+          :inner-radius="10.42"
           :outer-radius="10.5"
-          :theta-segments="50"
+          :theta-segments="128"
           :phi-segments="8"
           :theta-start="0"
           :theta-length="6.283185307179586"
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_mercury.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
         </Ring>
         <Ring
           :scale="{ x: 32, y: 32, z: 32 }"
@@ -255,16 +276,14 @@
           :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.35"
+          :inner-radius="10.42"
           :outer-radius="10.5"
-          :theta-segments="50"
+          :theta-segments="128"
           :phi-segments="8"
           :theta-start="0"
           :theta-length="6.283185307179586"
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_mercury.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
         </Ring>
         <!--Anneaux de la scène : D-->
         <Ring
@@ -274,16 +293,14 @@
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.4"
+          :inner-radius="10.45"
           :outer-radius="10.5"
-          :theta-segments="50"
+          :theta-segments="128"
           :phi-segments="8"
           :theta-start="0"
           :theta-length="6.283185307179586"
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_mercury.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
         </Ring>
         <Ring
           :scale="{ x: 42, y: 42, z: 42 }"
@@ -291,16 +308,14 @@
           :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.4"
+          :inner-radius="10.45"
           :outer-radius="10.5"
-          :theta-segments="50"
+          :theta-segments="128"
           :phi-segments="8"
           :theta-start="0"
           :theta-length="6.283185307179586"
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_mercury.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
         </Ring>
       </Scene>
       <!--Effet améliorant le rendu-->
@@ -315,21 +330,12 @@
 
     <!--ONCLICK COMPOSANT-->
     <PlanetOnClick
-      :categoryId="'GLZu0Wq0LKuvLe1tkOgy'"
+      :categoryId="selectedCategoryId"
       :texturePlanet="'/textures/2k_venus_atmosphere.jpg'"
       v-if="planetOnClickVisible === true"
       @backEvent="updateparent"
     />
-    <!--IMPORTANT :
-    <PlanetOnClick :categoryId="selectedCategoryId" v-if="planetOnClickVisible === true" />
-    <planet1 @click="selectedCategoryId = '...'  // planetOnClickVisible = true" />
-    <planet2 @click="selectedCategoryId = '...2' // planetOnClickVisible = true" />
-    export default
-    data return selectedCategoryId = planet1Id (par défaut)
-    planetOnClickVisible = false (par défaut)
-    
-    FIN de IMPORTANT.
-    -->
+
     <!--FIN ONCLICK COMPOSANT-->
 
     <!-- HOVERS ELEMENTS -->
@@ -402,9 +408,86 @@
       </section>
     </section>
   </article>
+
+  <section
+    id="loading-screen"
+    class="flex flex-col gap-10 justify-center items-center w-full h-screen absolute inset-0 z-30"
+  >
+    <div class="animate-bounce">
+      <p class="font-normal portfolio-h3">Loading...</p>
+    </div>
+    <div class="flex flex-row gap-10 justify-center items-center my-20">
+      <div
+        id="loader-little-circles"
+        class="bg-black w-10 h-10 rounded-full"
+      ></div>
+      <div
+        id="loader-middle-circle"
+        class="border-black w-40 h-40 rounded-full"
+      ></div>
+      <div
+        id="loader-little-circles"
+        class="bg-black w-10 h-10 rounded-full"
+      ></div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
+/* TEST CHARGEMENT */
+
+#loading-screen {
+  background-color: #fcff73;
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+#loading-screen.fade-out {
+  opacity: 0;
+}
+
+#loader-middle-circle {
+  border-width: 7px 14px 14px 7px;
+  display: block;
+  position: relative;
+
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+#loader-little-circles {
+  box-shadow: 2px 2px 0px #000000;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/** */
+
 /* Style pour la scène 3D */
 body {
   margin: 0;
@@ -475,6 +558,9 @@ import BottomMeasure from "../components/spaceship-ui-components/BottomMeasure.v
 // imports Planet on click
 import PlanetOnClick from "../components/home-planets/planetOnClick.vue";
 
+// ColladaLoader : test chargement
+import { ColladaLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/ColladaLoader.js";
+
 // constantes ref
 const rendererC = ref(); //renderer
 const meshA = ref(); //mesh planete 1 | perso project(sphere)
@@ -486,13 +572,47 @@ const meshF = ref(); //mesh planete 6 | dig art
 const meshG = ref(); //mesh planete 7 | video games
 const meshH = ref(); //mesh planete 8 | volunteering
 
-const meshRingA = ref();
-const meshRingB = ref();
-const meshRingC = ref();
-const meshRingD = ref();
+const meshRingA = ref(); // groupe A
+const meshRingB = ref(); // groupe B
+const meshRingC = ref(); // groupe C
+const meshRingD = ref(); // groupe D
 
-// rotation des planètes constante
 onMounted(() => {
+  //  CHARGEMENT ECRAN
+  //  CHARGEMENT ECRAN
+  //  CHARGEMENT ECRAN
+  init();
+
+  function init() {
+    const loadingManager = new THREE.LoadingManager(() => {
+      const loadingScreen = document.getElementById("loading-screen");
+      loadingScreen.classList.add("fade-out");
+
+      // optional: remove loader from DOM via event listener
+      loadingScreen.addEventListener("transitionend", onTransitionEnd);
+    });
+
+    // collada
+
+    const loader = new ColladaLoader(loadingManager);
+    loader.load(
+      "https://threejs.org/examples/models/collada/stormtrooper/stormtrooper.dae",
+      (collada) => {
+        const animations = collada.animations;
+        const avatar = collada.scene;
+
+        mixer = new THREE.AnimationMixer(avatar);
+        const action = mixer.clipAction(animations[0]).play();
+      }
+    );
+  }
+
+  function onTransitionEnd(event) {
+    event.target.remove();
+  }
+
+  //
+
   const renderer = rendererC.value;
   const mesh1 = meshA.value.mesh;
   const mesh2 = meshB.value.mesh;
@@ -535,17 +655,17 @@ onMounted(() => {
     mesh6.rotation.z += 0.002;
 
     //7 : video games
-    mesh7.rotation.x += 0.009;
-    mesh7.rotation.y += 0.009;
-    mesh7.rotation.z += 0.009;
+    mesh7.rotation.x += 0.004;
+    mesh7.rotation.y += 0.004;
+    mesh7.rotation.z += 0.004;
     //8 : volunteering
     mesh8.rotation.x += 0.001;
 
     // GROUP RINGS
     meshRing1.rotation.z += 0.0005;
-    meshRing2.rotation.z += -0.001;
-    meshRing3.rotation.z += 0.0013;
-    meshRing4.rotation.z += -0.0018;
+    meshRing2.rotation.z += -0.0008;
+    meshRing3.rotation.z += 0.0011;
+    meshRing4.rotation.z += -0.0014;
   });
 });
 
@@ -573,6 +693,7 @@ export default {
     return {
       PlanetOneHover: false,
       planetOnClickVisible: false, // var du click sur la planète (pour afficher les détails : le composant planetOnClick)
+      selectedCategoryId: "", // id de la planète selectionnée
     };
   },
   methods: {
