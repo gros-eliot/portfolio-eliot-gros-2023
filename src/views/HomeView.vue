@@ -201,7 +201,11 @@
           :tubular-segments="100"
           :arc="6.283185307179586"
         >
-          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
+          <BasicMaterial
+            :color="'#91ebff'"
+            :props="{ opacity: 0.3, transparent: true }"
+          >
+          </BasicMaterial>
         </Torus>
 
         <!--Anneaux de la scène : B-->
@@ -218,7 +222,11 @@
           :tubular-segments="100"
           :arc="6.283185307179586"
         >
-          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
+          <BasicMaterial
+            :color="'#91ebff'"
+            :props="{ opacity: 0.3, transparent: true }"
+          >
+          </BasicMaterial>
         </Torus>
 
         <!--Anneaux de la scène : C-->
@@ -235,7 +243,11 @@
           :tubular-segments="100"
           :arc="6.283185307179586"
         >
-          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
+          <BasicMaterial
+            :color="'#91ebff'"
+            :props="{ opacity: 0.3, transparent: true }"
+          >
+          </BasicMaterial>
         </Torus>
 
         <!--Anneaux de la scène : D-->
@@ -252,7 +264,11 @@
           :tubular-segments="100"
           :arc="6.283185307179586"
         >
-          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
+          <BasicMaterial
+            :color="'#91ebff'"
+            :props="{ opacity: 0.3, transparent: true }"
+          >
+          </BasicMaterial>
         </Torus>
       </Scene>
       <!--Effet améliorant le rendu-->
@@ -298,9 +314,7 @@
       <!--Top-->
       <div class="w-full top-0 flex justify-between absolute p-4 pt-10">
         <TopLeft class="w-24 h-24 md:w-48 md:h-48" />
-        <p
-          class="md:hidden block text-white w-72 text-[8px] font-thin select-auto"
-        >
+        <p class="md:hidden block text-white w-72 text-[8px] font-thin">
           <strong>In case of you need help</strong>, please use the menu button
           in the top of your screen.
         </p>
@@ -334,7 +348,7 @@
           <div
             class="w-fit md:flex items-end p-4 pl-8 pt-8 spaceship_ui_bottom_right h-fit hidden"
           >
-            <p class="text-white w-72 text-[8px] font-thin h-fit select-auto">
+            <p class="text-white w-72 text-[8px] font-thin h-fit">
               <strong>In case of you need help</strong>, please use the menu
               button in the top of your screen.
             </p>
