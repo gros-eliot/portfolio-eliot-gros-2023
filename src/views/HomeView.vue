@@ -20,7 +20,7 @@
     >
       <!--      v-if="planetOnClickVisible === false"
 -->
-      <Camera :position="{ z: 500 }" :look-at="{ x: -40, y: -50, z: 0 }" />
+      <Camera :position="{ z: 500 }" ref="camera" />
       <Scene>
         <PointLight :position="{ y: 50 }" :intensity="0.5" />
 
@@ -145,7 +145,7 @@
           "
         >
           <BasicMaterial>
-            <Texture src="/textures/2k_neptune.jpg" />
+            <Texture src="/textures/digital-art.jpg" />
           </BasicMaterial>
         </Torus>
 
@@ -577,10 +577,12 @@ const meshRingB = ref(); // groupe B
 const meshRingC = ref(); // groupe C
 const meshRingD = ref(); // groupe D
 
+const camera = ref();
+
 onMounted(() => {
-  //  CHARGEMENT ECRAN
-  //  CHARGEMENT ECRAN
-  //  CHARGEMENT ECRAN
+  //  CHARGEMENT ECRAN (loading screen)
+  //  CHARGEMENT ECRAN (loading screen)
+  //  CHARGEMENT ECRAN (loading screen)
   init();
 
   function init() {
@@ -598,11 +600,7 @@ onMounted(() => {
     loader.load(
       "https://threejs.org/examples/models/collada/stormtrooper/stormtrooper.dae",
       (collada) => {
-        const animations = collada.animations;
         const avatar = collada.scene;
-
-        mixer = new THREE.AnimationMixer(avatar);
-        const action = mixer.clipAction(animations[0]).play();
       }
     );
   }
@@ -611,7 +609,7 @@ onMounted(() => {
     event.target.remove();
   }
 
-  //
+  // FIN CHARGEMENT ECRAN
 
   const renderer = rendererC.value;
   const mesh1 = meshA.value.mesh;
@@ -626,6 +624,8 @@ onMounted(() => {
   const meshRing2 = meshRingB.value.mesh;
   const meshRing3 = meshRingC.value.mesh;
   const meshRing4 = meshRingD.value.mesh;
+  const cameraOne = camera.value.camera;
+  cameraOne.rotation.y = Math.PI / 2;
 
   meshRing1.add(mesh1);
   meshRing1.add(mesh2);

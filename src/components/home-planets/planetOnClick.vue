@@ -64,7 +64,7 @@
             >
               {{ categorie.name }}
             </h2>
-            <p class="">
+            <p>
               {{ categorie.description }}
             </p>
           </div>
@@ -125,7 +125,7 @@
             />
           </div>
           <!--Images catégorie-->
-          <div class="flex flex-col justify-between h-full">
+          <div class="flex flex-col justify-between h-full select-none">
             <div class="imageContainer pointer-events-auto">
               <img
                 :src="categorie.imageone"
@@ -142,7 +142,7 @@
             <!--w-8/12 rounded-lg pointer-events-auto-->
 
             <div
-              class="imageContainer pointer-events-auto"
+              class="imageContainer pointer-events-auto select-none"
               v-if="
                 categorie.name === 'University projects' ||
                 categorie.name === 'Personal projects' ||
@@ -205,7 +205,7 @@
   <!--SVG filter for images-->
   <!--SVG filter for images-->
 
-  <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-0 h-0">
+  <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-0 h-0 select-none">
     <filter id="svgSharpen">
       <feConvolveMatrix
         order="3 3"
