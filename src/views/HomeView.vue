@@ -29,7 +29,7 @@
           ref="meshA"
           :scale="{ x: 6, y: 6, z: 6 }"
           :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
-          :position="{ x: 10, y: 0, z: 0 }"
+          :position="{ x: 8, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -41,7 +41,7 @@
           @pointer-over="planet1Hover"
         >
           <BasicMaterial>
-            <Texture src="/textures/2k_neptune.jpg" />
+            <Texture src="/textures/2k_venus_atmosphere.jpg" />
           </BasicMaterial>
         </Sphere>
         <!--PLANETE 2 : university projects-->
@@ -49,7 +49,7 @@
           ref="meshB"
           :scale="{ x: 6, y: 6, z: 6 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :position="{ x: -10, y: 0, z: 0 }"
+          :position="{ x: -8, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -62,7 +62,7 @@
           <!--  @click="planet2Click(), planet2ClickSetup()"
             @pointer-over="planet2Hover"-->
           <BasicMaterial>
-            <Texture src="/textures/2k_neptune.jpg" />
+            <Texture src="/textures/2k_red.jpg" />
           </BasicMaterial>
         </Sphere>
 
@@ -70,7 +70,7 @@
         <TorusKnot
           ref="meshC"
           :scale="{ x: 0.08, y: 0.08, z: 0.08 }"
-          :position="{ x: 10.5, y: 0, z: 0 }"
+          :position="{ x: 10, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :radius="6.5"
@@ -85,16 +85,17 @@
           "
         >
           <BasicMaterial>
-            <Texture src="/textures/2k_neptune.jpg" />
+            <Texture src="/textures/2k_mars.jpg" />
           </BasicMaterial>
         </TorusKnot>
 
         <!--SPHERE Websites-->
+        <!---->
         <Sphere
           ref="meshD"
           :scale="{ x: 1.4, y: 1.4, z: 1.4 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :position="{ x: 10.5, y: 0, z: 0 }"
+          :position="{ x: 10, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -114,12 +115,13 @@
           ref="meshE"
           src="/textures/portfolio-art-traditionnel.jpg"
           :width="4"
+          :height="3"
           :time-coef="0.001"
           :noise-coef="0.3"
-          :z-coef="1"
-          :disp-coef="1"
+          :z-coef="0.1"
+          :disp-coef="0"
           :rotation="{ y: Math.PI / 2 }"
-          :position="{ x: 10.5, y: 0, z: 0 }"
+          :position="{ x: 10, y: 0, z: 0 }"
           @click="
             (planetOnClickVisible = true),
               (selectedCategoryId = 'kqCqnAKVhlM5yJ3ADu3R')
@@ -130,9 +132,9 @@
         <!--Torus: digital art-->
         <Torus
           ref="meshF"
-          :scale="{ x: 0.1, y: 0.1, z: 0.1 }"
+          :scale="{ x: 0.12, y: 0.12, z: 0.12 }"
           :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
-          :position="{ x: -10.5, y: 0, z: 0 }"
+          :position="{ x: -10, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :radius="8"
@@ -145,7 +147,7 @@
           "
         >
           <BasicMaterial>
-            <Texture src="/textures/digital-art.jpg" />
+            <Texture src="/textures/digital-art2.jpg" />
           </BasicMaterial>
         </Torus>
 
@@ -154,7 +156,7 @@
           ref="meshG"
           :scale="{ x: 0.1, y: 0.1, z: 0.1 }"
           :rotation="{ x: 0, y: Math.PI / 2, z: 0 }"
-          :position="{ x: -10.5, y: 0, z: 0 }"
+          :position="{ x: -10, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :radius="10"
@@ -164,9 +166,7 @@
               (selectedCategoryId = 'GohIP8SxIwdg69w0NfWk')
           "
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_neptune.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#FCFF73'"> </BasicMaterial>
         </Octahedron>
 
         <!--SPHERE Volunteering-->
@@ -174,7 +174,7 @@
           ref="meshH"
           :scale="{ x: 0.5, y: 0.5, z: 0.5 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :position="{ x: -10.5, y: 0, z: 0 }"
+          :position="{ x: -10, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -184,144 +184,81 @@
               (selectedCategoryId = 'GLZu0Wq0LKuvLe1tkOgy')
           "
         >
-          <BasicMaterial>
-            <Texture src="/textures/2k_neptune.jpg" />
-          </BasicMaterial>
+          <BasicMaterial :color="'#57db57'"> </BasicMaterial>
         </Sphere>
 
         <!--Anneaux de la scène : A-->
-        <Ring
+        <Torus
           ref="meshRingA"
-          :scale="{ x: 8, y: 8, z: 8 }"
+          :scale="{ x: 12, y: 12, z: 12 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.3"
-          :outer-radius="10.5"
-          :theta-segments="128"
-          :phi-segments="8"
-          :theta-start="0"
-          :theta-length="6.283185307179586"
+          :tube="0.15"
+          :radius="10"
+          :radial-segments="16"
+          :tubular-segments="100"
+          :arc="6.283185307179586"
         >
           <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
-        </Ring>
-        <Ring
-          :scale="{ x: 8, y: 8, z: 8 }"
-          :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
-          :cast-shadow="true"
-          :receive-shadow="true"
-          :inner-radius="10.3"
-          :outer-radius="10.5"
-          :theta-segments="128"
-          :phi-segments="8"
-          :theta-start="0"
-          :theta-length="6.283185307179586"
-        >
-          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
-        </Ring>
+        </Torus>
+
         <!--Anneaux de la scène : B-->
-        <Ring
+        <Torus
           ref="meshRingB"
-          :scale="{ x: 20, y: 20, z: 20 }"
+          :scale="{ x: 24, y: 24, z: 24 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.4"
-          :outer-radius="10.5"
-          :theta-segments="128"
-          :phi-segments="8"
-          :theta-start="0"
-          :theta-length="6.283185307179586"
+          :tube="0.08"
+          :radius="10"
+          :radial-segments="16"
+          :tubular-segments="100"
+          :arc="6.283185307179586"
         >
           <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
-        </Ring>
-        <Ring
-          :scale="{ x: 20, y: 20, z: 20 }"
-          :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
-          :cast-shadow="true"
-          :receive-shadow="true"
-          :inner-radius="10.4"
-          :outer-radius="10.5"
-          :theta-segments="128"
-          :phi-segments="8"
-          :theta-start="0"
-          :theta-length="6.283185307179586"
-        >
-          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
-        </Ring>
+        </Torus>
+
         <!--Anneaux de la scène : C-->
-        <Ring
+        <Torus
           ref="meshRingC"
-          :scale="{ x: 32, y: 32, z: 32 }"
+          :scale="{ x: 36, y: 36, z: 36 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.42"
-          :outer-radius="10.5"
-          :theta-segments="128"
-          :phi-segments="8"
-          :theta-start="0"
-          :theta-length="6.283185307179586"
+          :tube="0.06"
+          :radius="10"
+          :radial-segments="16"
+          :tubular-segments="100"
+          :arc="6.283185307179586"
         >
           <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
-        </Ring>
-        <Ring
-          :scale="{ x: 32, y: 32, z: 32 }"
-          :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
-          :cast-shadow="true"
-          :receive-shadow="true"
-          :inner-radius="10.42"
-          :outer-radius="10.5"
-          :theta-segments="128"
-          :phi-segments="8"
-          :theta-start="0"
-          :theta-length="6.283185307179586"
-        >
-          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
-        </Ring>
+        </Torus>
+
         <!--Anneaux de la scène : D-->
-        <Ring
+        <Torus
           ref="meshRingD"
-          :scale="{ x: 42, y: 42, z: 42 }"
+          :scale="{ x: 48, y: 48, z: 48 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :inner-radius="10.45"
-          :outer-radius="10.5"
-          :theta-segments="128"
-          :phi-segments="8"
-          :theta-start="0"
-          :theta-length="6.283185307179586"
+          :tube="0.04"
+          :radius="10"
+          :radial-segments="16"
+          :tubular-segments="100"
+          :arc="6.283185307179586"
         >
           <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
-        </Ring>
-        <Ring
-          :scale="{ x: 42, y: 42, z: 42 }"
-          :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
-          :cast-shadow="true"
-          :receive-shadow="true"
-          :inner-radius="10.45"
-          :outer-radius="10.5"
-          :theta-segments="128"
-          :phi-segments="8"
-          :theta-start="0"
-          :theta-length="6.283185307179586"
-        >
-          <BasicMaterial :color="'#FFFFFF'"> </BasicMaterial>
-        </Ring>
+        </Torus>
       </Scene>
       <!--Effet améliorant le rendu-->
       <EffectComposer>
         <RenderPass />
-        <UnrealBloomPass :strength="0.4" :radius="0.5" :threshold="0" />
+        <UnrealBloomPass :strength="0.5" :radius="0.5" :threshold="0" />
       </EffectComposer>
     </Renderer>
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
@@ -656,8 +593,8 @@ onMounted(() => {
 
     //7 : video games
     mesh7.rotation.x += 0.004;
-    mesh7.rotation.y += 0.004;
-    mesh7.rotation.z += 0.004;
+    //mesh7.rotation.y += 0.004;
+    //mesh7.rotation.z += 0.004;
     //8 : volunteering
     mesh8.rotation.x += 0.001;
 
