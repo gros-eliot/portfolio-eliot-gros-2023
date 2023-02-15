@@ -21,6 +21,7 @@
           <Sphere
             ref="planet"
             :scale="{ x: 20, y: 20, z: 20 }"
+            :rotation="{ y: -Math.PI / 2 }"
             :position="{ x: 0, y: 0, z: 0 }"
             :cast-shadow="true"
             :receive-shadow="true"
@@ -37,7 +38,7 @@
         <EffectComposer>
           <RenderPass />
 
-          <UnrealBloomPass :strength="0.3" :radius="1.2" :threshold="0" />
+          <UnrealBloomPass :strength="0.5" :radius="1.2" :threshold="0" />
           <SMAAPass />
         </EffectComposer>
       </Renderer>

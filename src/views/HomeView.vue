@@ -7,6 +7,7 @@
       ref="rendererC"
       antialias
       :orbit-ctrl="{ enableDamping: true }"
+      alpha
       resize="window"
       class="w-full h-screen"
       :class="{
@@ -28,7 +29,7 @@
         <Sphere
           ref="meshA"
           :scale="{ x: 6, y: 6, z: 6 }"
-          :rotation="{ y: Math.PI / 2, z: Math.PI / 2 }"
+          :rotation="{}"
           :position="{ x: 8, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
@@ -36,12 +37,13 @@
           :height-segments="64"
           @click="
             (planetOnClickVisible = true),
-              (selectedCategoryId = 'ajsuoXsZCWfZZL8Zes6f')
+              (selectedCategoryId = 'ajsuoXsZCWfZZL8Zes6f'),
+              (selectedTexture = '/textures/final/meshA.jpg')
           "
           @pointer-over="planet1Hover"
         >
           <BasicMaterial>
-            <Texture src="/textures/2k_venus_atmosphere.jpg" />
+            <Texture src="/textures/final/meshA.jpg" />
           </BasicMaterial>
         </Sphere>
         <!--PLANETE 2 : university projects-->
@@ -56,44 +58,42 @@
           :height-segments="64"
           @click="
             (planetOnClickVisible = true),
-              (selectedCategoryId = 'HrSPZKspOCzjj0jfTJEA')
+              (selectedCategoryId = 'HrSPZKspOCzjj0jfTJEA'),
+              (selectedTexture = '/textures/final/meshB.jpg')
           "
         >
           <!--  @click="planet2Click(), planet2ClickSetup()"
             @pointer-over="planet2Hover"-->
           <BasicMaterial>
-            <Texture src="/textures/2k_red.jpg" />
+            <Texture src="/textures/final/meshB.jpg" />
           </BasicMaterial>
         </Sphere>
 
         <!--TORUS KNOT : branding-->
-        <TorusKnot
+        <Sphere
           ref="meshC"
-          :scale="{ x: 0.08, y: 0.08, z: 0.08 }"
+          :scale="{ x: 0.8, y: 0.8, z: 0.8 }"
           :position="{ x: 10, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :radius="6.5"
-          :tube="1"
-          :tubular-segments="48"
-          :radial-segments="4"
-          :p="16"
-          :q="9"
+          :width-segments="64"
+          :height-segments="64"
           @click="
             (planetOnClickVisible = true),
-              (selectedCategoryId = 'fGEqHjoGMMfGm4PRL8Mz')
+              (selectedCategoryId = 'fGEqHjoGMMfGm4PRL8Mz'),
+              (selectedTexture = '/textures/final/meshC.jpg')
           "
         >
           <BasicMaterial>
-            <Texture src="/textures/2k_mars.jpg" />
+            <Texture src="/textures/final/meshC.jpg" />
           </BasicMaterial>
-        </TorusKnot>
+        </Sphere>
 
         <!--SPHERE Websites-->
         <!---->
         <Sphere
           ref="meshD"
-          :scale="{ x: 1.4, y: 1.4, z: 1.4 }"
+          :scale="{ x: 1.7, y: 1.7, z: 1.7 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
           :position="{ x: 10, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -102,72 +102,77 @@
           :height-segments="64"
           @click="
             (planetOnClickVisible = true),
-              (selectedCategoryId = 'nCRg6TZehbe0fLYdnyZx')
+              (selectedCategoryId = 'nCRg6TZehbe0fLYdnyZx'),
+              (selectedTexture = '/textures/final/meshD.jpg')
           "
         >
           <BasicMaterial>
-            <Texture src="/textures/2k_neptune.jpg" />
+            <Texture src="/textures/final/meshD.jpg" />
           </BasicMaterial>
         </Sphere>
 
         <!--Traditionnal art-->
-        <NoisyImage
+        <!---->
+        <Sphere
           ref="meshE"
-          src="/textures/portfolio-art-traditionnel.jpg"
-          :width="4"
-          :height="3"
-          :time-coef="0.001"
-          :noise-coef="0.3"
-          :z-coef="0.1"
-          :disp-coef="0"
-          :rotation="{ y: Math.PI / 2 }"
+          :scale="{ x: 1, y: 1, z: 1 }"
           :position="{ x: 10, y: 0, z: 0 }"
-          @click="
-            (planetOnClickVisible = true),
-              (selectedCategoryId = 'kqCqnAKVhlM5yJ3ADu3R')
-          "
-          @pointer-over="planet1Hover"
-        />
-
-        <!--Torus: digital art-->
-        <Torus
-          ref="meshF"
-          :scale="{ x: 0.12, y: 0.12, z: 0.12 }"
-          :rotation="{ x: Math.PI / 2, y: 0, z: 0 }"
-          :position="{ x: -10, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :radius="8"
-          :tube="5"
-          :radial-segments="20"
-          :tubular-segments="124"
+          :width-segments="64"
+          :height-segments="64"
           @click="
             (planetOnClickVisible = true),
-              (selectedCategoryId = 'QXUlvvDRMOPiQu0GGUgY')
+              (selectedCategoryId = 'kqCqnAKVhlM5yJ3ADu3R'),
+              (selectedTexture = '/textures/final/meshE.jpg')
           "
         >
           <BasicMaterial>
-            <Texture src="/textures/digital-art2.jpg" />
+            <Texture src="/textures/final/meshE.jpg" />
           </BasicMaterial>
-        </Torus>
+        </Sphere>
 
-        <!--Octahedron: video games-->
-        <Octahedron
-          ref="meshG"
-          :scale="{ x: 0.1, y: 0.1, z: 0.1 }"
-          :rotation="{ x: 0, y: Math.PI / 2, z: 0 }"
+        <!--Digital art-->
+        <!---->
+        <Sphere
+          ref="meshF"
+          :scale="{ x: 1.8, y: 1.8, z: 1.8 }"
           :position="{ x: -10, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
-          :radius="10"
-          :detail="0"
+          :width-segments="64"
+          :height-segments="64"
           @click="
             (planetOnClickVisible = true),
-              (selectedCategoryId = 'GohIP8SxIwdg69w0NfWk')
+              (selectedCategoryId = 'QXUlvvDRMOPiQu0GGUgY'),
+              (selectedTexture = '/textures/final/meshF.jpg')
           "
         >
-          <BasicMaterial :color="'#FCFF73'"> </BasicMaterial>
-        </Octahedron>
+          <BasicMaterial>
+            <Texture src="/textures/final/meshF.jpg" />
+          </BasicMaterial>
+        </Sphere>
+
+        <!--Video games-->
+        <!---->
+        <Sphere
+          ref="meshG"
+          :scale="{ x: 0.8, y: 0.8, z: 0.8 }"
+          :position="{ x: -10, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :width-segments="64"
+          :height-segments="64"
+          @click="
+            (planetOnClickVisible = true),
+              (selectedCategoryId = 'GohIP8SxIwdg69w0NfWk'),
+              (selectedTexture = '/textures/final/meshG.jpg')
+          "
+        >
+          <BasicMaterial>
+            <Texture src="/textures/final/meshG.jpg" />
+          </BasicMaterial>
+        </Sphere>
 
         <!--SPHERE Volunteering-->
         <Sphere
@@ -181,10 +186,13 @@
           :height-segments="64"
           @click="
             (planetOnClickVisible = true),
-              (selectedCategoryId = 'GLZu0Wq0LKuvLe1tkOgy')
+              (selectedCategoryId = 'GLZu0Wq0LKuvLe1tkOgy'),
+              (selectedTexture = '/textures/final/meshH.jpg')
           "
         >
-          <BasicMaterial :color="'#57db57'"> </BasicMaterial>
+          <BasicMaterial>
+            <Texture src="/textures/final/meshH.jpg" />
+          </BasicMaterial>
         </Sphere>
 
         <!--Anneaux de la scène : A-->
@@ -281,10 +289,14 @@
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
 
+    <div
+      class="-z-10 w-full h-screen absolute inset-0 pointer-events-none bg-[url('/textures/space.jpg')]"
+    ></div>
+
     <!--ONCLICK COMPOSANT-->
     <PlanetOnClick
       :categoryId="selectedCategoryId"
-      :texturePlanet="'/textures/2k_venus_atmosphere.jpg'"
+      :texturePlanet="selectedTexture"
       v-if="planetOnClickVisible === true"
       @backEvent="updateparent"
     />
@@ -360,9 +372,13 @@
     </section>
   </article>
 
+  <!-- ECRAN CHARGEMENT-->
+  <!-- ECRAN CHARGEMENT-->
+  <!-- ECRAN CHARGEMENT-->
   <section
     id="loading-screen"
     class="flex flex-col gap-10 justify-center items-center w-full h-screen absolute inset-0 z-30"
+    v-if="onMounted"
   >
     <div class="animate-bounce">
       <p class="font-normal portfolio-h3">Loading...</p>
@@ -645,6 +661,7 @@ export default {
       PlanetOneHover: false,
       planetOnClickVisible: false, // var du click sur la planète (pour afficher les détails : le composant planetOnClick)
       selectedCategoryId: "", // id de la planète selectionnée
+      selectedTexture: "", // src de la texture de la planète sélectionnée
     };
   },
   methods: {
