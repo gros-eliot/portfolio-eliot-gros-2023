@@ -6,8 +6,13 @@
     <Renderer
       ref="rendererC"
       antialias
-      :orbit-ctrl="{ enableDamping: true }"
-      alpha
+      :orbit-ctrl="{
+        enableDamping: true,
+        enablePan: false,
+        enableZoom: false,
+        enableRotate: true,
+      }"
+      alpha="true"
       resize="window"
       class="w-full h-screen"
       :class="{
@@ -21,7 +26,7 @@
     >
       <!--      v-if="planetOnClickVisible === false"
 -->
-      <Camera :position="{ z: 500 }" ref="camera" />
+      <Camera :position="{ z: 1000, y: 800, x: 400 }" ref="camera" />
       <Scene>
         <PointLight :position="{ y: 50 }" :intensity="0.5" />
 
@@ -30,7 +35,7 @@
           ref="meshA"
           :scale="{ x: 6, y: 6, z: 6 }"
           :rotation="{}"
-          :position="{ x: 8, y: 0, z: 0 }"
+          :position="{ x: 0, y: 8, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -51,7 +56,7 @@
           ref="meshB"
           :scale="{ x: 6, y: 6, z: 6 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :position="{ x: -8, y: 0, z: 0 }"
+          :position="{ x: 0, y: -8, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -61,9 +66,8 @@
               (selectedCategoryId = 'HrSPZKspOCzjj0jfTJEA'),
               (selectedTexture = '/textures/final/meshB.jpg')
           "
+          @pointer-over="planet2Hover"
         >
-          <!--  @click="planet2Click(), planet2ClickSetup()"
-            @pointer-over="planet2Hover"-->
           <BasicMaterial>
             <Texture src="/textures/final/meshB.jpg" />
           </BasicMaterial>
@@ -83,6 +87,7 @@
               (selectedCategoryId = 'fGEqHjoGMMfGm4PRL8Mz'),
               (selectedTexture = '/textures/final/meshC.jpg')
           "
+          @pointer-over="planet3Hover"
         >
           <BasicMaterial>
             <Texture src="/textures/final/meshC.jpg" />
@@ -105,6 +110,7 @@
               (selectedCategoryId = 'nCRg6TZehbe0fLYdnyZx'),
               (selectedTexture = '/textures/final/meshD.jpg')
           "
+          @pointer-over="planet4Hover"
         >
           <BasicMaterial>
             <Texture src="/textures/final/meshD.jpg" />
@@ -116,7 +122,7 @@
         <Sphere
           ref="meshE"
           :scale="{ x: 1, y: 1, z: 1 }"
-          :position="{ x: 10, y: 0, z: 0 }"
+          :position="{ x: 0, y: 10, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -126,6 +132,7 @@
               (selectedCategoryId = 'kqCqnAKVhlM5yJ3ADu3R'),
               (selectedTexture = '/textures/final/meshE.jpg')
           "
+          @pointer-over="planet5Hover"
         >
           <BasicMaterial>
             <Texture src="/textures/final/meshE.jpg" />
@@ -147,6 +154,7 @@
               (selectedCategoryId = 'QXUlvvDRMOPiQu0GGUgY'),
               (selectedTexture = '/textures/final/meshF.jpg')
           "
+          @pointer-over="planet6Hover"
         >
           <BasicMaterial>
             <Texture src="/textures/final/meshF.jpg" />
@@ -158,7 +166,7 @@
         <Sphere
           ref="meshG"
           :scale="{ x: 0.8, y: 0.8, z: 0.8 }"
-          :position="{ x: -10, y: 0, z: 0 }"
+          :position="{ x: 0, y: -10, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -168,6 +176,7 @@
               (selectedCategoryId = 'GohIP8SxIwdg69w0NfWk'),
               (selectedTexture = '/textures/final/meshG.jpg')
           "
+          @pointer-over="planet7Hover"
         >
           <BasicMaterial>
             <Texture src="/textures/final/meshG.jpg" />
@@ -189,6 +198,7 @@
               (selectedCategoryId = 'GLZu0Wq0LKuvLe1tkOgy'),
               (selectedTexture = '/textures/final/meshH.jpg')
           "
+          @pointer-over="planet8Hover"
         >
           <BasicMaterial>
             <Texture src="/textures/final/meshH.jpg" />
@@ -221,7 +231,7 @@
           ref="meshRingB"
           :scale="{ x: 24, y: 24, z: 24 }"
           :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 1.97, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :tube="0.08"
@@ -242,7 +252,7 @@
           ref="meshRingC"
           :scale="{ x: 36, y: 36, z: 36 }"
           :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 2.03, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :tube="0.06"
@@ -262,6 +272,27 @@
         <Torus
           ref="meshRingD"
           :scale="{ x: 48, y: 48, z: 48 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 1.97, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :tube="0.04"
+          :radius="10"
+          :radial-segments="16"
+          :tubular-segments="100"
+          :arc="6.283185307179586"
+        >
+          <BasicMaterial
+            :color="'#91ebff'"
+            :props="{ opacity: 0.3, transparent: true }"
+          >
+          </BasicMaterial>
+        </Torus>
+
+        <!--Anneaux de la scène : E-->
+        <Torus
+          ref="meshRingE"
+          :scale="{ x: 60, y: 60, z: 60 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -294,6 +325,8 @@
     ></div>
 
     <!--ONCLICK COMPOSANT-->
+    <!--ONCLICK COMPOSANT-->
+    <!--ONCLICK COMPOSANT-->
     <PlanetOnClick
       :categoryId="selectedCategoryId"
       :texturePlanet="selectedTexture"
@@ -301,21 +334,51 @@
       @backEvent="updateparent"
     />
 
-    <!--FIN ONCLICK COMPOSANT-->
-
-    <!-- HOVERS ELEMENTS -->
-    <!--CE QU'AFFICHE LE HOVER sur la planète 1-->
-    <div
-      class="bg-yellow-portfolio text-black hidden z-0 p-10 absolute select-none inset-0 w-fit h-fit transition_display"
-      id="informationPlanet"
-      :class="{
-        'md:block': PlanetOneHover === true && $route.name === 'HomeView',
-      }"
-      v-if="planetOnClickVisible === false"
-    >
-      <p class="select-none">TEST</p>
-    </div>
-    <!--FIN HOVERS ELEMENTS -->
+    <!-- HOVERS COMPOSANT -->
+    <!-- HOVERS COMPOSANT -->
+    <!-- HOVERS COMPOSANT -->
+    <section>
+      <!--1 : Personnal projects-->
+      <PlanetHover
+        :categoryId="'ajsuoXsZCWfZZL8Zes6f'"
+        v-if="planetOnClickVisible === false && PlanetOneHover === true"
+      />
+      <!--2 : University projects-->
+      <PlanetHover
+        :categoryId="'HrSPZKspOCzjj0jfTJEA'"
+        v-if="planetOnClickVisible === false && PlanetTwoHover === true"
+      />
+      <!--3 : Branding-->
+      <PlanetHover
+        :categoryId="'fGEqHjoGMMfGm4PRL8Mz'"
+        v-if="planetOnClickVisible === false && PlanetThreeHover === true"
+      />
+      <!--4 : Websites-->
+      <PlanetHover
+        :categoryId="'nCRg6TZehbe0fLYdnyZx'"
+        v-if="planetOnClickVisible === false && PlanetFourHover === true"
+      />
+      <!--5 : TradArt-->
+      <PlanetHover
+        :categoryId="'kqCqnAKVhlM5yJ3ADu3R'"
+        v-if="planetOnClickVisible === false && PlanetFiveHover === true"
+      />
+      <!--6 : DigArt-->
+      <PlanetHover
+        :categoryId="'QXUlvvDRMOPiQu0GGUgY'"
+        v-if="planetOnClickVisible === false && PlanetSixHover === true"
+      />
+      <!--7 : VideoGames-->
+      <PlanetHover
+        :categoryId="'GohIP8SxIwdg69w0NfWk'"
+        v-if="planetOnClickVisible === false && PlanetSevenHover === true"
+      />
+      <!--8 : Volunteering-->
+      <PlanetHover
+        :categoryId="'GLZu0Wq0LKuvLe1tkOgy'"
+        v-if="planetOnClickVisible === false && PlanetEightHover === true"
+      />
+    </section>
 
     <!--UI spaceship interface-->
     <!--UI spaceship interface-->
@@ -470,12 +533,6 @@ canvas {
   border-color: #ffffff;
   border-radius: 60px 0px 0px 0px;
 }
-
-.transition_display {
-  transition-property: display;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
 </style>
 
 <script setup>
@@ -524,6 +581,8 @@ import BottomMeasure from "../components/spaceship-ui-components/BottomMeasure.v
 
 // imports Planet on click
 import PlanetOnClick from "../components/home-planets/planetOnClick.vue";
+// imports Planet hover
+import PlanetHover from "../components/home-planets/planetHover.vue";
 
 // ColladaLoader : test chargement
 import { ColladaLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/ColladaLoader.js";
@@ -659,6 +718,13 @@ export default {
   data() {
     return {
       PlanetOneHover: false,
+      PlanetTwoHover: false,
+      PlanetThreeHover: false,
+      PlanetFourHover: false,
+      PlanetFiveHover: false,
+      PlanetSixHover: false,
+      PlanetSevenHover: false,
+      PlanetEightHover: false,
       planetOnClickVisible: false, // var du click sur la planète (pour afficher les détails : le composant planetOnClick)
       selectedCategoryId: "", // id de la planète selectionnée
       selectedTexture: "", // src de la texture de la planète sélectionnée
@@ -667,11 +733,38 @@ export default {
   methods: {
     planet1Hover({ over }) {
       this.PlanetOneHover = over ? true : false;
-      console.log("résultat du hover : " + this.PlanetOneHover);
+    },
+    planet2Hover({ over }) {
+      this.PlanetTwoHover = over ? true : false;
+    },
+    planet3Hover({ over }) {
+      this.PlanetThreeHover = over ? true : false;
+    },
+    planet4Hover({ over }) {
+      this.PlanetFourHover = over ? true : false;
+    },
+    planet5Hover({ over }) {
+      this.PlanetFiveHover = over ? true : false;
+    },
+    planet6Hover({ over }) {
+      this.PlanetSixHover = over ? true : false;
+    },
+    planet7Hover({ over }) {
+      this.PlanetSevenHover = over ? true : false;
+    },
+    planet8Hover({ over }) {
+      this.PlanetEightHover = over ? true : false;
     },
     updateparent(value) {
       this.planetOnClickVisible = value;
       this.PlanetOneHover = value;
+      this.PlanetTwoHover = value;
+      this.PlanetThreeHover = value;
+      this.PlanetFourHover = value;
+      this.PlanetFiveHover = value;
+      this.PlanetSixHover = value;
+      this.PlanetSevenHover = value;
+      this.PlanetEightHover = value;
     },
   },
 };
@@ -684,9 +777,9 @@ document.addEventListener(
     let informationPlanet = document.getElementById("informationPlanet");
     if (informationPlanet != null) {
       informationPlanet.style.transform =
-        "translateY(" + (ev.clientY - 100) + "px)";
+        "translateY(" + (ev.clientY - 180) + "px)";
       informationPlanet.style.transform +=
-        "translateX(" + (ev.clientX + 10) + "px)";
+        "translateX(" + (ev.clientX - 210) + "px)";
     }
   },
   false

@@ -264,8 +264,6 @@ import {
   uploadString, // Permet d'uploader sur le Cloud Storage une image en Base64
 } from "@/assets/js/firebase-storage.js";
 
-import { emitter } from "@/main.js";
-
 //import élément annotation planetes
 import AnnotationPlanetText from "./AnnotationPlanetText.vue";
 import AnnotationPlanetImgOne from "./AnnotationPlanetImgOne.vue";
