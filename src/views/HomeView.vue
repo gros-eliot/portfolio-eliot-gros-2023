@@ -208,7 +208,7 @@
         <!--Anneaux de la scène : A-->
         <Torus
           ref="meshRingA"
-          :scale="{ x: 12, y: 12, z: 12 }"
+          :scale="{ x: 15, y: 15, z: 15 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -229,9 +229,9 @@
         <!--Anneaux de la scène : B-->
         <Torus
           ref="meshRingB"
-          :scale="{ x: 24, y: 24, z: 24 }"
+          :scale="{ x: 32, y: 32, z: 32 }"
           :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: -Math.PI / 1.97, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 1.94, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :tube="0.08"
@@ -250,7 +250,7 @@
         <!--Anneaux de la scène : C-->
         <Torus
           ref="meshRingC"
-          :scale="{ x: 36, y: 36, z: 36 }"
+          :scale="{ x: 46, y: 46, z: 46 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2.03, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -271,7 +271,7 @@
         <!--Anneaux de la scène : D-->
         <Torus
           ref="meshRingD"
-          :scale="{ x: 48, y: 48, z: 48 }"
+          :scale="{ x: 60, y: 60, z: 60 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 1.97, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -290,9 +290,10 @@
         </Torus>
 
         <!--Anneaux de la scène : E-->
+        <!--
         <Torus
           ref="meshRingE"
-          :scale="{ x: 60, y: 60, z: 60 }"
+          :scale="{ x: 78, y: 78, z: 78 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -309,6 +310,7 @@
           >
           </BasicMaterial>
         </Torus>
+        -->
       </Scene>
       <!--Effet améliorant le rendu-->
       <EffectComposer>
@@ -396,9 +398,10 @@
         <TopRight class="w-24 h-24 md:w-48 md:h-48" />
       </div>
       <!--Middle-->
+      <!--
       <div class="w-full h-screen absolute flex justify-center items-center">
         <Middle class="w-20 h-20" />
-      </div>
+      </div>-->
       <!--BOTTOM-->
       <section class="absolute bottom-0 text-white flex flex-col w-full p-4">
         <div class="flex justify-between items-end w-full p-4">
@@ -688,7 +691,7 @@ onMounted(() => {
     mesh8.rotation.x += 0.001;
 
     // GROUP RINGS
-    meshRing1.rotation.z += 0.0005;
+    meshRing1.rotation.z += 0.002;
     meshRing2.rotation.z += -0.0008;
     meshRing3.rotation.z += 0.0011;
     meshRing4.rotation.z += -0.0014;
@@ -784,18 +787,4 @@ document.addEventListener(
   },
   false
 );
-
-// noisyImage responsive width function
-/* 
-let noisyImageWidth = 0;
-if (window.screen.width <= 500) {
-  noisyImageWidth = window.screen.width / 400;
-}
-if (window.screen.width > 500) {
-  noisyImageWidth = window.screen.width / 800;
-}
-if (window.screen.width > 1000) {
-  noisyImageWidth = window.screen.width / 500;
-}
-*/
 </script>

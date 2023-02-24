@@ -86,7 +86,10 @@
         <div class="p-3 flex flex-col gap-1">
           <label class="portfolio-h3" for="categoryName">
             <RouterLink
-              :to="{ name: 'TestFirebaseView', params: { id: categorie.id } }"
+              :to="{
+                name: 'ListeCategorieView',
+                params: { id: categorie.name },
+              }"
               >{{ categorie.name }}</RouterLink
             >
           </label>

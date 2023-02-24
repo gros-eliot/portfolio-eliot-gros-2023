@@ -4,8 +4,13 @@
       {{ categorie.name }}
     </h1>
     <hr class="my-2" />
+    <!--PARENT pour la colonne des works-->
     <article>
+      <!--SECTION pour afficher les works-->
       <section v-for="work in listeWorks" :key="work.name">
+        <!--DIV propre à chaque work : apparition selon sa catégorie
+        work.categories[0] -> catégories du work
+        -->
         <div
           v-if="
             (work.categories[0].name === categorie.name) |
@@ -16,16 +21,56 @@
               (work.categories[5].name === categorie.name) |
               (work.categories[6].name === categorie.name)
           "
+          class="grid grid-cols-[70%,30%]"
         >
-          <p>{{ work.name }}</p>
-          <img :src="work.photo" />
-          <p v-for="categoryTool in work.outils" :key="categoryTool.id">
-            {{ categoryTool.name }}
-          </p>
-          <p v-for="categoryWork in work.categories" :key="categoryWork.id">
-            {{ categoryWork.name }}
-          </p>
-          <hr class="my-5" />
+          <div
+            class="w-full flex flex-col justify-end p-5 md:p-8 bg-center bg-cover"
+            :style="{
+              backgroundImage: `url('${work.photo}')`,
+            }"
+          >
+            <h3 class="portfolio-h1 text-3xl md:text-4xl lg:text-5xl invert">
+              {{ work.name }}
+            </h3>
+          </div>
+
+          <!--partie 2-->
+          <section
+            class="bg-black text-yellow-portfolio p-2 md:p-4 flex flex-col justify-between h-96"
+          >
+            <!--Outils du work-->
+            <div v-for="toolWork in work.outils" :key="toolWork.id">
+              <div
+                class="flex flex-row gap-1 justify-center items-center p-1 border border-yellow-portfolio rounded-full w-fit"
+                v-if="toolWork.name"
+              >
+                <!--image de l'outil-->
+                <section v-for="outil in listeOutils" :key="outil.name">
+                  <div
+                    v-if="
+                      outil.name ===
+                      toolWork.name /*outil Liste = outilProjet ?*/
+                    "
+                  >
+                    <img
+                      :src="outil.image"
+                      :alt="toolWork.name"
+                      class="portfolio-toolicon-size"
+                    />
+                  </div>
+                  <div id="removeFrom" v-else></div>
+                </section>
+                <!--image de l'outil-->
+                <p>
+                  {{ toolWork.name }}
+                </p>
+              </div>
+            </div>
+            <!--Catégories du work-->
+            <p v-for="categoryWork in work.categories" :key="categoryWork.id">
+              {{ categoryWork.name }}
+            </p>
+          </section>
         </div>
       </section>
     </article>
@@ -58,7 +103,7 @@ import {
 import { emitter } from "@/main.js";
 
 export default {
-  name: "TestFirebaseView",
+  name: "ListeCategorieView",
   data() {
     return {
       imageData: null, // Image prévisualisée
@@ -103,6 +148,7 @@ export default {
       refCategorie: null, // Référence du concert à modifier
 
       listeWorks: [], // import des works firebase
+      listeOutils: [], // import des outils firebase
     };
   },
 

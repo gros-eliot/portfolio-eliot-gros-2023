@@ -18,6 +18,10 @@
         @apply text-base md:text-lg font-light;
     }
 
+    .portfolio-toolicon-size {
+        @apply w-6 md:w-10;
+    }
+
     .portfolio-input {
 
     /* agencement du texte*/

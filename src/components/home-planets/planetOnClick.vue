@@ -185,7 +185,10 @@
           class="flex flex-col md:flex-row gap-5 justify-center items-center"
         >
           <RouterLink
-            :to="{ name: 'TestFirebaseView', params: { id: categorie.id } }"
+            :to="{
+              name: 'ListeCategorieView',
+              params: { id: categorie.id },
+            }"
             class="w-fit h-fit pointer-events-auto"
           >
             <button class="portfolio-button-white w-fit">Land on</button>
