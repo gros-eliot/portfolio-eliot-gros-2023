@@ -43,12 +43,12 @@
           @click="
             (planetOnClickVisible = true),
               (selectedCategoryId = 'ajsuoXsZCWfZZL8Zes6f'),
-              (selectedTexture = '/textures/finalv2/Plan de travail 1.jpg')
+              (selectedTexture = '/textures/finalv2/Plan de travail 2.jpg')
           "
           @pointer-over="planet1Hover"
         >
           <BasicMaterial>
-            <Texture src="/textures/finalv2/Plan de travail 1.jpg" />
+            <Texture src="/textures/finalv2/Plan de travail 2.jpg" />
           </BasicMaterial>
         </Sphere>
         <!--PLANETE 2 : university projects-->
@@ -64,12 +64,12 @@
           @click="
             (planetOnClickVisible = true),
               (selectedCategoryId = 'HrSPZKspOCzjj0jfTJEA'),
-              (selectedTexture = '/textures/finalv2/Plan de travail 2.jpg')
+              (selectedTexture = '/textures/finalv2/Plan de travail 6.jpg')
           "
           @pointer-over="planet2Hover"
         >
           <BasicMaterial>
-            <Texture src="/textures/finalv2/Plan de travail 2.jpg" />
+            <Texture src="/textures/finalv2/Plan de travail 6.jpg" />
           </BasicMaterial>
         </Sphere>
 
@@ -85,12 +85,12 @@
           @click="
             (planetOnClickVisible = true),
               (selectedCategoryId = 'fGEqHjoGMMfGm4PRL8Mz'),
-              (selectedTexture = '/textures/finalv2/Plan de travail 3.jpg')
+              (selectedTexture = '/textures/finalv2/Plan de travail 7.jpg')
           "
           @pointer-over="planet3Hover"
         >
           <BasicMaterial>
-            <Texture src="/textures/finalv2/Plan de travail 3.jpg" />
+            <Texture src="/textures/finalv2/Plan de travail 7.jpg" />
           </BasicMaterial>
         </Sphere>
 
@@ -152,12 +152,12 @@
           @click="
             (planetOnClickVisible = true),
               (selectedCategoryId = 'QXUlvvDRMOPiQu0GGUgY'),
-              (selectedTexture = '/textures/finalv2/Plan de travail 6.jpg')
+              (selectedTexture = '/textures/finalv2/Plan de travail 3.jpg')
           "
           @pointer-over="planet6Hover"
         >
           <BasicMaterial>
-            <Texture src="/textures/finalv2/Plan de travail 6.jpg" />
+            <Texture src="/textures/finalv2/Plan de travail 3.jpg" />
           </BasicMaterial>
         </Sphere>
 
@@ -174,12 +174,12 @@
           @click="
             (planetOnClickVisible = true),
               (selectedCategoryId = 'GohIP8SxIwdg69w0NfWk'),
-              (selectedTexture = '/textures/finalv2/Plan de travail 7.jpg')
+              (selectedTexture = '/textures/finalv2/Plan de travail 1.jpg')
           "
           @pointer-over="planet7Hover"
         >
           <BasicMaterial>
-            <Texture src="/textures/finalv2/Plan de travail 7.jpg" />
+            <Texture src="/textures/finalv2/Plan de travail 1.jpg" />
           </BasicMaterial>
         </Sphere>
 
