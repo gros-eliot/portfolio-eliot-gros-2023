@@ -54,12 +54,21 @@
                         "
                       >
                         <!--Contenu d'une case jaune d'un outil :-->
-                        <div class="portfolio-listsworks-buttons" @mouseover="">
+                        <div
+                          class="portfolio-listsworks-buttons"
+                          @mouseenter="imageHidden = !imageHidden"
+                          @mouseleave="imageHidden = !imageHidden"
+                        >
                           <!--image de l'outil-->
                           <img
                             :src="outil.image"
                             :alt="toolWork.name"
                             class="portfolio-toolicon-size"
+                            :class="{
+                              'brightness-0':
+                                imageHidden === true &&
+                                outil.name === toolWork.name,
+                            }"
                           />
                           <!--Nom de l'outil-->
                           <p>
@@ -86,9 +95,12 @@
                   :key="categoryWork.id"
                 >
                   <div v-if="categoryWork.name">
-                    <div class="portfolio-listsworks-buttons py-3">
+                    <RouterLink
+                      to="/"
+                      class="portfolio-listsworks-buttons py-3"
+                    >
                       <p>{{ categoryWork.name }}</p>
-                    </div>
+                    </RouterLink>
                   </div>
                 </div>
               </div>
@@ -131,6 +143,8 @@ export default {
     return {
       imageData: null, // Image prévisualisée
       imageData2: null,
+
+      imageHidden: false, // image des boutons
 
       categorie: {
         name: "", // NOM CATEGORIE
