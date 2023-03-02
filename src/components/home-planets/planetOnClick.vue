@@ -29,7 +29,7 @@
             :height-segments="128"
           >
             <BasicMaterial>
-              <Texture :src="texturePlanet" />
+              <Texture :src="texturePlanet" :color="colorPlanet" />
             </BasicMaterial>
           </Sphere>
         </Scene>
@@ -285,6 +285,10 @@ export default {
       required: true,
     },
     texturePlanet: {
+      type: String,
+      required: true,
+    },
+    colorPlanet: {
       type: String,
       required: true,
     },

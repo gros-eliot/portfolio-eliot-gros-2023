@@ -195,8 +195,10 @@
           :height-segments="64"
           @click="
             (planetOnClickVisible = true),
-              (selectedCategoryId = 'GLZu0Wq0LKuvLe1tkOgy'),
-              (selectedTexture = '/textures/final/meshH.jpg')
+              //    (selectedCategoryId = 'GLZu0Wq0LKuvLe1tkOgy'),
+              (colorPlanet = '`#`'(
+                (selectedTexture = '/textures/final/meshH.jpg')
+              ))
           "
           @pointer-over="planet8Hover"
         >
