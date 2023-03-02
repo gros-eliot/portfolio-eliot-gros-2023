@@ -26,10 +26,28 @@
     >
       <!--      v-if="planetOnClickVisible === false"
 -->
-      <Camera :position="{ z: 1000, y: 800, x: 400 }" ref="camera" />
+      <Camera
+        :position="{ z: 1000, y: 800, x: 400 }"
+        ref="camera"
+        :far="10000"
+      />
       <Scene>
         <PointLight :position="{ y: 50 }" :intensity="0.5" />
 
+        <!--SPHERE HDRI SPACE-->
+        <Sphere
+          ref="meshSpace"
+          :scale="{ x: 5000, y: 5000, z: 5000 }"
+          :position="{ x: 0, y: 0, z: 0 }"
+          :cast-shadow="true"
+          :receive-shadow="true"
+          :width-segments="64"
+          :height-segments="64"
+        >
+          <BasicMaterial :props="{ side: THREE.DoubleSide }">
+            <Texture src="/textures/space4.jpg" />
+          </BasicMaterial>
+        </Sphere>
         <!--PLANETE 1 : personnal projects-->
         <Sphere
           ref="meshA"
@@ -601,6 +619,8 @@ const meshF = ref(); //mesh planete 6 | dig art
 const meshG = ref(); //mesh planete 7 | video games
 const meshH = ref(); //mesh planete 8 | volunteering
 
+const meshSpace = ref();
+
 const meshRingA = ref(); // groupe A
 const meshRingB = ref(); // groupe B
 const meshRingC = ref(); // groupe C
@@ -641,6 +661,8 @@ onMounted(() => {
   // FIN CHARGEMENT ECRAN
 
   const renderer = rendererC.value;
+
+  const meshSpace1 = meshSpace.value.mesh;
   const mesh1 = meshA.value.mesh;
   const mesh2 = meshB.value.mesh;
   const mesh3 = meshC.value.mesh;
@@ -669,6 +691,9 @@ onMounted(() => {
   meshRing4.add(mesh8);
 
   renderer.onBeforeRender(() => {
+    meshSpace1.rotation.x += 0.00003;
+    meshSpace1.rotation.y += 0.00003;
+    meshSpace1.rotation.z += 0.00003;
     //1 : perso project(sphere)
     mesh1.rotation.x += 0.003;
     //2 : univ project(sphere)

@@ -11,7 +11,7 @@
         <!--DIV propre à chaque work : apparition selon sa catégorie
         work.categories[0] -> catégories du work
         -->
-        <div
+        <article
           v-if="
             (work.categories[0].name === categorie.name) |
               (work.categories[1].name === categorie.name) |
@@ -21,12 +21,13 @@
               (work.categories[5].name === categorie.name) |
               (work.categories[6].name === categorie.name)
           "
-          class="grid grid-cols-[70%,30%]"
+          class="grid grid-rows-[70%,30%] grid-cols-1 md:grid-rows-1 md:grid-cols-[70%,30%] h-fit md:h-[500px]"
         >
+          <!--partie 1 du grid : image + titre du projet-->
           <div
             class="w-full flex flex-col justify-end p-5 md:p-8 bg-center bg-cover"
             :style="{
-              backgroundImage: `url('${work.photo}')`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.6)0%,rgba(0,0,0,0.6)100%),url('${work.photo}')`,
             }"
           >
             <h3 class="portfolio-h1 text-3xl md:text-4xl lg:text-5xl invert">
@@ -34,44 +35,66 @@
             </h3>
           </div>
 
-          <!--partie 2-->
+          <!--partie 2 du grid : OUTILS + CATEGORIES-->
           <section
-            class="bg-black text-yellow-portfolio p-2 md:p-4 flex flex-col justify-between h-96"
+            class="bg-black text-yellow-portfolio uppercase tracking-wide p-5 grid grid-rows-2 h-full gap-5"
           >
             <!--Outils du work-->
-            <div v-for="toolWork in work.outils" :key="toolWork.id">
-              <div
-                class="flex flex-row gap-1 justify-center items-center p-1 border border-yellow-portfolio rounded-full w-fit"
-                v-if="toolWork.name"
-              >
-                <!--image de l'outil-->
-                <section v-for="outil in listeOutils" :key="outil.name">
-                  <div
-                    v-if="
-                      outil.name ===
-                      toolWork.name /*outil Liste = outilProjet ?*/
-                    "
-                  >
-                    <img
-                      :src="outil.image"
-                      :alt="toolWork.name"
-                      class="portfolio-toolicon-size"
-                    />
-                  </div>
-                  <div id="removeFrom" v-else></div>
+            <div>
+              <h2 class="font-bold text-xl">Tools</h2>
+              <div class="flex flex-row flex-wrap gap-1">
+                <section v-for="toolWork in work.outils" :key="toolWork.id">
+                  <section v-if="toolWork.name">
+                    <section v-for="outil in listeOutils" :key="outil.name">
+                      <!--Contenant des outils :-->
+                      <section
+                        v-if="
+                          outil.name ===
+                          toolWork.name /*outil Liste = outilProjet ?*/
+                        "
+                      >
+                        <!--Contenu d'une case jaune d'un outil :-->
+                        <div class="portfolio-listsworks-buttons" @mouseover="">
+                          <!--image de l'outil-->
+                          <img
+                            :src="outil.image"
+                            :alt="toolWork.name"
+                            class="portfolio-toolicon-size"
+                          />
+                          <!--Nom de l'outil-->
+                          <p>
+                            {{ toolWork.name }}
+                          </p>
+                        </div>
+                      </section>
+                      <section v-else id="removeFrom"></section>
+                    </section>
+                  </section>
+                  <section v-else id="removeFromBis"></section>
                 </section>
-                <!--image de l'outil-->
-                <p>
-                  {{ toolWork.name }}
-                </p>
               </div>
             </div>
+
+            <!---->
+
             <!--Catégories du work-->
-            <p v-for="categoryWork in work.categories" :key="categoryWork.id">
-              {{ categoryWork.name }}
-            </p>
+            <div>
+              <h2 class="font-bold text-xl">Categories</h2>
+              <div class="flex flex-row flex-wrap gap-1">
+                <div
+                  v-for="categoryWork in work.categories"
+                  :key="categoryWork.id"
+                >
+                  <div v-if="categoryWork.name">
+                    <div class="portfolio-listsworks-buttons py-3">
+                      <p>{{ categoryWork.name }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
-        </div>
+        </article>
       </section>
     </article>
   </div>

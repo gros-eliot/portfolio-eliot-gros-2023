@@ -19,7 +19,15 @@
     }
 
     .portfolio-toolicon-size {
-        @apply w-6 md:w-10;
+        @apply w-5 md:w-8;
+    }
+
+    .portfolio-listsworks-buttons {
+        @apply cursor-pointer flex flex-row gap-1 justify-center items-center p-2 border border-yellow-portfolio rounded-xl w-fit;
+    }
+    .portfolio-listsworks-buttons:hover {
+        @apply border-black text-black bg-yellow-portfolio;
+        @layer imageHidden;
     }
 
     .portfolio-input {

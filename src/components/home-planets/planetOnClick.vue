@@ -15,8 +15,22 @@
         resize="window"
         class="absolute inset-0 max-w-full max-h-screen z-30"
       >
-        <Camera :position="{ z: cameraFocusResponsive }" />
+        <Camera :position="{ z: cameraFocusResponsive }" :far="5000" />
         <Scene>
+          <!--SPHERE HDRI SPACE-->
+          <Sphere
+            :scale="{ x: 300, y: 300, z: 300 }"
+            :position="{ x: 0, y: 0, z: 0 }"
+            :cast-shadow="true"
+            :receive-shadow="true"
+            :width-segments="64"
+            :height-segments="64"
+          >
+            <BasicMaterial :props="{ side: THREE.DoubleSide }">
+              <Texture src="/textures/space4.jpg" />
+            </BasicMaterial>
+          </Sphere>
+
           <!--PLANETE AFFICHEE-->
           <Sphere
             ref="planet"
@@ -38,7 +52,7 @@
         <EffectComposer>
           <RenderPass />
 
-          <UnrealBloomPass :strength="0.5" :radius="1.2" :threshold="0" />
+          <UnrealBloomPass :strength="0.4" :radius="1.2" :threshold="0" />
           <SMAAPass />
         </EffectComposer>
       </Renderer>
@@ -243,6 +257,8 @@ import {
   EffectComposer,
   RenderPass,
 } from "troisjs";
+
+import * as THREE from "three";
 </script>
 
 <script>
