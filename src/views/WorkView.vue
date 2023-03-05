@@ -1,10 +1,45 @@
 <template>
-  <div class="bg-white">
+  <section v-for="categorie in listeCategories" :key="categorie.id">
+    <div v-if="work.categories[0].name === categorie.name">
+      <Breadcrumb
+        class="hidden md:block m-4"
+        :Item1="{
+          text: 'Home',
+          RouterLinkTo: '/home',
+        }"
+        :Item2="{
+          text: work.categories[0].name,
+          RouterLinkTo: {
+            name: 'ListeCategorieView',
+            params: { id: categorie.id },
+          },
+        }"
+        :Item3="{
+          text: work.name,
+        }"
+      />
+    </div>
+  </section>
+  <div
+    class="w-full h-screen bg-cover bg-center flex flex-col justify-center items-center gap-1 text-white"
+    :style="{
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.8)0%,rgba(0,0,0,0.8)100%),url('${workPhotoUrl}')`,
+    }"
+  >
     <h1 class="portfolio-h1">
       {{ work.name }}
     </h1>
+    <p class="portfolio-h3 font-light">{{ work.firstdescription }}</p>
   </div>
+
+  <section>
+    <p>{{ seconddescription }}</p>
+  </section>
 </template>
+
+<script setup>
+import Breadcrumb from "@/components/Breadcrumb.vue";
+</script>
 
 <script>
 // Bibliothèque Firestore : import des fonctions
@@ -35,7 +70,7 @@ export default {
   name: "WorkView",
   data() {
     return {
-      imageData: null, // Image prévisualisée
+      workPhotoUrl: null, // Image prévisualisée
 
       work: {
         name: "", // NOM WORK
@@ -220,7 +255,7 @@ export default {
       getDownloadURL(spaceRef)
         .then((url) => {
           // Mise à jour de l'image prévisualisée
-          this.imageData = url;
+          this.workPhotoUrl = url;
         })
         .catch((error) => {
           console.log("erreur downloadUrl", error);
