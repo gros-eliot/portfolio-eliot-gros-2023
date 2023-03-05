@@ -1,4 +1,5 @@
 <template>
+  <!--BREADCRUMB for works-->
   <section v-for="categorie in listeCategories" :key="categorie.id">
     <div v-if="work.categories[0].name === categorie.name">
       <Breadcrumb
@@ -20,6 +21,8 @@
       />
     </div>
   </section>
+
+  <!--HERO for works : firebase content-->
   <div
     class="w-full h-screen bg-cover bg-center flex flex-col justify-center items-center gap-1 text-white"
     :style="{
@@ -32,13 +35,15 @@
     <p class="portfolio-h3 font-light">{{ work.firstdescription }}</p>
   </div>
 
+  <!--CONTENT for works : components-->
   <section>
-    <p>{{ seconddescription }}</p>
+    <WorkPommsWorld v-if="work.name === `Pomm's world`" />
   </section>
 </template>
 
 <script setup>
 import Breadcrumb from "@/components/Breadcrumb.vue";
+import WorkPommsWorld from "@/components/works/WORKPommsWorld.vue";
 </script>
 
 <script>
