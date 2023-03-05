@@ -118,10 +118,8 @@
                             name: 'ListeCategorieView',
                             params: { id: categoryFromAll.id },
                           }"
-                          @click="
-                            $route.push('/categorie/' + categoryFromAll.id)
-                          "
                           class="portfolio-listsworks-buttons py-3"
+                          @click="reloadPageFunction()"
                         >
                           <p>{{ categoryWork.name }}</p>
                         </RouterLink>
@@ -140,6 +138,12 @@
 
 <script setup>
 import buttonArrow from "@/components/icons/buttonArrow.vue";
+
+function reloadPageFunction() {
+  setTimeout(() => {
+    document.location.reload();
+  }, 1);
+}
 </script>
 
 <script>
