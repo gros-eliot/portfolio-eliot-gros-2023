@@ -27,7 +27,7 @@
             :height-segments="64"
           >
             <BasicMaterial :props="{ side: THREE.DoubleSide }">
-              <Texture src="/textures/space.jpg" />
+              <Texture src="/images/textures/space.jpg" />
             </BasicMaterial>
           </Sphere>
 

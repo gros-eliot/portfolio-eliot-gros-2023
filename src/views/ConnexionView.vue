@@ -23,11 +23,11 @@
         :receive-shadow="true"
       >
         <LambertMaterial>
-          <Texture src="/textures/telio-arts-icon.jpg" />
+          <Texture src="/images/textures/telio-arts-icon.jpg" />
         </LambertMaterial>
         <!--
         <BasicMaterial>
-          <Texture src="/textures/telio-arts-icon.jpg" />
+          <Texture src="/images/textures/telio-arts-icon.jpg" />
         </BasicMaterial>-->
       </Box>
     </Scene>

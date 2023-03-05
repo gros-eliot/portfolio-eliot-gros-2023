@@ -24,11 +24,11 @@
         :receive-shadow="true"
       >
         <LambertMaterial>
-          <Texture src="/textures/telio-arts-icon.jpg" />
+          <Texture src="/images/textures/telio-arts-icon.jpg" />
         </LambertMaterial>
         <!--
         <BasicMaterial>
-          <Texture src="/textures/telio-arts-icon.jpg" />
+          <Texture src="/images/textures/telio-arts-icon.jpg" />
         </BasicMaterial>-->
       </Box>
     </Scene>
@@ -47,7 +47,7 @@
   ></div>
   <!--Bg space-->
   <div
-    class="inset-0 w-full h-screen bg-[url(/textures/space.jpg)] absolute pointer-events-none -z-50"
+    class="inset-0 w-full h-screen bg-[url(/images/textures/space.jpg)] absolute pointer-events-none -z-50"
   ></div>
 
   <!-- ACCUEIL CONTENT-->
