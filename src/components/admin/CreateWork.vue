@@ -16,13 +16,6 @@
     <input
       type="text"
       class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
-      v-model="work.id"
-      placeholder="Créer un id pour le work"
-      required
-    />
-    <input
-      type="text"
-      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
       v-model="work.name"
       placeholder="Nom du work"
       required
@@ -85,13 +78,7 @@
       >
         <div class="p-3 flex flex-col gap-1">
           <label class="portfolio-h3" for="categoryName">
-            <RouterLink
-              :to="{
-                name: 'ListeCategorieView',
-                params: { id: categorie.name },
-              }"
-              >{{ categorie.name }}</RouterLink
-            >
+            <p>{{ categorie.name }}</p>
           </label>
           <div class="grid grid-cols-2">
             <p class="text-xs">{{ categorie.alternativeName }}</p>

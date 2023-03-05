@@ -17,7 +17,14 @@ import HomeView from '../views/HomeView.vue'
 
 import ConnexionView from '../views/ConnexionView.vue'
 import FirebaseView from '../views/FirebaseView.vue'
+
+
+import ChoseCategoryView from '../views/ChoseCategoryView.vue'
 import ListeCategorieView from '../views/ListeCategorieView.vue'
+
+
+
+import WorkView from '../views/WorkView.vue'
 
 const routes =  [ 
     { path: '/', name: 'AccueilView', component: AccueilView },
@@ -25,7 +32,11 @@ const routes =  [
 
     { path: '/connexion', name: 'ConnexionView', component: ConnexionView },
     { path: '/admin', name: 'FirebaseView', component: FirebaseView, beforeEnter:guardAdmin },
-    { path: '/categorie/:id', name: 'ListeCategorieView', component: ListeCategorieView, beforeEnter:guardAdmin },
+
+    { path: '/categorie/:id', name: 'ListeCategorieView', component: ListeCategorieView },
+    { path: '/categories', name: 'ChoseCategoryView', component: ChoseCategoryView },
+
+    { path: '/work/:id', name: 'WorkView', component: WorkView },
 
 ]
 

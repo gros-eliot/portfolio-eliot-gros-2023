@@ -1,9 +1,9 @@
 <template>
   <div class="bg-white">
-    <h1 class="portfolio-h1">
+    <h1 class="portfolio-h1 m-4">
       {{ categorie.name }}
     </h1>
-    <hr class="my-2" />
+
     <!--PARENT pour la colonne des works-->
     <article>
       <!--SECTION pour afficher les works-->
@@ -21,27 +21,37 @@
               (work.categories[5].name === categorie.name) |
               (work.categories[6].name === categorie.name)
           "
-          class="grid grid-rows-[70%,30%] grid-cols-1 md:grid-rows-1 md:grid-cols-[70%,30%] h-fit md:h-[500px]"
+          class="grid grid-cols-1 md:grid-rows-1 md:grid-cols-[75%,25%] h-full md:h-3/6"
         >
           <!--partie 1 du grid : image + titre du projet-->
-          <div
+
+          <RouterLink
+            :to="{
+              name: 'WorkView',
+              params: { id: work.id },
+            }"
             class="w-full flex flex-col justify-end p-5 md:p-8 bg-center bg-cover"
             :style="{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.6)0%,rgba(0,0,0,0.6)100%),url('${work.photo}')`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,${work.backgroundLinearGradient})0%,rgba(0,0,0,${work.backgroundLinearGradient})100%),url('${work.photo}')`,
             }"
+            @mouseenter="work.backgroundLinearGradient = '0.4'"
+            @mouseleave="work.backgroundLinearGradient = '0.7'"
           >
-            <h3 class="portfolio-h1 text-3xl md:text-4xl lg:text-5xl invert">
-              {{ work.name }}
-            </h3>
-          </div>
+            <div class="flex justify-between items-center">
+              <h3 class="portfolio-h1 text-3xl md:text-4xl lg:text-5xl invert">
+                {{ work.name }}
+              </h3>
+              <buttonArrow class="w-10 md:w-16 h-10 md:h-16" />
+            </div>
+          </RouterLink>
 
           <!--partie 2 du grid : OUTILS + CATEGORIES-->
           <section
-            class="bg-black text-yellow-portfolio uppercase tracking-wide p-5 grid grid-rows-2 h-full gap-5"
+            class="bg-black text-yellow-portfolio uppercase tracking-wide p-5 grid-rows-2 h-full gap-5 md:grid hidden"
           >
             <!--Outils du work-->
             <div>
-              <h2 class="font-bold text-xl">Tools</h2>
+              <h2 class="font-bold text-xl my-1">Tools</h2>
               <div class="flex flex-row flex-wrap gap-1">
                 <section v-for="toolWork in work.outils" :key="toolWork.id">
                   <section v-if="toolWork.name">
@@ -56,18 +66,16 @@
                         <!--Contenu d'une case jaune d'un outil :-->
                         <div
                           class="portfolio-listsworks-buttons"
-                          @mouseenter="imageHidden = !imageHidden"
-                          @mouseleave="imageHidden = !imageHidden"
+                          @mouseenter="outil.brightness = '0'"
+                          @mouseleave="outil.brightness = '100%'"
                         >
                           <!--image de l'outil-->
                           <img
                             :src="outil.image"
                             :alt="toolWork.name"
                             class="portfolio-toolicon-size"
-                            :class="{
-                              'brightness-0':
-                                imageHidden === true &&
-                                outil.name === toolWork.name,
+                            :style="{
+                              filter: `brightness(${outil.brightness})`,
                             }"
                           />
                           <!--Nom de l'outil-->
@@ -88,21 +96,39 @@
 
             <!--Catégories du work-->
             <div>
-              <h2 class="font-bold text-xl">Categories</h2>
+              <h2 class="font-bold text-xl my-1">Categories</h2>
               <div class="flex flex-row flex-wrap gap-1">
-                <div
+                <section
                   v-for="categoryWork in work.categories"
-                  :key="categoryWork.id"
+                  :key="categoryWork.name"
                 >
-                  <div v-if="categoryWork.name">
-                    <RouterLink
-                      to="/"
-                      class="portfolio-listsworks-buttons py-3"
+                  <section v-if="categoryWork.name">
+                    <section
+                      v-for="categoryFromAll in listeCategories"
+                      :key="categoryFromAll.id"
                     >
-                      <p>{{ categoryWork.name }}</p>
-                    </RouterLink>
-                  </div>
-                </div>
+                      <section
+                        v-if="
+                          categoryFromAll.name ===
+                          categoryWork.name /*outil Liste = outilProjet ?*/
+                        "
+                      >
+                        <RouterLink
+                          :to="{
+                            name: 'ListeCategorieView',
+                            params: { id: categoryFromAll.id },
+                          }"
+                          @click="
+                            $route.push('/categorie/' + categoryFromAll.id)
+                          "
+                          class="portfolio-listsworks-buttons py-3"
+                        >
+                          <p>{{ categoryWork.name }}</p>
+                        </RouterLink>
+                      </section>
+                    </section>
+                  </section>
+                </section>
               </div>
             </div>
           </section>
@@ -111,6 +137,10 @@
     </article>
   </div>
 </template>
+
+<script setup>
+import buttonArrow from "@/components/icons/buttonArrow.vue";
+</script>
 
 <script>
 // Bibliothèque Firestore : import des fonctions
@@ -144,7 +174,13 @@ export default {
       imageData: null, // Image prévisualisée
       imageData2: null,
 
-      imageHidden: false, // image des boutons
+      outil: {
+        brightness: "",
+      },
+
+      work: {
+        backgroundLinearGradient: "",
+      },
 
       categorie: {
         name: "", // NOM CATEGORIE
@@ -164,28 +200,11 @@ export default {
         apparentMagnitude: "",
       },
 
-      refCategorie: null, // Référence de la catégorie à modifier
-    };
-  },
-
-  data() {
-    return {
-      imageData: "",
-      categorie: {
-        // Concert à créer
-        nom: "", // son nom
-        cat: "",
-        cat2: "",
-        date1: "", // sa date
-        date2: "", // sa date (fin)
-        time: "", // sa date (fin)
-        description: "",
-        photo: "", // sa photo (nom du fichier)
-      },
-      refCategorie: null, // Référence du concert à modifier
-
       listeWorks: [], // import des works firebase
       listeOutils: [], // import des outils firebase
+      listeCategories: [], // import de la liste des catégories
+
+      refCategorie: null, // Référence de la catégorie affichée
     };
   },
 
@@ -194,6 +213,7 @@ export default {
     console.log("id catégorie", this.$route.params.id);
 
     this.getCategories(this.$route.params.id);
+    this.getAllCategories();
     this.getOutils();
     this.getWorks();
   },
@@ -241,6 +261,50 @@ export default {
         });
     },
 
+    async getAllCategories() {
+      // Obtenir Firestore
+      const firestore = getFirestore();
+      // Base de données (collection)  document catégorie
+      const dbCategories = collection(firestore, "categories");
+      // Liste des catégories triés sur leur date
+      const q = query(dbCategories, orderBy("importance", "asc"));
+      await onSnapshot(q, (snapshot) => {
+        this.listeCategories = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        // Récupération des images de chaque catégorie
+        // parcours de la liste
+        this.listeCategories.forEach(function (categorie) {
+          // Obtenir le Cloud Storage
+          const storage = getStorage();
+          // Récupération de l'image par son nom de fichier
+          const spaceRef = ref(storage, "categories/" + categorie.imageone);
+          const spaceRef2 = ref(storage, "categories/" + categorie.imagetwo);
+          // Récupération de l'url complète de l'image
+          getDownloadURL(spaceRef)
+            .then((url) => {
+              // On remplace le nom du fichier
+              // Par l'url complète de la photo
+              categorie.imageone = url;
+            })
+            .catch((error) => {
+              console.log("erreur downloadUrl", error);
+            });
+
+          getDownloadURL(spaceRef2)
+            .then((url) => {
+              // On remplace le nom du fichier
+              // Par l'url complète de la photo
+              categorie.imagetwo = url;
+            })
+            .catch((error) => {
+              console.log("erreur downloadUrl", error);
+            });
+        });
+      });
+    },
+
     async getOutils() {
       // Obtenir Firestore
       const firestore = getFirestore();
@@ -256,6 +320,7 @@ export default {
         // Récupération des images de chaque outil
         // parcours de la liste
         this.listeOutils.forEach(function (outil) {
+          outil.brightness = "100%";
           // Obtenir le Cloud Storage
           const storage = getStorage();
           // Récupération de l'image par son nom de fichier
@@ -289,6 +354,7 @@ export default {
         // Récupération des images de chaque work
         // parcours de la liste
         this.listeWorks.forEach(function (work) {
+          work.backgroundLinearGradient = "0.6";
           // Obtenir le Cloud Storage
           const storage = getStorage();
           // Récupération de l'image par son nom de fichier

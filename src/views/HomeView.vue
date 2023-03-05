@@ -340,10 +340,6 @@
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
     <!--FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || FIN DU RENDU 3D || -->
 
-    <div
-      class="-z-10 w-full h-screen absolute inset-0 pointer-events-none bg-[url('/textures/space.jpg')]"
-    ></div>
-
     <!--ONCLICK COMPOSANT-->
     <!--ONCLICK COMPOSANT-->
     <!--ONCLICK COMPOSANT-->
@@ -675,8 +671,7 @@ onMounted(() => {
   const meshRing2 = meshRingB.value.mesh;
   const meshRing3 = meshRingC.value.mesh;
   const meshRing4 = meshRingD.value.mesh;
-  const cameraOne = camera.value.camera;
-  cameraOne.rotation.y = Math.PI / 2;
+  const camera1 = camera.value.camera;
 
   meshRing1.add(mesh1);
   meshRing1.add(mesh2);
