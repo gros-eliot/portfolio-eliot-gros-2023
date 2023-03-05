@@ -176,14 +176,14 @@ import {
   onSnapshot, // Demander une liste de documents d'une collection, en les synchronisant
   query, // Permet d'effectuer des requêtes sur Firestore
   orderBy, // Permet de demander le tri d'une requête query
-} from "@/assets/js/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 // Cloud Storage : import des fonctions
 import {
   getStorage, // Obtenir le Cloud Storage
   ref, // Pour créer une référence à un fichier à uploader
   getDownloadURL, // Permet de récupérer l'adress complète d'un fichier du Storage
   uploadString, // Permet d'uploader sur le Cloud Storage une image en Base64
-} from "@/assets/js/firebase-storage.js";
+} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js";
 
 import { emitter } from "@/main.js";
 

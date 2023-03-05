@@ -3,7 +3,7 @@
   <section v-for="categorie in listeCategories" :key="categorie.id">
     <div v-if="work.categories[0].name === categorie.name">
       <Breadcrumb
-        class="hidden md:block m-4"
+        class="m-4"
         :Item1="{
           text: 'Home',
           RouterLinkTo: '/home',
@@ -24,15 +24,19 @@
 
   <!--HERO for works : firebase content-->
   <div
-    class="w-full h-screen bg-cover bg-center flex flex-col justify-center items-center gap-1 text-white"
+    class="w-full h-[75vh] bg-cover bg-center flex flex-col justify-center items-center gap-1 text-white"
     :style="{
       backgroundImage: `linear-gradient(rgba(0,0,0,0.8)0%,rgba(0,0,0,0.8)100%),url('${workPhotoUrl}')`,
     }"
   >
-    <h1 class="portfolio-h1">
+    <h1
+      class="portfolio-h1 text-4xl md:text-[2.25rem] lg:text-[4rem] text-center"
+    >
       {{ work.name }}
     </h1>
-    <p class="portfolio-h3 font-light">{{ work.firstdescription }}</p>
+    <p class="portfolio-h3 font-light p-4 text-center md:text-left">
+      {{ work.firstdescription }}
+    </p>
   </div>
 
   <!--CONTENT for works : components-->
@@ -60,14 +64,14 @@ import {
   onSnapshot, // Demander une liste de documents d'une collection, en les synchronisant
   query, // Permet d'effectuer des requêtes sur Firestore
   orderBy, // Permet de demander le tri d'une requête query
-} from "@/assets/js/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 // Cloud Storage : import des fonctions
 import {
   getStorage, // Obtenir le Cloud Storage
   ref, // Pour créer une référence à un fichier à uploader
   getDownloadURL, // Permet de récupérer l'adress complète d'un fichier du Storage
   uploadString, // Permet d'uploader sur le Cloud Storage une image en Base64
-} from "@/assets/js/firebase-storage.js";
+} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js";
 
 import { emitter } from "@/main.js";
 

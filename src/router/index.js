@@ -8,7 +8,7 @@ import {
   onSnapshot, 
   query,
   where
-} from '@/assets/js/firebase-firestore.js'
+} from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js'
 
 
 import { createRouter, createWebHistory } from 'vue-router'
