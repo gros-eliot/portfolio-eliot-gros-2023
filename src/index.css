@@ -15,7 +15,7 @@
     }
 
     .portfolio-works-h3 {
-        @apply text-2xl font-unbounded font-black uppercase text-center;
+        @apply text-2xl pt-5 font-unbounded font-black uppercase text-center;
     }
 
     .portfolio-works-paragraph {
