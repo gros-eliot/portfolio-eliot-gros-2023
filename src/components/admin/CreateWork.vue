@@ -167,26 +167,22 @@
     <!--DESCRIPTION-->
     <label class="portfolio-h2 text-purple-portfolio">Descriptions</label>
     <textarea
-      v-model="work.firstdescription"
+      v-model="work.description"
       cols="30"
       rows="10"
       class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
       required
     ></textarea>
-    <textarea
-      v-model="work.seconddescription"
-      cols="30"
-      rows="10"
+
+    <label class="portfolio-h2 text-red-500">Importance</label>
+
+    <input
+      type="text"
       class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
-      required
-    ></textarea>
-    <textarea
-      v-model="work.thirddescription"
-      cols="30"
-      rows="10"
-      class="w-full max-w-2xl border rounded-lg border-purple-portfolio p-2 text-base text-black"
-      required
-    ></textarea>
+      v-model="work.importance"
+      placeholder="Importance"
+    />
+
     <!--Photo-->
     <div class="flex flex-col">
       <span class="portfolio-h2 text-purple-portfolio">Photo du work</span>
@@ -245,6 +241,7 @@ export default {
 
       work: {
         name: "", // NOM WORK
+        importance: "",
         categories: [
           {
             name: "",
@@ -304,9 +301,7 @@ export default {
         photo: "", // IMAGE WORK
 
         // descriptions du work
-        firstdescription: "",
-        seconddescription: "",
-        thirddescription: "",
+        description: "",
       },
 
       listeCategories: [], // Liste des catégories synchronisée - collection categories de Firebase

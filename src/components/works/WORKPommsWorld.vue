@@ -119,8 +119,9 @@
       <AWorkImageToClick
         :srcImage="'/images/works/DigitalArt/pomm-4.jpg'"
         :altImage="'Pomm illustration'"
-        :classesImage="'border-2 border-black w-3/6'"
-        class="flex justify-center items-center"
+        :classesImage="'border-2 border-black w-full'"
+        :classesHref="'w-3/6 m-auto'"
+        class="flex justify-center items-center w-full"
       />
     </section>
     <!--Mia-->
@@ -164,8 +165,9 @@
       <AWorkImageToClick
         :srcImage="'/images/works/DigitalArt/mia-4.jpg'"
         :altImage="'Mia illustration'"
-        :classesImage="'border-2 border-black w-3/6'"
-        class="flex justify-center items-center"
+        :classesImage="'border-2 border-black w-full'"
+        :classesHref="'w-3/6 m-auto'"
+        class="flex justify-center items-center w-full"
       />
     </section>
     <!--Eld-->
@@ -208,8 +210,9 @@
       <AWorkImageToClick
         :srcImage="'/images/works/DigitalArt/eld-4.jpg'"
         :altImage="'Eld illustration'"
-        :classesImage="'border-2 border-black w-3/6'"
-        class="flex justify-center items-center"
+        :classesImage="'border-2 border-black w-full'"
+        :classesHref="'w-3/6 m-auto'"
+        class="flex justify-center items-center w-full"
       />
     </section>
     <!--Sharon-->
@@ -252,8 +255,9 @@
       <AWorkImageToClick
         :srcImage="'/images/works/DigitalArt/sharon-4.jpg'"
         :altImage="'Sharon illustration'"
-        :classesImage="'border-2 border-black w-3/6'"
-        class="flex justify-center items-center"
+        :classesImage="'border-2 border-black w-full'"
+        :classesHref="'w-3/6 m-auto'"
+        class="flex justify-center items-center w-full"
       />
     </section>
     <!--All logos-->

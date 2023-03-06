@@ -12,8 +12,9 @@
         enableZoom: false,
         enableRotate: true,
       }"
-      alpha="true"
+      :alpha="true"
       resize="window"
+      :pointer="{ intersectRecursive: true }"
       class="w-full h-screen"
       :class="{
         hidden: planetOnClickVisible === true,
@@ -31,6 +32,21 @@
         ref="camera"
         :far="10000"
       />
+
+      <Raycaster
+        @pointer-over="
+          planet1Hover,
+            planet2Hover,
+            planet3Hover,
+            planet4Hover,
+            planet5Hover,
+            planet6Hover,
+            planet7Hover,
+            planet8Hover
+        "
+        intersect-mode="frame"
+      />
+
       <Scene>
         <PointLight :position="{ y: 50 }" :intensity="0.5" />
 
@@ -51,7 +67,7 @@
         <!--PLANETE 1 : personnal projects-->
         <Sphere
           ref="meshA"
-          :scale="{ x: 6, y: 6, z: 6 }"
+          :scale="{ x: 1200, y: 1200, z: 1200 }"
           :rotation="{}"
           :position="{ x: 0, y: 8, z: 0 }"
           :cast-shadow="true"
@@ -72,9 +88,9 @@
         <!--PLANETE 2 : university projects-->
         <Sphere
           ref="meshB"
-          :scale="{ x: 6, y: 6, z: 6 }"
+          :scale="{ x: 2, y: 2, z: 2 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :position="{ x: 0, y: -8, z: 0 }"
+          :position="{ x: 0, y: -10, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -118,7 +134,7 @@
           ref="meshD"
           :scale="{ x: 1.7, y: 1.7, z: 1.7 }"
           :rotation="{ x: Math.PI / 4, y: Math.PI / 4, z: Math.PI / 4 }"
-          :position="{ x: 10, y: 0, z: 0 }"
+          :position="{ x: 7, y: 7, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -162,7 +178,7 @@
         <Sphere
           ref="meshF"
           :scale="{ x: 1.8, y: 1.8, z: 1.8 }"
-          :position="{ x: -10, y: 0, z: 0 }"
+          :position="{ x: -10, y: 2, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :width-segments="64"
@@ -226,7 +242,7 @@
         <!--Anneaux de la scène : A-->
         <Torus
           ref="meshRingA"
-          :scale="{ x: 15, y: 15, z: 15 }"
+          :scale="{ x: 0.1, y: 0.1, z: 0.1 }"
           :position="{ x: 0, y: 0, z: 0 }"
           :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
@@ -247,9 +263,9 @@
         <!--Anneaux de la scène : B-->
         <Torus
           ref="meshRingB"
-          :scale="{ x: 32, y: 32, z: 32 }"
+          :scale="{ x: 30, y: 30, z: 30 }"
           :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: -Math.PI / 1.94, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 2.05, y: Math.PI, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :tube="0.08"
@@ -270,7 +286,7 @@
           ref="meshRingC"
           :scale="{ x: 46, y: 46, z: 46 }"
           :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: -Math.PI / 2.03, y: 0, z: 0 }"
+          :rotation="{ x: Math.PI / 2.05, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :tube="0.06"
@@ -291,7 +307,7 @@
           ref="meshRingD"
           :scale="{ x: 60, y: 60, z: 60 }"
           :position="{ x: 0, y: 0, z: 0 }"
-          :rotation="{ x: -Math.PI / 1.97, y: 0, z: 0 }"
+          :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
           :cast-shadow="true"
           :receive-shadow="true"
           :tube="0.04"
@@ -571,6 +587,7 @@ import {
   UnrealBloomPass,
   EffectComposer,
   ZoomBlurPass,
+  Raycaster,
 
   //models
   GltfModel,
@@ -674,8 +691,8 @@ onMounted(() => {
   const camera1 = camera.value.camera;
 
   meshRing1.add(mesh1);
-  meshRing1.add(mesh2);
 
+  meshRing2.add(mesh2);
   meshRing2.add(mesh4);
   meshRing2.add(mesh6);
 

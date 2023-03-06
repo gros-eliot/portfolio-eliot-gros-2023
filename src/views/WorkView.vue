@@ -35,7 +35,7 @@
       {{ work.name }}
     </h1>
     <p class="portfolio-h3 font-light p-4 text-center md:text-left">
-      {{ work.firstdescription }}
+      {{ work.description }}
     </p>
   </div>
 
@@ -142,7 +142,7 @@ export default {
         photo: "", // IMAGE WORK
 
         // descriptions du work
-        firstdescription: "",
+        description: "",
         seconddescription: "",
         thirddescription: "",
       },

@@ -1,5 +1,5 @@
 <template>
-  <a :href="srcImage" target="_blank">
+  <a :href="srcImage" target="_blank" :class="classesHref">
     <img :src="srcImage" :alt="altImage" :class="classesImage" />
   </a>
 </template>
@@ -17,6 +17,10 @@ export default {
       required: false,
     },
     classesImage: {
+      type: String,
+      required: false,
+    },
+    classesHref: {
       type: String,
       required: false,
     },

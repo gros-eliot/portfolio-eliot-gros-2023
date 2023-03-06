@@ -66,7 +66,7 @@
                         <!--Contenu d'une case jaune d'un outil :-->
                         <div
                           class="portfolio-listsworks-buttons"
-                          @mouseenter="outil.brightness = '0'"
+                          @mouseenter="outil.brightness = '70%'"
                           @mouseleave="outil.brightness = '100%'"
                         >
                           <!--image de l'outil-->
@@ -84,10 +84,10 @@
                           </p>
                         </div>
                       </section>
-                      <section v-else id="removeFrom"></section>
+                      <section></section>
                     </section>
                   </section>
-                  <section v-else id="removeFromBis"></section>
+                  <section></section>
                 </section>
               </div>
             </div>
@@ -349,7 +349,7 @@ export default {
       // Base de données (collection)  document works
       const dbWorks = collection(firestore, "works");
       // Liste des outils triés sur leur date
-      const q = query(dbWorks, orderBy("name", "asc"));
+      const q = query(dbWorks, orderBy("importance", "asc"));
       await onSnapshot(q, (snapshot) => {
         this.listeWorks = snapshot.docs.map((doc) => ({
           id: doc.id,
