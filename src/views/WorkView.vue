@@ -1,47 +1,55 @@
 <template>
-  <!--BREADCRUMB for works-->
+  <!--HERO for works : firebase content-->
   <section v-for="categorie in listeCategories" :key="categorie.id">
     <div v-if="work.categories[0].name === categorie.name">
-      <Breadcrumb
-        class="m-4"
-        :Item1="{
-          text: 'Home',
-          RouterLinkTo: '/home',
+      <div
+        class="w-full h-[100vh] md:h-[75vh] bg-cover bg-center grid grid-rows-3 gap-1 text-white"
+        :style="{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.8)0%,rgba(0,0,0,0.8)100%),url('${workPhotoUrl}')`,
         }"
-        :Item2="{
-          text: work.categories[0].name,
-          RouterLinkTo: {
-            name: 'ListeCategorieView',
-            params: { id: categorie.id },
-          },
-        }"
-        :Item3="{
-          text: work.name,
-        }"
-      />
+      >
+        <!--BREADCRUMB for works-->
+
+        <Breadcrumb
+          class="my-4 h-fit m-auto md:m-4"
+          :Item1="{
+            text: 'Home',
+            RouterLinkTo: '/home',
+          }"
+          :Item2="{
+            text: work.categories[0].name,
+            RouterLinkTo: {
+              name: 'ListeCategorieView',
+              params: { id: categorie.id },
+            },
+          }"
+          :Item3="{
+            text: work.name,
+          }"
+        />
+
+        <div class="w-full flex flex-col justify-center items-center">
+          <h1
+            class="portfolio-h1 text-4xl md:text-[2.25rem] lg:text-[4rem] text-center"
+          >
+            {{ work.name }}
+          </h1>
+          <p class="portfolio-h3 font-light p-4 text-center md:text-left">
+            {{ work.description }}
+          </p>
+        </div>
+
+        <div>
+          <!--DIV vide pour bon fonctionnement de la grid-->
+        </div>
+      </div>
     </div>
   </section>
-
-  <!--HERO for works : firebase content-->
-  <div
-    class="w-full h-[75vh] bg-cover bg-center flex flex-col justify-center items-center gap-1 text-white"
-    :style="{
-      backgroundImage: `linear-gradient(rgba(0,0,0,0.8)0%,rgba(0,0,0,0.8)100%),url('${workPhotoUrl}')`,
-    }"
-  >
-    <h1
-      class="portfolio-h1 text-4xl md:text-[2.25rem] lg:text-[4rem] text-center"
-    >
-      {{ work.name }}
-    </h1>
-    <p class="portfolio-h3 font-light p-4 text-center md:text-left">
-      {{ work.description }}
-    </p>
-  </div>
 
   <!--CONTENT for works : components-->
   <section>
     <WorkPommsWorld v-if="work.name === `Pomm's world`" />
+    <WORKNikeCreations v-if="work.name === `Nike creations`" />
   </section>
 </template>
 
@@ -74,15 +82,15 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js";
 
 import { emitter } from "@/main.js";
+import WORKNikeCreations from "../components/works/WORKNikeCreations.vue";
 
 export default {
   name: "WorkView",
   data() {
     return {
-      workPhotoUrl: null, // Image prévisualisée
-
+      workPhotoUrl: null,
       work: {
-        name: "", // NOM WORK
+        name: "",
         categories: [
           {
             name: "",
@@ -105,8 +113,7 @@ export default {
           {
             name: "",
           },
-        ], // CATEGORIES WORK
-
+        ],
         outils: [
           {
             name: "",
@@ -138,26 +145,21 @@ export default {
           {
             name: "",
           },
-        ], // OUTILS WORK
-        photo: "", // IMAGE WORK
-
+        ],
+        photo: "",
         // descriptions du work
         description: "",
         seconddescription: "",
         thirddescription: "",
       },
-
-      refWork: null, // Référence du work affiché
-
-      listeCategories: [], // Liste des catégories synchronisée - collection categories de Firebase
+      refWork: null,
+      listeCategories: [],
       listeOutils: [], // Liste des outils synchronisée - collection outils de Firebase
     };
   },
-
   mounted() {
     // Montage de la vue
     console.log("id work", this.$route.params.id);
-
     this.getCategories();
     this.getOutils();
     this.getWorks(this.$route.params.id);
@@ -193,7 +195,6 @@ export default {
             .catch((error) => {
               console.log("erreur downloadUrl", error);
             });
-
           getDownloadURL(spaceRef2)
             .then((url) => {
               // On remplace le nom du fichier
@@ -243,10 +244,8 @@ export default {
       const firestore = getFirestore();
       // Base de données (collection)  document works
       const docRef = doc(firestore, "works", id);
-
       // Référence du work concerné
       this.refWork = await getDoc(docRef);
-
       //test si le work demandé existe
       if (this.refWork.exists()) {
         // si oui, on récupère les données du work
@@ -255,7 +254,6 @@ export default {
         //sinon, message d'erreur
         this.console.log("Work inexistant");
       }
-
       // Obtenir le Storage
       const storage = getStorage();
       // Référence de l'image du concert
@@ -271,5 +269,6 @@ export default {
         });
     },
   },
+  components: { WORKNikeCreations },
 };
 </script>

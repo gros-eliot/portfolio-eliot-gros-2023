@@ -1,6 +1,6 @@
 <template>
   <section
-    class="bg-transparent border border-white text-white text-sm uppercase w-fit p-2 rounded-xl flex flex-row gap-1 absolute"
+    class="bg-transparent border border-white text-white text-sm uppercase w-fit p-2 rounded-xl flex flex-row gap-1"
   >
     <div
       class="flex flex-col items-center justify-center md:flex-row gap-1 text-[8px] md:text-sm"

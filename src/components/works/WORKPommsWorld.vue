@@ -36,6 +36,14 @@
   </p>
 
   <h3 class="portfolio-works-h3">Sketchs with actions</h3>
+  <p class="portfolio-works-paragraph p-10 pb-0">
+    I was greatly inspired by the famous manga
+    <strong
+      ><a href="https://wikipedia.org/wiki/One_Piece">One Piece</a></strong
+    >
+    for the realization of these drawings. Moreover, it's the character of Luffy
+    who gave me the idea to create Pomm.
+  </p>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full p-10 2xl:p-20">
     <a
@@ -83,7 +91,7 @@
       <div class="flex flex-row gap-3 justify-center items-end">
         <h3 class="uppercase text-3xl font-black p-0">Pomm</h3>
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/pomm-logo.svg'"
+          :srcImage="'/images/works/DigitalArt/pomm/pomm-logo.svg'"
           :altImage="'Pomm Logo (svg)'"
           :classesImage="'w-10 h-10 brightness-0'"
         />
@@ -97,17 +105,17 @@
         class="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 justify-items-center"
       >
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/pomm-1.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/pomm-1.jpg'"
           :altImage="'Pomm illustration 1'"
           :classesImage="'border-2 border-black'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/pomm-2.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/pomm-2.jpg'"
           :altImage="'Pomm illustration 2'"
           :classesImage="'border-2 border-black'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/pomm-3.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/pomm-3.jpg'"
           :altImage="'Pomm logo'"
           :classesImage="'border-2 border-black'"
         />
@@ -117,7 +125,7 @@
         lightness that characterize it.
       </p>
       <AWorkImageToClick
-        :srcImage="'/images/works/DigitalArt/pomm-4.jpg'"
+        :srcImage="'/images/works/DigitalArt/pomm/pomm-4.jpg'"
         :altImage="'Pomm illustration'"
         :classesImage="'border-2 border-black w-full'"
         :classesHref="'w-3/6 m-auto'"
@@ -129,7 +137,7 @@
       <div class="flex flex-row gap-3 justify-center items-end">
         <h3 class="uppercase text-3xl font-black p-0">Mia</h3>
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/mia-logo.svg'"
+          :srcImage="'/images/works/DigitalArt/pomm/mia-logo.svg'"
           :altImage="'Mia Logo (svg)'"
           :classesImage="'w-10 h-10 brightness-0'"
         />
@@ -143,17 +151,17 @@
         class="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 justify-items-center"
       >
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/mia-1.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/mia-1.jpg'"
           :altImage="'Mia illustration 1'"
           :classesImage="'border-2 border-black'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/mia-2.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/mia-2.jpg'"
           :altImage="'Mia illustration 2'"
           :classesImage="'border-2 border-black'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/mia-3.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/mia-3.jpg'"
           :altImage="'Mia logo'"
           :classesImage="'border-2 border-black'"
         />
@@ -163,7 +171,7 @@
         straight lines and regular spacing.
       </p>
       <AWorkImageToClick
-        :srcImage="'/images/works/DigitalArt/mia-4.jpg'"
+        :srcImage="'/images/works/DigitalArt/pomm/mia-4.jpg'"
         :altImage="'Mia illustration'"
         :classesImage="'border-2 border-black w-full'"
         :classesHref="'w-3/6 m-auto'"
@@ -174,7 +182,7 @@
     <section class="bgEld p-10">
       <div class="flex flex-row gap-3 justify-center items-end">
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/eld-logo.svg'"
+          :srcImage="'/images/works/DigitalArt/pomm/eld-logo.svg'"
           :altImage="'Eld Logo (svg)'"
           :classesImage="'w-32 h-32 brightness-0'"
         />
@@ -188,17 +196,17 @@
         class="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 justify-items-center"
       >
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/eld-1.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/eld-1.jpg'"
           :altImage="'Eld illustration 1'"
           :classesImage="'border-2 border-black'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/eld-2.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/eld-2.jpg'"
           :altImage="'Eld illustration 2'"
           :classesImage="'border-2 border-black'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/eld-3.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/eld-3.jpg'"
           :altImage="'Eld logo'"
           :classesImage="'border-2 border-black'"
         />
@@ -208,7 +216,7 @@
         strong elder that he is to Pomm.
       </p>
       <AWorkImageToClick
-        :srcImage="'/images/works/DigitalArt/eld-4.jpg'"
+        :srcImage="'/images/works/DigitalArt/pomm/eld-4.jpg'"
         :altImage="'Eld illustration'"
         :classesImage="'border-2 border-black w-full'"
         :classesHref="'w-3/6 m-auto'"
@@ -219,7 +227,7 @@
     <section class="bgSharon p-10 text-white">
       <div class="flex flex-row gap-3 justify-center items-end">
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/sharon-logo.svg'"
+          :srcImage="'/images/works/DigitalArt/pomm/sharon-logo.svg'"
           :altImage="'Sharon Logo (svg)'"
           :classesImage="'w-52 '"
         />
@@ -233,17 +241,17 @@
         class="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 justify-items-center"
       >
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/sharon-1.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/sharon-1.jpg'"
           :altImage="'Sharon illustration 1'"
           :classesImage="'border-2 border-black'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/sharon-2.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/sharon-2.jpg'"
           :altImage="'Sharon illustration 2'"
           :classesImage="'border-2 border-black'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/sharon-3.jpg'"
+          :srcImage="'/images/works/DigitalArt/pomm/sharon-3.jpg'"
           :altImage="'Sharon logo'"
           :classesImage="'border-2 border-black'"
         />
@@ -253,7 +261,7 @@
         for this character.
       </p>
       <AWorkImageToClick
-        :srcImage="'/images/works/DigitalArt/sharon-4.jpg'"
+        :srcImage="'/images/works/DigitalArt/pomm/sharon-4.jpg'"
         :altImage="'Sharon illustration'"
         :classesImage="'border-2 border-black w-full'"
         :classesHref="'w-3/6 m-auto'"
@@ -271,22 +279,22 @@
         class="flex flex-row flex-wrap justify-center gap-20 items-center p-20"
       >
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/pomm-logo.svg'"
+          :srcImage="'/images/works/DigitalArt/pomm/pomm-logo.svg'"
           :altImage="'Pomm Logo (svg)'"
           :classesImage="'w-32 mb-2'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/mia-logo.svg'"
+          :srcImage="'/images/works/DigitalArt/pomm/mia-logo.svg'"
           :altImage="'Mia Logo (svg)'"
           :classesImage="'w-24'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/eld-logo.svg'"
+          :srcImage="'/images/works/DigitalArt/pomm/eld-logo.svg'"
           :altImage="'Eld Logo (svg)'"
           :classesImage="'w-32'"
         />
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/sharon-logo.svg'"
+          :srcImage="'/images/works/DigitalArt/pomm/sharon-logo.svg'"
           :altImage="'Sharon Logo (svg)'"
           :classesImage="'w-60'"
         />
