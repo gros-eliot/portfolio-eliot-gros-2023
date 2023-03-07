@@ -1,61 +1,145 @@
 <template>
-  <!--HERO for works : firebase content-->
-  <section v-for="categorie in listeCategories" :key="categorie.id">
-    <div v-if="work.categories[0].name === categorie.name">
-      <div
-        class="w-full h-[100vh] md:h-[75vh] bg-cover bg-center grid grid-rows-3 gap-1 text-white"
-        :style="{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.8)0%,rgba(0,0,0,0.8)100%),url('${workPhotoUrl}')`,
-        }"
-      >
-        <!--BREADCRUMB for works-->
-
-        <Breadcrumb
-          class="my-4 h-fit m-auto md:m-4"
-          :Item1="{
-            text: 'Home',
-            RouterLinkTo: '/home',
-          }"
-          :Item2="{
-            text: work.categories[0].name,
-            RouterLinkTo: {
-              name: 'ListeCategorieView',
-              params: { id: categorie.id },
-            },
-          }"
-          :Item3="{
-            text: work.name,
-          }"
-        />
-
-        <div class="w-full flex flex-col justify-center items-center">
-          <h1
-            class="portfolio-h1 text-4xl md:text-[2.25rem] lg:text-[4rem] text-center"
+  <article
+    :class="{
+      'bg-black': work.name === `Nike creations` || work.name === `Lit rooms`,
+    }"
+  >
+    <!--HERO for works : firebase content-->
+    <section v-for="categorie in listeCategories" :key="categorie.id">
+      <div v-if="work.categories[0].name === categorie.name">
+        <scroll-parallax :speed="0.5" :down="true">
+          <div
+            class="w-full h-[100vh] md:h-[75vh] bg-cover bg-center grid grid-rows-3 gap-1 text-white"
+            :style="{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.8)0%,rgba(0,0,0,0.8)100%),url('${workPhotoUrl}')`,
+            }"
           >
-            {{ work.name }}
-          </h1>
-          <p class="portfolio-h3 font-light p-4 text-center md:text-left">
-            {{ work.description }}
-          </p>
-        </div>
-
+            <!--BREADCRUMB for works-->
+            <Breadcrumb
+              class="my-4 h-fit m-auto md:m-4"
+              :Item1="{
+                text: 'Home',
+                RouterLinkTo: '/home',
+              }"
+              :Item2="{
+                text: work.categories[0].name,
+                RouterLinkTo: {
+                  name: 'ListeCategorieView',
+                  params: { id: categorie.id },
+                },
+              }"
+              :Item3="{
+                text: work.name,
+              }"
+            />
+            <div class="w-full flex flex-col justify-center items-center">
+              <h1
+                class="portfolio-h1 text-4xl md:text-[2.25rem] lg:text-[4rem] text-center"
+              >
+                {{ work.name }}
+              </h1>
+              <p class="portfolio-h3 font-light p-4 text-center md:text-left">
+                {{ work.description }}
+              </p>
+            </div>
+            <div>
+              <!--DIV vide pour bon fonctionnement de la grid-->
+            </div>
+          </div>
+        </scroll-parallax>
+      </div>
+    </section>
+    <!--CONTENT for works : components-->
+    <section>
+      <WorkPommsWorld v-if="work.name === `Pomm's world`" />
+      <WORKNikeCreations v-if="work.name === `Nike creations`" />
+      <WORKLitRooms v-if="work.name === `Lit rooms`" />
+      <WORKArquest v-if="work.name === `Arquest`" />
+    </section>
+    <!--FOOTER -->
+    <section
+      class="border-t-2 border-zinc-400 w-full h-[50vh] mt-10"
+      v-if="work"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 p-10">
         <div>
-          <!--DIV vide pour bon fonctionnement de la grid-->
+          <h4 class="text-zinc-600 font-rubik-mono-one">Categories</h4>
+          <ul class="text-zinc-500">
+            <li v-if="work.categories[0].name" class="w-fit">
+              {{ work.categories[0].name }}
+            </li>
+            <li v-if="work.categories[1].name" class="w-fit">
+              {{ work.categories[1].name }}
+            </li>
+            <li v-if="work.categories[2].name" class="w-fit">
+              {{ work.categories[2].name }}
+            </li>
+            <li v-if="work.categories[3].name" class="w-fit">
+              {{ work.categories[3].name }}
+            </li>
+            <li v-if="work.categories[4].name" class="w-fit">
+              {{ work.categories[4].name }}
+            </li>
+            <li v-if="work.categories[5].name" class="w-fit">
+              {{ work.categories[5].name }}
+            </li>
+            <li v-if="work.categories[6].name" class="w-fit">
+              {{ work.categories[6].name }}
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-zinc-600 font-rubik-mono-one">Tools</h4>
+          <ul class="text-zinc-500">
+            <li v-if="work.outils[0].name" class="w-fit">
+              {{ work.outils[0].name }}
+            </li>
+            <li v-if="work.outils[1].name" class="w-fit">
+              {{ work.outils[1].name }}
+            </li>
+            <li v-if="work.outils[2].name" class="w-fit">
+              {{ work.outils[2].name }}
+            </li>
+            <li v-if="work.outils[3].name" class="w-fit">
+              {{ work.outils[3].name }}
+            </li>
+            <li v-if="work.outils[4].name" class="w-fit">
+              {{ work.outils[4].name }}
+            </li>
+            <li v-if="work.outils[5].name" class="w-fit">
+              {{ work.outils[5].name }}
+            </li>
+            <li v-if="work.outils[6].name" class="w-fit">
+              {{ work.outils[6].name }}
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!--CONTENT for works : components-->
-  <section>
-    <WorkPommsWorld v-if="work.name === `Pomm's world`" />
-    <WORKNikeCreations v-if="work.name === `Nike creations`" />
-  </section>
+    </section>
+  </article>
 </template>
+
+<style scoped>
+.vue-parallax-js {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vue-parallax-js img {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+}
+</style>
 
 <script setup>
 import Breadcrumb from "@/components/Breadcrumb.vue";
 import WorkPommsWorld from "@/components/works/WORKPommsWorld.vue";
+import WORKNikeCreations from "@/components/works/WORKNikeCreations.vue";
+import WORKLitRooms from "@/components/works/WORKLitRooms.vue";
 </script>
 
 <script>
@@ -81,8 +165,9 @@ import {
   uploadString, // Permet d'uploader sur le Cloud Storage une image en Base64
 } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js";
 
+import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
+
 import { emitter } from "@/main.js";
-import WORKNikeCreations from "../components/works/WORKNikeCreations.vue";
 
 export default {
   name: "WorkView",
@@ -157,6 +242,10 @@ export default {
       listeOutils: [], // Liste des outils synchronisée - collection outils de Firebase
     };
   },
+  components: {
+    ScrollParallax,
+  },
+
   mounted() {
     // Montage de la vue
     console.log("id work", this.$route.params.id);
@@ -269,6 +358,5 @@ export default {
         });
     },
   },
-  components: { WORKNikeCreations },
 };
 </script>

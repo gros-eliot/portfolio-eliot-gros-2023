@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import ScrollParallax from 'vue3-parallax/src/components/ScrollParallax.vue';
 
 import '@/index.css'
 
 // Import de mitt
 import mitt from 'mitt';
-
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
@@ -38,3 +38,5 @@ app.config.globalProperties.emitter = emitter;
 
 app.use(router)
 app.mount('#app')
+app.component('scroll-parallax', ScrollParallax);
+

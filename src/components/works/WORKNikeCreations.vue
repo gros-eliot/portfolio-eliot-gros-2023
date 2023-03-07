@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full text-white bg-black">
+  <section class="w-full text-white">
     <!--SECTION AIR JORDAN ONE-->
     <article>
       <section

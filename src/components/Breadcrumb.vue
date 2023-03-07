@@ -50,7 +50,7 @@ export default {
       default: {},
     },
     Item3: {
-      type: String,
+      type: Object,
       required: true,
     },
   },
