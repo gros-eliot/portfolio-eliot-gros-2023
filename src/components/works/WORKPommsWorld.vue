@@ -1,5 +1,5 @@
 <template>
-  <p class="portfolio-works-paragraph p-10">
+  <p class="portfolio-works-paragraph px-5 p-10">
     I started by making some character sketches. The hardest part was to find a
     name for them. So I present you Pomm, the main character of this fictional
     universe. You can also meet Mia, Eld, and Sharon. These are his friends.
@@ -29,14 +29,14 @@
     </a>
   </div>
 
-  <p class="portfolio-works-paragraph p-10">
+  <p class="portfolio-works-paragraph px-5 p-10">
     I started by making some character sketches. The hardest part was to find a
     name for them. So I present you Pomm, the main character of this fictional
     universe. You can also meet Mia, Eld, and Sharon. These are his friends.
   </p>
 
   <h3 class="portfolio-works-h3">Sketchs with actions</h3>
-  <p class="portfolio-works-paragraph p-10 pb-0">
+  <p class="portfolio-works-paragraph px-5 p-10 pb-0">
     I was greatly inspired by the famous manga
     <strong
       ><a href="https://wikipedia.org/wiki/One_Piece">One Piece</a></strong
@@ -96,7 +96,7 @@
           :classesImage="'w-10 h-10 brightness-0'"
         />
       </div>
-      <p class="portfolio-works-paragraph p-10">
+      <p class="portfolio-works-paragraph px-5 p-10">
         Pomm is a little boy who is reckless and bold. He never worries about
         the dangers that may surround him, but prefers to take things lightly
         and go on an adventure as soon as possible.
@@ -120,7 +120,7 @@
           :classesImage="'border-2 border-black'"
         />
       </div>
-      <p class="portfolio-works-paragraph p-10 text-center">
+      <p class="portfolio-works-paragraph px-5 p-10 text-center">
         The Pomm logo, with its large curves, represents the dynamism and
         lightness that characterize it.
       </p>
@@ -142,7 +142,7 @@
           :classesImage="'w-10 h-10 brightness-0'"
         />
       </div>
-      <p class="portfolio-works-paragraph p-10">
+      <p class="portfolio-works-paragraph px-5 p-10">
         Mia is a strong, courageous woman who is not afraid to face problems :
         very responsible and perceptive. She needs the people around her for
         reassurance and motivation, though.
@@ -166,7 +166,7 @@
           :classesImage="'border-2 border-black'"
         />
       </div>
-      <p class="portfolio-works-paragraph p-10 text-center">
+      <p class="portfolio-works-paragraph px-5 p-10 text-center">
         The Mia logo represents its strong character and straightness by its
         straight lines and regular spacing.
       </p>
@@ -187,7 +187,7 @@
           :classesImage="'w-32 h-32 brightness-0'"
         />
       </div>
-      <p class="portfolio-works-paragraph p-10">
+      <p class="portfolio-works-paragraph px-5 p-10">
         Eld is a man who deserves recognition for his bravery and dedication.
         His calm demeanor hides a tough soldier who is ready for anything when
         his loved ones are threatened.
@@ -211,7 +211,7 @@
           :classesImage="'border-2 border-black'"
         />
       </div>
-      <p class="portfolio-works-paragraph p-10 text-center">
+      <p class="portfolio-works-paragraph px-5 p-10 text-center">
         Eld is a person who takes care of his environment. A tree represents the
         strong elder that he is to Pomm.
       </p>
@@ -232,7 +232,7 @@
           :classesImage="'w-52 '"
         />
       </div>
-      <p class="portfolio-works-paragraph p-10">
+      <p class="portfolio-works-paragraph px-5 p-10">
         Sharon, underneath her air of a seductive and resourceful woman, is a
         person who can be quickly overcome and edgy. She is a precious ally to
         Pomm, whom he considers as his big sister.
@@ -256,7 +256,7 @@
           :classesImage="'border-2 border-black'"
         />
       </div>
-      <p class="portfolio-works-paragraph p-10 text-center">
+      <p class="portfolio-works-paragraph px-5 p-10 text-center">
         Sharon's logo, sober, recalls luxury: this dimension is very important
         for this character.
       </p>

@@ -2,6 +2,7 @@
   <article
     :class="{
       'bg-black': work.name === `Nike creations` || work.name === `Lit rooms`,
+      'bg-zinc-900': work.name === `Arquest`,
     }"
   >
     <!--HERO for works : firebase content-->
@@ -140,6 +141,7 @@ import Breadcrumb from "@/components/Breadcrumb.vue";
 import WorkPommsWorld from "@/components/works/WORKPommsWorld.vue";
 import WORKNikeCreations from "@/components/works/WORKNikeCreations.vue";
 import WORKLitRooms from "@/components/works/WORKLitRooms.vue";
+import WORKArquest from "@/components/works/WORKArquest.vue";
 </script>
 
 <script>
