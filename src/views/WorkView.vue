@@ -61,6 +61,7 @@
       <WORKLitRooms v-if="work.name === `Lit rooms`" />
       <WORKArquest v-if="work.name === `Arquest`" />
       <WORK3DCreations v-if="work.name === `3D creations`" />
+      <WORKDrawingsSketchs v-if="work.name === `Drawings & sketchs`" />
     </section>
     <!--FOOTER -->
     <section
@@ -124,10 +125,11 @@
     </section>
   </article>
 
+  <!--BOUTON RETOUR EN HAUT DE PAGE-->
   <div
     class="fixed bottom-0 right-0 w-fit h-fit pointer-events-none"
-    @pointerenter="topButtonHover = '#702DB3'"
-    @pointerleave="topButtonHover = '#FCFF73'"
+    @pointerenter="topButtonHover = '#FCFF73'"
+    @pointerleave="topButtonHover = '#FFFFFF'"
   >
     <a
       href="#top"
@@ -168,6 +170,7 @@ import WORKNikeCreations from "@/components/works/WORKNikeCreations.vue";
 import WORKLitRooms from "@/components/works/WORKLitRooms.vue";
 import WORKArquest from "@/components/works/WORKArquest.vue";
 import WORK3DCreations from "@/components/works/WORK3DCreations.vue";
+import WORKDrawingsSketchs from "@/components/works/WORKDrawingsSketchs.vue";
 
 function backToTopButtonOpacity() {
   let valueScroll = window.pageYOffset;
@@ -232,7 +235,7 @@ export default {
   name: "WorkView",
   data() {
     return {
-      topButtonHover: "#FCFF73", // état du bouton retour en haut
+      topButtonHover: "#FFFFFF", // état du bouton retour en haut
 
       workPhotoUrl: null,
       work: {

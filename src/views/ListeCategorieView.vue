@@ -79,7 +79,7 @@
                             }"
                           />
                           <!--Nom de l'outil-->
-                          <p>
+                          <p class="text-[8px]">
                             {{ toolWork.name }}
                           </p>
                         </div>
@@ -118,10 +118,10 @@
                             name: 'ListeCategorieView',
                             params: { id: categoryFromAll.id },
                           }"
-                          class="portfolio-listsworks-buttons py-3"
+                          class="portfolio-listsworks-buttons"
                           @click="reloadPageFunction()"
                         >
-                          <p>{{ categoryWork.name }}</p>
+                          <p class="text-[8px]">{{ categoryWork.name }}</p>
                         </RouterLink>
                       </section>
                     </section>
