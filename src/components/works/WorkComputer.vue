@@ -3,8 +3,8 @@
     class="flex flex-col gap-0 justify-center items-center m-auto p-3 my-5 w-fit"
   >
     <div class="p-3 border rounded-xl w-fit" :class="ComputerBorderColor">
-      <a :href="aHref" class="w-fit h-fit"
-        ><img :src="srcImage" class="w-fit rounded-xl"
+      <a :href="aHref" class="w-fit h-fit" target="_blank"
+        ><img :src="srcImage" class="rounded-xl w-96"
       /></a>
       <p class="text-center font-bold p-1" v-if="websiteIssues === false">
         Visit the website

@@ -1,4 +1,9 @@
 <template>
+  <img
+    src="/images/works/DigitalArt/3d-creations/donut-animation.gif"
+    class="w-1/2"
+    alt=""
+  />
   <p class="portfolio-works-paragraph px-5 p-10">
     I started by making some character sketches. The hardest part was to find a
     name for them. So I present you Pomm, the main character of this fictional
