@@ -7,6 +7,8 @@
     :class="{
       'bg-black': work.name === `Nike creations` || work.name === `Lit rooms`,
       'bg-zinc-900': work.name === `Arquest`,
+      'bg-[linear-gradient(rgba(255,116,241,1)0%,rgba(90,167,238,1)100%)]':
+        work.name === `Equalshare`,
     }"
   >
     <!--HERO for works : firebase content-->
@@ -62,10 +64,14 @@
       <WORKArquest v-if="work.name === `Arquest`" />
       <WORK3DCreations v-if="work.name === `3D creations`" />
       <WORKDrawingsSketchs v-if="work.name === `Drawings & sketchs`" />
+      <WORKEqualshare v-if="work.name === `Equalshare`" />
     </section>
     <!--FOOTER -->
     <section
       class="border-t-2 border-zinc-400 w-full h-[50vh] mt-10"
+      :class="{
+        'bg-black': work.name === 'Equalshare',
+      }"
       v-if="work"
     >
       <div class="grid grid-cols-1 md:grid-cols-2 p-10">
@@ -171,6 +177,7 @@ import WORKLitRooms from "@/components/works/WORKLitRooms.vue";
 import WORKArquest from "@/components/works/WORKArquest.vue";
 import WORK3DCreations from "@/components/works/WORK3DCreations.vue";
 import WORKDrawingsSketchs from "@/components/works/WORKDrawingsSketchs.vue";
+import WORKEqualshare from "../components/works/WORKEqualshare.vue";
 
 function backToTopButtonOpacity() {
   let valueScroll = window.pageYOffset;

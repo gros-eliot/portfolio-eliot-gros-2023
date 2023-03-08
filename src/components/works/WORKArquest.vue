@@ -86,13 +86,33 @@
 
       <h3 class="portfolio-works-h3 py-10">Pages of the landing website</h3>
 
-      <WorkComputer
-        :aHref="'https://arquest.eliotgros.fr'"
-        :srcImage="'/images/works/DigitalArt/arquest/arquest-landing-page.gif'"
-        :ComputerBorderColor="'border-white'"
-        :ComputerStrokeColor="'stroke-white'"
-        :websiteIssues="false"
-      />
+      <!--Note to me : when a website is responsive use this div.-->
+      <div
+        class="bg-zinc-700 p-5 my-10 flex flex-col justify-center items-center gap-5"
+      >
+        <div class="flex flex-col md:flex-row gap-3 items-center">
+          <ComponentWorkComputer
+            :aHref="'https://arquest.eliotgros.fr'"
+            :srcImage="'/images/works/DigitalArt/arquest/arquest-landing-page.gif'"
+            :ComputerBorderColor="'border-white'"
+            :ComputerStrokeColor="'stroke-white'"
+            :websiteIssues="false"
+            :responsive="true"
+          />
+          <ComponentWorkPhone
+            :aHref="'https://arquest.eliotgros.fr'"
+            :srcImage="'/images/works/DigitalArt/arquest/arquest-landing-page.gif'"
+            :PhoneBorderColor="'border-white'"
+            :PhoneSize="'small'"
+            :websiteIssues="false"
+            :responsive="true"
+          />
+        </div>
+        <p class="portfolio-works-paragraph">
+          Visit the website -
+          <span class="font-bold text-yellow-portfolio">responsive</span>
+        </p>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 w-full h-fit">
         <AWorkImageToClick
@@ -167,27 +187,47 @@
         <p class="portfolio-works-paragraph px-5">
           For the development of the landing page, we were still on HTML/CSS/JS.
           However, for the development of the final app, we used the javascript
-          framework "VueJS", for the very first time first time since the year.
-          Thanks to this framework, we were able to easily implement the
-          database (built on Google Firebase) on the site. This database is made
-          of collections like quests of each user, users, categories of quests
-          categories of quests, etc.
+          framework "VueJS", for the very first time since the year. Thanks to
+          this framework, we were able to easily implement the database (built
+          on Google Firebase) on the website. This database is made of
+          collections like quests of each user, users, categories of quests,
+          etc.
         </p>
       </div>
 
       <h3 class="portfolio-works-h3 py-10">Pages of the final website</h3>
 
-      <WorkComputer
-        :aHref="'https://arquest-app.eliotgros.fr'"
-        :srcImage="'/images/works/DigitalArt/arquest/arquest-final-accueil.jpg'"
-        :ComputerBorderColor="'border-white'"
-        :ComputerStrokeColor="'stroke-white'"
-        :websiteIssues="false"
-      />
+      <!--Note to me : when a website is responsive use this div.-->
+      <div
+        class="bg-zinc-700 p-5 my-10 flex flex-col justify-center items-center gap-5"
+      >
+        <div class="flex flex-col md:flex-row gap-3 items-center">
+          <ComponentWorkComputer
+            :aHref="'https://arquest-app.eliotgros.fr'"
+            :srcImage="'/images/works/DigitalArt/arquest/arquest-final-account.jpg'"
+            :ComputerBorderColor="'border-white'"
+            :ComputerStrokeColor="'stroke-white'"
+            :websiteIssues="false"
+            :responsive="true"
+          />
+          <ComponentWorkPhone
+            :aHref="'https://arquest-app.eliotgros.fr'"
+            :srcImage="'/images/works/DigitalArt/arquest/arquest-final-account.jpg'"
+            :PhoneBorderColor="'border-white'"
+            :PhoneSize="'small'"
+            :websiteIssues="false"
+            :responsive="true"
+          />
+        </div>
+        <p class="portfolio-works-paragraph">
+          Visit the website -
+          <span class="font-bold text-yellow-portfolio">responsive</span>
+        </p>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 w-full h-fit">
         <AWorkImageToClick
-          :srcImage="'/images/works/DigitalArt/arquest/arquest-final-account.jpg'"
+          :srcImage="'/images/works/DigitalArt/arquest/arquest-final-accueil.jpg'"
           :altImage="'Final page Arquest (1)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
@@ -273,7 +313,8 @@
 </template>
 <script setup>
 import AWorkImageToClick from "./AWorkImageToClick.vue";
-import WorkComputer from "./WorkComputer.vue";
+import ComponentWorkComputer from "./ComponentWorkComputer.vue";
+import ComponentWorkPhone from "./ComponentWorkPhone.vue";
 </script>
 
 <style scoped>

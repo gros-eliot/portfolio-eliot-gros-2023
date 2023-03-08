@@ -29,16 +29,10 @@
     </a>
   </div>
 
-  <p class="portfolio-works-paragraph px-5 p-10">
-    I started by making some character sketches. The hardest part was to find a
-    name for them. So I present you Pomm, the main character of this fictional
-    universe. You can also meet Mia, Eld, and Sharon. These are his friends.
-  </p>
-
   <h3 class="portfolio-works-h3">Sketchs with actions</h3>
   <p class="portfolio-works-paragraph px-5 p-10 pb-0">
     I was greatly inspired by the famous manga
-    <strong
+    <strong class="bg-black bg-opacity-10"
       ><a href="https://wikipedia.org/wiki/One_Piece" target="_blank"
         >One Piece</a
       ></strong

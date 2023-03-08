@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: "WorkButton",
+  name: "ComponentWorkButton",
   props: {
     textButton: {
       type: String,

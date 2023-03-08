@@ -42,7 +42,7 @@
         >.
       </p>
       <div class="flex justify-center items-center">
-        <WorkButton
+        <ComponentWorkButton
           :textButton="'See the Shadow project'"
           :RouterLinkTo="'/home'"
           @click="reloadPageFunction()"
@@ -181,7 +181,7 @@
     <section class="px-5 md:px-10 flex flex-col gap-5">
       <h3 class="portfolio-works-h3">Nike sneakers</h3>
       <div class="flex justify-center items-center">
-        <WorkButton
+        <ComponentWorkButton
           :textButton="'See the Nike creations project'"
           :RouterLinkTo="{
             name: 'WorkView',
@@ -213,7 +213,7 @@
       <h3 class="portfolio-works-h3">Ordinateur MMI - 25 ans MMI</h3>
       <!--lien vers le projet 25 ans mmi-->
       <div class="flex justify-center items-center">
-        <WorkButton
+        <ComponentWorkButton
           :textButton="'See the 25 years of MMI project'"
           :RouterLinkTo="'/home'"
           @click="reloadPageFunction()"
@@ -364,7 +364,7 @@ import {
 } from "troisjs";
 
 import AWorkImageToClick from "./AWorkImageToClick.vue";
-import WorkButton from "./WorkButton.vue";
+import ComponentWorkButton from "./ComponentWorkButton.vue";
 
 // constantes ref
 const rendererRifle = ref(); //renderer

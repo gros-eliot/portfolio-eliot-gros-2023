@@ -8,7 +8,7 @@
       </p>
       <!--button voir projet-->
       <div class="flex justify-center items-center">
-        <WorkButton
+        <ComponentWorkButton
           :textButton="`See the Pomm's world project`"
           :RouterLinkTo="{
             name: 'WorkView',
@@ -304,7 +304,7 @@
 </template>
 <script setup>
 import AWorkImageToClick from "./AWorkImageToClick.vue";
-import WorkButton from "./WorkButton.vue";
+import ComponentWorkButton from "./ComponentWorkButton.vue";
 
 function reloadPageFunction() {
   setTimeout(() => {

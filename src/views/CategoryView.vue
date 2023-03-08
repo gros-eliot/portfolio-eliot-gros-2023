@@ -11,6 +11,7 @@
         <!--DIV propre à chaque work : apparition selon sa catégorie
         work.categories[0] -> catégories du work
         -->
+
         <article
           v-if="
             (work.categories[0].name === categorie.name) |
@@ -47,8 +48,18 @@
 
           <!--partie 2 du grid : OUTILS + CATEGORIES-->
           <section
-            class="bg-black text-yellow-portfolio uppercase tracking-wide p-5 grid-rows-2 h-full gap-5 md:grid hidden"
+            class="bg-black text-yellow-portfolio uppercase tracking-wide p-5 grid-rows-[2%,46%,46%] h-full gap-5 md:grid hidden"
           >
+            <!--grid-rows-[2%,46%,46%]-->
+            <!--to-->
+            <!--grid-rows-2-->
+            <!--ADMIN DEVTOOLS : REMETTRE GRID-ROWS-2 CI DESSUS -->
+            <!--ADMIN DEVTOOLS : REMETTRE GRID-ROWS-2 CI DESSUS -->
+            <p class="text-red-400 text-[8px]">
+              importance : {{ work.importance }}
+            </p>
+            <!--ADMIN DEVTOOLS : REMETTRE GRID-ROWS-2 CI DESSUS -->
+            <!--ADMIN DEVTOOLS : REMETTRE GRID-ROWS-2 CI DESSUS -->
             <!--Outils du work-->
             <div>
               <h2 class="font-bold text-xl my-1">Tools</h2>
