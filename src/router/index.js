@@ -19,8 +19,8 @@ import ConnexionView from '../views/ConnexionView.vue'
 import FirebaseView from '../views/FirebaseView.vue'
 
 
-import ChoseCategoryView from '../views/ChoseCategoryView.vue'
-import ListeCategorieView from '../views/ListeCategorieView.vue'
+import CategoriesView from '../views/CategoriesView.vue'
+import CategoryView from '../views/CategoryView.vue'
 
 
 
@@ -33,8 +33,8 @@ const routes =  [
     { path: '/connexion', name: 'ConnexionView', component: ConnexionView },
     { path: '/admin', name: 'FirebaseView', component: FirebaseView, beforeEnter:guardAdmin },
 
-    { path: '/categorie/:id', name: 'ListeCategorieView', component: ListeCategorieView },
-    { path: '/categories', name: 'ChoseCategoryView', component: ChoseCategoryView },
+    { path: '/categorie/:id', name: 'CategoryView', component: CategoryView },
+    { path: '/categories', name: 'CategoriesView', component: CategoriesView },
 
     { path: '/work/:id', name: 'WorkView', component: WorkView },
 

@@ -200,7 +200,7 @@
         >
           <RouterLink
             :to="{
-              name: 'ListeCategorieView',
+              name: 'CategoryView',
               params: { id: categorie.id },
             }"
             class="w-fit h-fit pointer-events-auto"
@@ -211,6 +211,7 @@
           <button
             class="portfolio-button-black w-fit pointer-events-auto"
             v-on:click="clickedButtonBack"
+            @click="reloadPageFunction()"
           >
             Back
           </button>
@@ -259,6 +260,10 @@ import {
 } from "troisjs";
 
 import * as THREE from "three";
+
+function reloadPageFunction() {
+  document.location.reload();
+}
 </script>
 
 <script>

@@ -7,7 +7,7 @@
     <div v-for="categorie in listeCategories" :key="categorie.id">
       <RouterLink
         :to="{
-          name: 'ListeCategorieView',
+          name: 'CategoryView',
           params: { id: categorie.id },
         }"
         class="w-full h-[200px]"
@@ -52,7 +52,7 @@ import {
 import { emitter } from "@/main.js";
 
 export default {
-  name: "ChoseCategoryView",
+  name: "CategoriesView",
   data() {
     return {
       categorie: {

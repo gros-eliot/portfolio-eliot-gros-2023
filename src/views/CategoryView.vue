@@ -115,7 +115,7 @@
                       >
                         <RouterLink
                           :to="{
-                            name: 'ListeCategorieView',
+                            name: 'CategoryView',
                             params: { id: categoryFromAll.id },
                           }"
                           class="portfolio-listsworks-buttons"
@@ -172,7 +172,7 @@ import {
 import { emitter } from "@/main.js";
 
 export default {
-  name: "ListeCategorieView",
+  name: "CategoryView",
   data() {
     return {
       imageData: null, // Image prévisualisée

@@ -29,7 +29,7 @@
               :Item2="{
                 text: work.categories[0].name,
                 RouterLinkTo: {
-                  name: 'ListeCategorieView',
+                  name: 'CategoryView',
                   params: { id: categorie.id },
                 },
               }"
@@ -298,8 +298,6 @@ export default {
         photo: "",
         // descriptions du work
         description: "",
-        seconddescription: "",
-        thirddescription: "",
       },
       refWork: null,
       listeCategories: [],
