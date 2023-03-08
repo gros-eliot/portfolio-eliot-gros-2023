@@ -74,7 +74,7 @@
               <!--Nike rouge-->
               <Mesh ref="meshNike2">
                 <GltfModel
-                  src="/modeles/jordanEXPORT.glb"
+                  src="/../src/assets/3D-modeles/jordanEXPORT.glb"
                   @load="onReady"
                   @progress="onProgress"
                   @error="onError"
@@ -215,7 +215,7 @@
               <!--Nike bleue-->
               <Mesh ref="meshNike">
                 <GltfModel
-                  src="/modeles/air-force.glb"
+                  src="/../src/assets/3D-modeles/air-force.glb"
                   @load="onReady"
                   @progress="onProgress"
                   @error="onError"

@@ -1,4 +1,8 @@
 <template>
+  <!--div vide pour bouton vers le haut-->
+  <div class="absolute top-0" id="top"></div>
+  <!--div vide pour bouton vers le haut-->
+
   <article
     :class="{
       'bg-black': work.name === `Nike creations` || work.name === `Lit rooms`,
@@ -56,6 +60,7 @@
       <WORKNikeCreations v-if="work.name === `Nike creations`" />
       <WORKLitRooms v-if="work.name === `Lit rooms`" />
       <WORKArquest v-if="work.name === `Arquest`" />
+      <WORK3DCreations v-if="work.name === `3D creations`" />
     </section>
     <!--FOOTER -->
     <section
@@ -118,6 +123,24 @@
       </div>
     </section>
   </article>
+
+  <div
+    class="fixed bottom-0 right-0 w-fit h-fit pointer-events-none"
+    @pointerenter="topButtonHover = '#702DB3'"
+    @pointerleave="topButtonHover = '#FCFF73'"
+  >
+    <a
+      href="#top"
+      class="gototop-button opacity-0 hidden pointer-events-auto p-4"
+    >
+      <button class="bg-white border-2 border-black rounded-full p-4">
+        <TopArrow class="w-4 h-4 md:w-6 md:h-6" :arrowFill="topButtonHover" />
+        <span class="sr-only"
+          >Flèche pour remonter vers le haut de la page</span
+        >
+      </button>
+    </a>
+  </div>
 </template>
 
 <style scoped>
@@ -138,10 +161,44 @@
 
 <script setup>
 import Breadcrumb from "@/components/Breadcrumb.vue";
+import TopArrow from "@/components/works/TopArrow.vue";
+
 import WorkPommsWorld from "@/components/works/WORKPommsWorld.vue";
 import WORKNikeCreations from "@/components/works/WORKNikeCreations.vue";
 import WORKLitRooms from "@/components/works/WORKLitRooms.vue";
 import WORKArquest from "@/components/works/WORKArquest.vue";
+import WORK3DCreations from "@/components/works/WORK3DCreations.vue";
+
+function backToTopButtonOpacity() {
+  let valueScroll = window.pageYOffset;
+  let goToTopButton = document.querySelector(".gototop-button");
+
+  if (valueScroll < 500) {
+    goToTopButton.style.display = "none";
+    goToTopButton.style.opacity = 0;
+  }
+  if (valueScroll >= 500) {
+    goToTopButton.style.display = "block";
+    goToTopButton.style.opacity = 0;
+  }
+  if (valueScroll >= 600) {
+    goToTopButton.style.opacity = "10%";
+  }
+  if (valueScroll >= 700) {
+    goToTopButton.style.opacity = "20%";
+  }
+  if (valueScroll >= 800) {
+    goToTopButton.style.opacity = "30%";
+  }
+  if (valueScroll >= 900) {
+    goToTopButton.style.opacity = "50%";
+  }
+  if (valueScroll >= 1000) {
+    goToTopButton.style.opacity = "100%";
+  }
+}
+
+window.addEventListener("scroll", backToTopButtonOpacity);
 </script>
 
 <script>
@@ -175,6 +232,8 @@ export default {
   name: "WorkView",
   data() {
     return {
+      topButtonHover: "#FCFF73", // état du bouton retour en haut
+
       workPhotoUrl: null,
       work: {
         name: "",

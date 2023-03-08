@@ -1,9 +1,4 @@
 <template>
-  <img
-    src="/images/works/DigitalArt/3d-creations/donut-animation.gif"
-    class="w-1/2"
-    alt=""
-  />
   <p class="portfolio-works-paragraph px-5 p-10">
     I started by making some character sketches. The hardest part was to find a
     name for them. So I present you Pomm, the main character of this fictional
@@ -44,7 +39,9 @@
   <p class="portfolio-works-paragraph px-5 p-10 pb-0">
     I was greatly inspired by the famous manga
     <strong
-      ><a href="https://wikipedia.org/wiki/One_Piece">One Piece</a></strong
+      ><a href="https://wikipedia.org/wiki/One_Piece" target="_blank"
+        >One Piece</a
+      ></strong
     >
     for the realization of these drawings. Moreover, it's the character of Luffy
     who gave me the idea to create Pomm.

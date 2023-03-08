@@ -21,7 +21,7 @@
               (work.categories[5].name === categorie.name) |
               (work.categories[6].name === categorie.name)
           "
-          class="grid grid-cols-1 md:grid-rows-1 md:grid-cols-[75%,25%] h-full md:h-3/6"
+          class="grid grid-cols-1 md:grid-rows-1 md:grid-cols-[75%,25%] h-full md:min-h-[50vh]"
         >
           <!--partie 1 du grid : image + titre du projet-->
 

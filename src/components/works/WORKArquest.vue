@@ -18,10 +18,11 @@
         tasks in the form of quests and earn experience for each completed
         quest. This experience will allow you to unlock badges, characters, etc.
         It will also be possible to discuss with your friends directly via the
-        application.
+        application. The graphic universe of the application is a mix between
+        modernity and pixel art.
       </p>
 
-      <h3 class="portfolio-works-h3 py-10">Evolution of the logo</h3>
+      <h3 class="portfolio-works-h3 pt-10">Evolution of the logo</h3>
 
       <p class="portfolio-works-paragraph px-5 p-10 text-center">
         I was in charge of making the logo for the project. Here is its
@@ -227,7 +228,7 @@
       </div>
       <p class="portfolio-works-paragraph px-5 p-10 text-center">
         I also made the badges from the app, and some backgrounds for the user
-        informations page. Here is some examples.
+        informations page. Here are some examples.
       </p>
 
       <div
