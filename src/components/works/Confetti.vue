@@ -1,0 +1,30 @@
+<template>
+  <svg
+    width="57"
+    height="92"
+    viewBox="0 0 57 92"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.99966 0.5H49.9997C49.9997 0.5 34.9998 31 49.9998 46C64.9998 61 49.9997 92 49.9997 92H7.99967C7.99967 92 23.9998 62.0003 7.99982 46C-8.00018 29.9997 7.99966 0.5 7.99966 0.5Z"
+      :class="{
+        'fill-[#FFD600]': fillConfetti === 'yellow',
+        'fill-[#FF3636]': fillConfetti === 'red',
+        'fill-[#BBA7E7]': fillConfetti === 'blue',
+        'fill-[#6DD678]': fillConfetti === 'green',
+      }"
+    />
+  </svg>
+</template>
+<script>
+export default {
+  name: "Confetti",
+  props: {
+    fillConfetti: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>

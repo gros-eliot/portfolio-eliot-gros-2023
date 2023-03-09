@@ -48,7 +48,7 @@
               >
                 {{ work.name }}
               </h1>
-              <p class="portfolio-h3 font-light p-4 text-center md:text-left">
+              <p class="portfolio-h3 font-light p-4 text-center">
                 {{ work.description }}
               </p>
             </div>
@@ -69,6 +69,7 @@
       <WORKDrawingsSketchs v-if="work.name === `Drawings & sketchs`" />
       <WORKEqualshare v-if="work.name === `Equalshare`" />
       <WORKJazznPop v-if="work.name === `Jazz'n'pop`" />
+      <WORK25ansMMI v-if="work.name === `25 years of MMI`" />
     </section>
     <!--FOOTER -->
     <section
@@ -170,6 +171,7 @@ import WORK3DCreations from "@/components/works/WORK3DCreations.vue";
 import WORKDrawingsSketchs from "@/components/works/WORKDrawingsSketchs.vue";
 import WORKEqualshare from "../components/works/WORKEqualshare.vue";
 import WORKJazznPop from "../components/works/WORKJazznPop.vue";
+import WORK25ansMMI from "../components/works/WORK25ansMMI.vue";
 
 function backToTopButtonOpacity() {
   let valueScroll = window.pageYOffset;

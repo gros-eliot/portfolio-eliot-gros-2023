@@ -33,41 +33,41 @@
       </div>
     </section>
 
-    <scroll-parallax :speed="1.4" :down="true">
-      <div
-        class="fixed md:flex hidden justify-start w-[90vw] pointer-events-none"
-      >
-        <img
-          src="/images/works/Websites/jazznpop/illustrations/saxophone.svg"
-          alt="Saxophone"
-          class="w-[35vh] h-[40vh] rotate-45"
-        />
-      </div>
-    </scroll-parallax>
-
-    <scroll-parallax :speed="1.1" :down="true">
-      <div
-        class="fixed md:flex hidden justify-end w-[90vw] pointer-events-none"
-      >
-        <img
-          src="/images/works/Websites/jazznpop/illustrations/saxophone.svg"
-          alt="Saxophone"
-          class="w-[10vh] h-[15vh] mt-20 rotationObject -rotate-45"
-        />
-      </div>
-    </scroll-parallax>
-
-    <scroll-parallax :speed="2" :down="true">
-      <div
-        class="fixed md:flex hidden justify-center w-[90vw] pointer-events-none"
-      >
-        <img
-          src="/images/works/Websites/jazznpop/illustrations/CD.svg"
-          alt="CD"
-          class="w-[20vh] h-[20vh] mt-52 rotate-90"
-        />
-      </div>
-    </scroll-parallax>
+    <section class="absolute bottom-0">
+      <scroll-parallax :speed="1.4" :down="true">
+        <div
+          class="fixed md:flex hidden justify-start w-[90vw] pointer-events-none"
+        >
+          <img
+            src="/images/works/Websites/jazznpop/illustrations/saxophone.svg"
+            alt="Saxophone"
+            class="w-[35vh] h-[40vh] rotate-45 fill-black"
+          />
+        </div>
+      </scroll-parallax>
+      <scroll-parallax :speed="1.1" :down="true">
+        <div
+          class="fixed md:flex hidden justify-end w-[90vw] pointer-events-none"
+        >
+          <img
+            src="/images/works/Websites/jazznpop/illustrations/saxophone.svg"
+            alt="Saxophone"
+            class="w-[10vh] h-[15vh] mt-20 rotationObject -rotate-45 fill-black"
+          />
+        </div>
+      </scroll-parallax>
+      <scroll-parallax :speed="2" :down="true">
+        <div
+          class="fixed md:flex hidden justify-center w-[90vw] pointer-events-none"
+        >
+          <img
+            src="/images/works/Websites/jazznpop/illustrations/CD.svg"
+            alt="CD"
+            class="w-[20vh] h-[20vh] mt-96 rotate-90 fill-black"
+          />
+        </div>
+      </scroll-parallax>
+    </section>
 
     <section class="flex flex-col gap-5">
       <h3 class="portfolio-works-h3 p-5">Logos</h3>
@@ -152,7 +152,7 @@
         <img
           src="/images/works/Websites/jazznpop/illustrations/CD.svg"
           alt="CD"
-          class="w-[30vw] h-[50vh]"
+          class="w-[30vw] h-[50vh] fill-white"
         />
       </div>
     </scroll-parallax>
@@ -165,7 +165,7 @@
         <img
           src="/images/works/Websites/jazznpop/illustrations/saxophone.svg"
           alt="Saxophone"
-          class="w-[30vw] h-[50vh] rotationObject rotate-45 origin-top"
+          class="w-[30vw] h-[50vh] rotationObject rotate-45 origin-top fill-white"
         />
       </div>
     </scroll-parallax>
@@ -183,28 +183,28 @@
         <AWorkImageToClick
           :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/Websites/jazznpop/jazznpop-full-1.jpg'"
-          :altImage="'JazzNPop Festival - Figma responsive'"
+          :altImage="'JazzNPop Festival screenshot'"
           :classesImage="'w-fit h-full object-cover object-top rounded-xl'"
           class="border border-white rounded-xl h-[50vh]"
         />
         <AWorkImageToClick
           :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/Websites/jazznpop/jazznpop-full-2.jpg'"
-          :altImage="'JazzNPop Festival - Figma responsive'"
+          :altImage="'JazzNPop Festival screenshot'"
           :classesImage="'w-fit h-full object-cover object-top rounded-xl'"
           class="border border-white rounded-xl h-[50vh]"
         />
         <AWorkImageToClick
           :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/Websites/jazznpop/jazznpop-full-3.jpg'"
-          :altImage="'JazzNPop Festival - Figma responsive'"
+          :altImage="'JazzNPop Festival screenshot'"
           :classesImage="'w-fit h-full object-cover object-top rounded-xl'"
           class="border border-white rounded-xl h-[50vh]"
         />
         <AWorkImageToClick
           :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/Websites/jazznpop/jazznpop-full-4.jpg'"
-          :altImage="'JazzNPop Festival - Figma responsive'"
+          :altImage="'JazzNPop Festival screenshot'"
           :classesImage="'w-fit h-full object-cover object-top rounded-xl'"
           class="border border-white rounded-xl h-[50vh]"
         />
