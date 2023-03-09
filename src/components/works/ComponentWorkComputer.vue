@@ -4,7 +4,7 @@
   >
     <div class="p-3 border-2 rounded-xl w-fit" :class="ComputerBorderColor">
       <a :href="aHref" class="w-fit h-fit" target="_blank"
-        ><img :src="srcImage" class="rounded-xl w-96"
+        ><img :src="srcImage" class="rounded-xl w-96 object-cover object-top"
       /></a>
       <div v-if="responsive === false">
         <p class="text-center font-bold p-1" v-if="websiteIssues === false">

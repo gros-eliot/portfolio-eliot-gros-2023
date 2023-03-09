@@ -14,6 +14,10 @@
         ><img
           :src="srcImage"
           class="rounded-xl w-full h-full object-cover object-top"
+          :class="{
+            ' rounded-xl': PhoneSize === 'big',
+            ' rounded-lg': PhoneSize === 'small',
+          }"
       /></a>
 
       <!--Cercle de l'iPhone-->

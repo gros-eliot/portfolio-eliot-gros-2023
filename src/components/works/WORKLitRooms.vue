@@ -1,7 +1,7 @@
 <template>
   <section class="text-white">
     <h3 class="portfolio-works-h3">Red-lit rooms & blue-lit rooms</h3>
-    <p class="portfolio-works-paragraph px-5 p-10 text-center">
+    <p class="portfolio-works-paragraph p-10 text-center">
       I was looking to find a new style of illustrations through these
       creations.
     </p>

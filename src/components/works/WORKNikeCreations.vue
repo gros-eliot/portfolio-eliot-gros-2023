@@ -20,7 +20,7 @@
         </div>
       </section>
 
-      <p class="portfolio-works-paragraph px-5 text-center">
+      <p class="portfolio-works-paragraph text-center">
         I learned how to model this pair of sneakers from
         <strong class="bg-white bg-opacity-10">
           <a
@@ -97,7 +97,7 @@
       <!--AIR JORDAN 1 RED - fin-->
 
       <section class="w-full bg-[#676CFE] text-white p-5 md:p-10 py-20">
-        <p class="portfolio-works-paragraph px-5 text-center font-bold">
+        <p class="portfolio-works-paragraph text-center font-bold">
           Blue version
         </p>
         <div
@@ -122,7 +122,7 @@
       </section>
 
       <section class="w-full bg-[#E9A884] text-white p-5 md:p-10 py-20">
-        <p class="portfolio-works-paragraph px-5 text-center font-bold">
+        <p class="portfolio-works-paragraph text-center font-bold">
           Red version
         </p>
         <div
@@ -166,7 +166,7 @@
           <div class="w-full h-1 bg-white"></div>
         </div>
       </section>
-      <p class="portfolio-works-paragraph px-5 text-center">
+      <p class="portfolio-works-paragraph text-center">
         For the AF1, I modeled them without the help of a tutorial, from what I
         could learn.
       </p>
@@ -242,7 +242,7 @@
       <!--AIR FORCE 1 BLUE - fin-->
 
       <section class="w-full bg-zinc-800 text-white p-5 md:p-10 py-20">
-        <p class="portfolio-works-paragraph px-5 text-center font-bold">
+        <p class="portfolio-works-paragraph text-center font-bold">
           Fictional ads
         </p>
         <div

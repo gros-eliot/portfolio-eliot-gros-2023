@@ -7,6 +7,7 @@
     :class="{
       'bg-black': work.name === `Nike creations` || work.name === `Lit rooms`,
       'bg-zinc-900': work.name === `Arquest`,
+      'bg-[#facc15]': work.name === `Jazz'n'pop`,
       'bg-[linear-gradient(rgba(255,116,241,1)0%,rgba(90,167,238,1)100%)]':
         work.name === `Equalshare`,
     }"
@@ -65,12 +66,14 @@
       <WORK3DCreations v-if="work.name === `3D creations`" />
       <WORKDrawingsSketchs v-if="work.name === `Drawings & sketchs`" />
       <WORKEqualshare v-if="work.name === `Equalshare`" />
+      <WORKJazznPop v-if="work.name === `Jazz'n'pop`" />
     </section>
     <!--FOOTER -->
     <section
       class="border-t-2 border-zinc-400 w-full h-[50vh] mt-10"
       :class="{
-        'bg-black': work.name === 'Equalshare',
+        'bg-black': work.name === `Equalshare`,
+        'bg-black': work.name === `Jazz'n'pop`,
       }"
       v-if="work"
     >
@@ -178,6 +181,7 @@ import WORKArquest from "@/components/works/WORKArquest.vue";
 import WORK3DCreations from "@/components/works/WORK3DCreations.vue";
 import WORKDrawingsSketchs from "@/components/works/WORKDrawingsSketchs.vue";
 import WORKEqualshare from "../components/works/WORKEqualshare.vue";
+import WORKJazznPop from "../components/works/WORKJazznPop.vue";
 
 function backToTopButtonOpacity() {
   let valueScroll = window.pageYOffset;

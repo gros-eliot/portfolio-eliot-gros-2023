@@ -19,7 +19,7 @@
     }
 
     .portfolio-works-paragraph {
-                @apply text-xl font-unbounded;
+                @apply text-xl font-unbounded px-5;
     }
 
     .portfolio-text {
