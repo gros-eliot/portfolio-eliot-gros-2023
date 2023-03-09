@@ -33,24 +33,28 @@
         class="flex flex-wrap items-center justify-center gap-10 bg-white bg-opacity-10 w-full p-2 m-auto"
       >
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/old-logo-1.png'"
           :altImage="'Old logo of Arquest (1)'"
           :classesImage="'h-full object-contain'"
           class="w-32 h-32"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/old-logo-2.png'"
           :altImage="'Old logo of Arquest (2)'"
           :classesImage="'h-full object-contain'"
           class="w-32 h-32"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/old-logo-3.png'"
           :altImage="'Old logo of Arquest (3)'"
           :classesImage="'h-full object-contain'"
           class="w-32 h-32"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/old-logo-4.png'"
           :altImage="'Old logo of Arquest (4)'"
           :classesImage="'h-full object-contain'"
@@ -62,6 +66,7 @@
         class="flex justify-center items-center my-5 gap-10 bg-white bg-opacity-30 w-full py-0 p-2 m-auto"
       >
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-logo.svg'"
           :altImage="'Final logo of Arquest'"
           :classesImage="'h-full object-contain object-center'"
@@ -116,24 +121,28 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 w-full h-fit">
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-landing-1.jpg'"
           :altImage="'Landing page Arquest (1)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-landing-2.jpg'"
           :altImage="'Landing page Arquest (2)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-landing-3.jpg'"
           :altImage="'Landing page Arquest (3)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-landing-4.jpg'"
           :altImage="'Landing page Arquest (4)'"
           :classesImage="'h-full object-contain'"
@@ -149,18 +158,21 @@
         class="flex flex-wrap items-center justify-center gap-20 bg-white bg-opacity-10 w-full p-2 m-auto py-5"
       >
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/eliot_avatar.webp'"
           :altImage="'Avatar of Eliot (developer of the team) '"
           :classesImage="'h-full object-contain'"
           class="w-32 h-32"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/matthieu_avatar.webp'"
           :altImage="'Avatar of Matthieu (developer of the team)'"
           :classesImage="'h-full object-contain'"
           class="w-32 h-32"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/helena_avatar.webp'"
           :altImage="'Avatar of Helena (developer of the team) '"
           :classesImage="'h-full object-contain'"
@@ -228,24 +240,28 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 w-full h-fit">
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-final-accueil.jpg'"
           :altImage="'Final page Arquest (1)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-final-history.jpg'"
           :altImage="'Final page Arquest (2)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-final-messages.jpg'"
           :altImage="'Final page Arquest (3)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-final-counter.jpg'"
           :altImage="'Final page Arquest (4)'"
           :classesImage="'h-full object-contain'"
@@ -261,6 +277,7 @@
         class="flex justify-center items-center my-5 gap-10 bg-white bg-opacity-30 w-full p-10 m-auto"
       >
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-characters.png'"
           :altImage="'Avatar of Eliot (developer of the team) '"
           :classesImage="'h-full object-contain'"
@@ -276,6 +293,7 @@
         class="flex justify-center items-center my-5 gap-10 bg-white bg-opacity-30 w-full p-10 m-auto"
       >
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/arquest-badges.png'"
           :altImage="'Avatar of Eliot (developer of the team) '"
           :classesImage="'h-full object-contain'"
@@ -285,24 +303,28 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 w-full h-fit">
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/desert.png'"
           :altImage="'Final page Arquest (1)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/jungle.png'"
           :altImage="'Final page Arquest (2)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/mountains.png'"
           :altImage="'Final page Arquest (3)'"
           :classesImage="'h-full object-contain'"
           class="border border-white"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/arquest/sunset.png'"
           :altImage="'Final page Arquest (4)'"
           :classesImage="'h-full object-contain'"

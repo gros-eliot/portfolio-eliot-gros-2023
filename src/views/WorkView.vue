@@ -5,9 +5,11 @@
 
   <article
     :class="{
-      'bg-black': work.name === `Nike creations` || work.name === `Lit rooms`,
+      'bg-black':
+        work.name === `Nike creations` ||
+        work.name === `Lit rooms` ||
+        work.name === `Jazz'n'pop`,
       'bg-zinc-900': work.name === `Arquest`,
-      'bg-[#facc15]': work.name === `Jazz'n'pop`,
       'bg-[linear-gradient(rgba(255,116,241,1)0%,rgba(90,167,238,1)100%)]':
         work.name === `Equalshare`,
     }"

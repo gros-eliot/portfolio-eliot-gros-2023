@@ -104,16 +104,19 @@
           class="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 justify-items-center"
         >
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/DigitalArt/nike/air-jordan/blue-1.png'"
             :altImage="'nike illustration 1'"
             :classesImage="'h-full'"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/DigitalArt/nike/air-jordan/blue-2.png'"
             :altImage="'nike illustration 2'"
             :classesImage="'h-full'"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/DigitalArt/nike/air-jordan/blue-commercial.jpg'"
             :altImage="'nike commercial'"
             :classesImage="'h-full'"
@@ -129,16 +132,19 @@
           class="grid grid-cols-1 md:grid-cols-3 gap-5 p-5 justify-items-center"
         >
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/DigitalArt/nike/air-jordan/red-1.png'"
             :altImage="'nike illustration 1'"
             :classesImage="'h-full'"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/DigitalArt/nike/air-jordan/red-2.png'"
             :altImage="'nike illustration 2'"
             :classesImage="'h-full'"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/DigitalArt/nike/air-jordan/red-commercial.jpg'"
             :altImage="'nike commercial'"
             :classesImage="'h-full'"
@@ -249,11 +255,13 @@
           class="grid grid-cols-1 md:grid-cols-2 gap-10 p-10 justify-items-center"
         >
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/DigitalArt/nike/air-force/1.png'"
             :altImage="'nike illustration 1'"
             :classesImage="'h-full'"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/DigitalArt/nike/air-force/2.png'"
             :altImage="'nike illustration 2'"
             :classesImage="'h-full'"
@@ -284,16 +292,19 @@
       class="grid grid-cols-1 md:grid-cols-3 gap-5 p-10 md:p-20 justify-items-center"
     >
       <AWorkImageToClick
+        :classesHref="'w-fit h-fit'"
         :srcImage="'/images/works/TraditionalArt/nike-outfit-1.jpg'"
         :altImage="'nike illustration 1'"
         :classesImage="'h-full'"
       />
       <AWorkImageToClick
+        :classesHref="'w-fit h-fit'"
         :srcImage="'/images/works/TraditionalArt/nike-outfit-2.jpg'"
         :altImage="'nike illustration 2'"
         :classesImage="'h-full'"
       />
       <AWorkImageToClick
+        :classesHref="'w-fit h-fit'"
         :srcImage="'/images/works/TraditionalArt/nike-post-1.jpg'"
         :altImage="'nike commercial'"
         :classesImage="'h-full'"

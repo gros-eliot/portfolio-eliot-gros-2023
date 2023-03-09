@@ -73,18 +73,21 @@
       <div class="grid grid-rows-2 w-full px-10 2xl:px-20">
         <div class="grid grid-cols-1 md:grid-cols-3 w-full">
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/inktober-1.jpg'"
             :altImage="'inktober illustration 1'"
             :classesImage="'h-full object-cover object-center'"
             class="border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/inktober-2.jpg'"
             :altImage="'inktober illustration 1'"
             :classesImage="'h-full object-cover object-center'"
             class="border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/inktober-3.jpg'"
             :altImage="'inktober illustration 1'"
             :classesImage="'h-full object-cover object-center'"
@@ -93,12 +96,14 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 w-full">
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/inktober-4.jpg'"
             :altImage="'inktober illustration 1'"
             :classesImage="'h-full object-cover object-center'"
             class="border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/inktober-5.jpg'"
             :altImage="'inktober illustration 1'"
             :classesImage="'h-full object-cover object-center'"
@@ -120,18 +125,21 @@
       <div class="grid grid-rows-2 w-full px-10 2xl:px-20">
         <div class="grid grid-cols-1 md:grid-cols-3 w-full">
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/forest-kids-1.jpg'"
             :altImage="'forest-kids illustration 1'"
             :classesImage="'h-full object-cover object-center'"
             class="border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/forest-kids-2.jpg'"
             :altImage="'forest-kids illustration 1'"
             :classesImage="'h-full object-cover object-center'"
             class="border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/forest-kids-3.jpg'"
             :altImage="'forest-kids illustration 1'"
             :classesImage="'h-full object-cover object-center'"
@@ -140,12 +148,14 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 w-full">
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/forest-kids-4.jpg'"
             :altImage="'forest-kids illustration 1'"
             :classesImage="'h-full object-cover object-center'"
             class="border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/forest-kids-5.jpg'"
             :altImage="'forest-kids illustration 1'"
             :classesImage="'h-full object-cover object-center'"
@@ -161,60 +171,70 @@
       <!--grille des dessins: MOBILE-->
       <div class="grid grid-cols-2 md:hidden">
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/clocher.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/football.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/lake.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/lit-rooms-1.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/vegetal.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/fight.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/random-sketch-1.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/luffy-2.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/woman-in-swimming-pool.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
           class="h-[40vh]"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/TraditionalArt/random-sketch-3.jpg'"
           :altImage="'Random sketch'"
           :classesImage="'h-full object-cover object-center'"
@@ -228,33 +248,37 @@
           class="grid grid-rows-[55%,45%] justify-items-center w-full h-full"
         >
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/clocher.jpg'"
             :altImage="'Random sketch'"
             :classesImage="'w-full h-full object-cover object-center'"
-            :classesHref="'w-fit h-fit'"
             class="h-full w-full border border-black"
           />
 
           <div class="grid grid-cols-2">
             <AWorkImageToClick
+              :classesHref="'w-fit h-fit'"
               :srcImage="'/images/works/TraditionalArt/football.jpg'"
               :altImage="'Random sketch'"
               :classesImage="'h-full object-cover object-center'"
               class="h-full w-full border border-black"
             />
             <AWorkImageToClick
+              :classesHref="'w-fit h-fit'"
               :srcImage="'/images/works/TraditionalArt/lake.jpg'"
               :altImage="'Random sketch'"
               :classesImage="'h-full object-cover object-center'"
               class="h-full w-full border border-black"
             />
             <AWorkImageToClick
+              :classesHref="'w-fit h-fit'"
               :srcImage="'/images/works/TraditionalArt/lit-rooms-1.jpg'"
               :altImage="'Random sketch'"
               :classesImage="'h-full object-cover object-center'"
               class="h-full w-full border border-black"
             />
             <AWorkImageToClick
+              :classesHref="'w-fit h-fit'"
               :srcImage="'/images/works/TraditionalArt/vegetal.jpg'"
               :altImage="'Random sketch'"
               :classesImage="'h-full object-cover object-center'"
@@ -265,18 +289,21 @@
 
         <section class="grid grid-rows-3">
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/fight.jpg'"
             :altImage="'Random sketch'"
             :classesImage="'h-full object-cover object-center'"
             class="h-full w-full border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/random-sketch-1.jpg'"
             :altImage="'Random sketch'"
             :classesImage="'h-full object-cover object-center'"
             class="h-full w-full border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/luffy-2.jpg'"
             :altImage="'Random sketch'"
             :classesImage="'h-full object-cover object-center'"
@@ -286,12 +313,14 @@
 
         <section class="grid grid-rows-2">
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/woman-in-swimming-pool.jpg'"
             :altImage="'Random sketch'"
             :classesImage="'h-full object-cover object-center'"
             class="h-full w-full border border-black"
           />
           <AWorkImageToClick
+            :classesHref="'w-fit h-fit'"
             :srcImage="'/images/works/TraditionalArt/random-sketch-3.jpg'"
             :altImage="'Random sketch'"
             :classesImage="'h-full object-cover object-center'"

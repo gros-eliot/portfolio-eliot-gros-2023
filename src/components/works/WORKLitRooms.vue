@@ -8,16 +8,19 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 p-10">
       <AWorkImageToClick
+        :classesHref="'w-fit h-fit'"
         :srcImage="'/images/works/DigitalArt/rooms/bluelight.png'"
         :altImage="'Blue-lit rooms'"
         :classesImage="'h-full object-cover'"
       />
       <AWorkImageToClick
+        :classesHref="'w-fit h-fit'"
         :srcImage="'/images/works/DigitalArt/rooms/redlight.png'"
         :altImage="'Red-lit rooms'"
         :classesImage="'h-full object-cover'"
       />
       <AWorkImageToClick
+        :classesHref="'w-fit h-fit'"
         :srcImage="'/images/works/TraditionalArt/lit-rooms-1.jpg'"
         :altImage="'Brouillon'"
         :classesImage="'h-full object-cover'"

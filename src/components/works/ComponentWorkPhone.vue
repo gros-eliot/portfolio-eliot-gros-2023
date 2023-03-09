@@ -2,13 +2,12 @@
   <section class="flex flex-col gap-1 justify-center items-center">
     <div
       class="border-2 rounded-xl grid grid-rows-[92%,8%] justify-items-center"
-      :class="
-        (PhoneBorderColor,
-        {
-          'w-[220px] h-[410px] p-2 rounded-xl': PhoneSize === 'big',
-          'w-[110px] h-[210px] p-1 rounded-lg': PhoneSize === 'small',
-        })
-      "
+      :class="{
+        'w-[220px] h-[410px] p-2 rounded-xl': PhoneSize === 'big',
+        'w-[110px] h-[210px] p-1 rounded-lg': PhoneSize === 'small',
+        'border-white': PhoneBorderColor === 'border-white',
+        'border-black': PhoneBorderColor === 'border-black',
+      }"
     >
       <a :href="aHref" class="w-full h-full" target="_blank"
         ><img
@@ -31,13 +30,12 @@
       >
         <div
           class="rounded-full border-2 bg-transparent w-6 h-6"
-          :class="
-            (PhoneBorderColor,
-            {
-              'w-6 h-6': PhoneSize === 'big',
-              'w-3 h-3': PhoneSize === 'small',
-            })
-          "
+          :class="{
+            'w-6 h-6': PhoneSize === 'big',
+            'w-3 h-3': PhoneSize === 'small',
+            'border-white': PhoneBorderColor === 'border-white',
+            'border-black': PhoneBorderColor === 'border-black',
+          }"
         ></div>
       </div>
     </div>

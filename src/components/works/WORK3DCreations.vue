@@ -17,11 +17,13 @@
       <div class="grid grid-cols-1 md:grid-cols-2 w-full h-fit">
         <!--Image animation -gif-->
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/3d-creations/donut.png'"
           :altImage="'Donut 1'"
           :classesImage="'w-full h-[70vh] object-cover object-center'"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/3d-creations/donut-animation.gif'"
           :altImage="'Donut 2'"
           :classesImage="'w-full h-[70vh] object-cover object-center'"
@@ -124,6 +126,7 @@
         <div class="grid grid-rows-2 w-full h-[70vh]">
           <div class="w-full h-full">
             <AWorkImageToClick
+              :classesHref="'w-fit h-fit'"
               :srcImage="'/images/works/DigitalArt/3d-creations/rifle-in-game.jpg'"
               :altImage="'Rifle in game (character : Michelle from Mixamo)'"
               :classesImage="'w-full h-full object-cover object-center'"
@@ -131,6 +134,7 @@
           </div>
           <div class="w-full h-full">
             <AWorkImageToClick
+              :classesHref="'w-fit h-fit'"
               :srcImage="'/images/works/DigitalArt/3d-creations/rifle-plan.png'"
               :altImage="'Rifle plan'"
               :classesImage="'w-full h-full object-cover object-top'"
@@ -157,21 +161,25 @@
 
       <div class="grid grid-cols-2 w-full h-fit md:gap-5 md:p-5">
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/3d-creations/luffy-plan1.jpg'"
           :altImage="'Luffy 1'"
           :classesImage="'w-full h-full object-cover object-center'"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/3d-creations/luffy-plan2.png'"
           :altImage="'Luffy 2'"
           :classesImage="'w-full h-full object-cover object-top'"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/3d-creations/luffy-plan3.png'"
           :altImage="'Luffy 3'"
           :classesImage="'w-full h-full object-cover object-center'"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/3d-creations/luffy-plan4.jpg'"
           :altImage="'Luffy 4'"
           :classesImage="'w-full h-full object-cover object-top'"
@@ -192,16 +200,19 @@
       </div>
       <div class="grid grid-rows-3 h-screen">
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/nike/air-jordan/red-commercial.jpg'"
           :altImage="'Nike ad'"
           :classesImage="'w-full h-full object-cover object-center'"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/nike/air-jordan/blue-commercial.jpg'"
           :altImage="'Nike ad'"
           :classesImage="'w-full h-full object-cover object-center'"
         />
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/nike/air-force/1.png'"
           :altImage="'Nike ad'"
           :classesImage="'w-full h-full object-cover object-center'"
@@ -290,6 +301,7 @@
           </Renderer>
         </div>
         <AWorkImageToClick
+          :classesHref="'w-fit h-fit'"
           :srcImage="'/images/works/DigitalArt/3d-creations/mmi-computer.png'"
           :altImage="'MMI Computer'"
           :classesImage="'w-full h-full object-cover object-center'"
