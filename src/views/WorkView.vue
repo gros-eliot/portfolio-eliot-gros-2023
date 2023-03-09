@@ -156,21 +156,7 @@
   </div>
 </template>
 
-<style scoped>
-.vue-parallax-js {
-  height: 500px;
-  position: relative;
-  overflow: hidden;
-}
-
-.vue-parallax-js img {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translate3d(0, 0, 0);
-}
-</style>
+<style scoped></style>
 
 <script setup>
 import Breadcrumb from "@/components/Breadcrumb.vue";

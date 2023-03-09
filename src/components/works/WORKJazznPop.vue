@@ -33,6 +33,42 @@
       </div>
     </section>
 
+    <scroll-parallax :speed="1.4" :down="true">
+      <div
+        class="fixed md:flex hidden justify-start w-[90vw] pointer-events-none"
+      >
+        <img
+          src="/images/works/Websites/jazznpop/illustrations/saxophone.svg"
+          alt="Saxophone"
+          class="w-[35vh] h-[40vh] rotate-45"
+        />
+      </div>
+    </scroll-parallax>
+
+    <scroll-parallax :speed="1.1" :down="true">
+      <div
+        class="fixed md:flex hidden justify-end w-[90vw] pointer-events-none"
+      >
+        <img
+          src="/images/works/Websites/jazznpop/illustrations/saxophone.svg"
+          alt="Saxophone"
+          class="w-[10vh] h-[15vh] mt-20 rotationObject -rotate-45"
+        />
+      </div>
+    </scroll-parallax>
+
+    <scroll-parallax :speed="2" :down="true">
+      <div
+        class="fixed md:flex hidden justify-center w-[90vw] pointer-events-none"
+      >
+        <img
+          src="/images/works/Websites/jazznpop/illustrations/CD.svg"
+          alt="CD"
+          class="w-[20vh] h-[20vh] mt-52 rotate-90"
+        />
+      </div>
+    </scroll-parallax>
+
     <section class="flex flex-col gap-5">
       <h3 class="portfolio-works-h3 p-5">Logos</h3>
       <p class="portfolio-works-paragraph">
@@ -108,7 +144,33 @@
       </div>
     </section>
 
-    <section class="flex flex-col gap-5">
+    <!--BIG CD-->
+    <scroll-parallax :speed="1.5" :down="true">
+      <div
+        class="fixed md:flex hidden justify-end w-[90vw] pointer-events-none"
+      >
+        <img
+          src="/images/works/Websites/jazznpop/illustrations/CD.svg"
+          alt="CD"
+          class="w-[30vw] h-[50vh]"
+        />
+      </div>
+    </scroll-parallax>
+
+    <!--BIG SAXO-->
+    <scroll-parallax :speed="1.1" :down="true">
+      <div
+        class="fixed md:flex hidden justify-start w-[90vw] pointer-events-none"
+      >
+        <img
+          src="/images/works/Websites/jazznpop/illustrations/saxophone.svg"
+          alt="Saxophone"
+          class="w-[30vw] h-[50vh] rotationObject rotate-45 origin-top"
+        />
+      </div>
+    </scroll-parallax>
+
+    <section class="flex flex-col gap-5 pb-20">
       <h3 class="portfolio-works-h3 p-5">SCREENSHOTS</h3>
       <p class="portfolio-works-paragraph">
         On the final site, it is possible to add, modify, and delete certain
@@ -174,3 +236,22 @@ import AWorkImageToClick from "./AWorkImageToClick.vue";
 import ComponentWorkComputer from "./ComponentWorkComputer.vue";
 import ComponentWorkPhone from "./ComponentWorkPhone.vue";
 </script>
+<script>
+import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
+export default {
+  components: {
+    ScrollParallax,
+  },
+};
+
+// lignes qui bougent en background
+function rotationObject() {
+  let rotationObject = document.querySelector(".rotationObject");
+  let valueScroll = window.pageYOffset;
+  rotationObject.style.transformOrigin = "center";
+  rotationObject.style.transform = rotateY(valueScroll / 10 + "rad");
+}
+window.addEventListener("scroll", rotationObject);
+</script>
+
+<style scoped></style>
