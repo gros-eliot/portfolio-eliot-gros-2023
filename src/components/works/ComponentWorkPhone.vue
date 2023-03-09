@@ -26,7 +26,7 @@
         }"
       >
         <div
-          class="rounded-full border bg-transparent w-6 h-6"
+          class="rounded-full border-2 bg-transparent w-6 h-6"
           :class="
             (PhoneBorderColor,
             {

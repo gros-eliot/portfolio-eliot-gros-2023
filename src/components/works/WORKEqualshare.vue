@@ -1,5 +1,5 @@
 <template>
-  <article class="flex flex-col gap-10 mt-10">
+  <article class="flex flex-col gap-20 mt-10">
     <section class="flex flex-col gap-5">
       <p class="portfolio-works-paragraph p-5 px-10">
         This website is the first one that I made, at the MMI of Montbéliard,
@@ -45,6 +45,29 @@
         />
         <AWorkImageToClick
           :srcImage="'/images/works/Websites/equalshare/equalshare-phone-1.jpg'"
+          :altImage="'Equalshare screenshot'"
+          :classesImage="'w-full h-full rounded-xl object-cover'"
+          class="border border-white rounded-xl h-[50vh]"
+        />
+      </div>
+    </section>
+    <section class="flex flex-col gap-5">
+      <h3 class="portfolio-works-h3 px-5">Instagram posts</h3>
+      <div class="flex flex-wrap gap-10 h-3/6 justify-center items-center">
+        <AWorkImageToClick
+          :srcImage="'/images/works/Websites/equalshare/equalshare-insta-1.jpg'"
+          :altImage="'Equalshare screenshot'"
+          :classesImage="'w-full h-full rounded-xl object-cover'"
+          class="border border-white rounded-xl h-[50vh]"
+        />
+        <AWorkImageToClick
+          :srcImage="'/images/works/Websites/equalshare/equalshare-insta-2.jpg'"
+          :altImage="'Equalshare screenshot'"
+          :classesImage="'w-full h-full rounded-xl object-cover'"
+          class="border border-white rounded-xl h-[50vh]"
+        />
+        <AWorkImageToClick
+          :srcImage="'/images/works/Websites/equalshare/equalshare-insta-3.jpg'"
           :altImage="'Equalshare screenshot'"
           :classesImage="'w-full h-full rounded-xl object-cover'"
           class="border border-white rounded-xl h-[50vh]"

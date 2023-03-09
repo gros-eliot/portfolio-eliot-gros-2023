@@ -70,7 +70,7 @@
             resize="true"
           >
             <Camera :position="{ y: 0, z: 200 }" />
-            <Scene :background="'#1c1c1c'">
+            <Scene :background="'#ffffff'">
               <PointLight
                 color="#ffffff"
                 :position="{ x: 0, y: -200, z: -200 }"
